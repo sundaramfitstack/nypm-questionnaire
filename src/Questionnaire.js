@@ -20,6 +20,7 @@ import HomeMoveDestinationQuestion from './HomeMoveDestinationQuestion.js';
 import HomeMoveReviewQuestion from './HomeMoveReviewQuestion.js';
 import HomeMoveSizeQuestion from './HomeMoveSizeQuestion.js';
 import HomeMoveSourceAddressQuestion from './HomeMoveSourceAddressQuestion.js';
+import HomeMoveTypeQuestion from './HomeMoveTypeQuestion.js';
 
 
 import FirstAndLastNameQuestion from './FirstAndLastNameQuestion.js';
@@ -230,6 +231,14 @@ class Questionnaire extends React.Component {
     ---------------------------------------*/
     this.homeMoveSourceAddressTextboxOnChange = this.homeMoveSourceAddressTextboxOnChange.bind(this);
     this.homeMoveSourceAddressNextButtonOnClick = this.homeMoveSourceAddressNextButtonOnClick.bind(this);
+
+    /*---------------------------------------
+
+     HomeMoveTypeQuestion support methods
+
+    ---------------------------------------*/
+    this.regularHomeMoveTypeButtonOnClick = this.regularHomeMoveTypeButtonOnClick.bind(this);
+    this.fullServiceHomeMoveTypeButtonOnClick = this.fullServiceHomeMoveTypeButtonOnClick.bind(this);
 
 
   }
@@ -761,6 +770,33 @@ class Questionnaire extends React.Component {
 
   /*---------------------------------------
 
+   HomeMoveSourceAddressQuestion support methods
+
+  ---------------------------------------*/
+  regularHomeMoveTypeButtonOnClick(text){
+    
+    /* Implement validation logic here */
+    if (text === undefined){
+      throw new Error("text was not defined");
+    }
+
+    /* Adjust state as needed here */
+    this.setState({
+      'home_move_type': text,
+    });
+  }
+
+  fullServiceHomeMoveTypeButtonOnClick(){
+    this.setState({
+      'current_question': '',
+    });
+  }
+
+
+
+
+  /*---------------------------------------
+
     render logic follows
 
   ----------------------------------------*/
@@ -1017,6 +1053,17 @@ class Questionnaire extends React.Component {
             home_move_source_address={this.state.home_move_source_address}    
             homeMoveSourceAddressTextboxOnChange={this.homeMoveSourceAddressTextboxOnChange}
             homeMoveSourceAddressNextButtonOnClick={this.homeMoveSourceAddressNextButtonOnClick}
+          />
+        </div>
+      );
+    }
+    else if (this.state.current_question == 'home_move_type'){
+      return (
+        <div>
+          <HomeMoveTypeQuestion          
+            home_move_type={this.state.home_move_type}          
+            regularHomeMoveTypeButtonOnClick={this.regularHomeMoveTypeButtonOnClick}
+            fullServiceHomeMoveTypeButtonOnClick={this.fullServiceHomeMoveTypeButtonOnClick}
           />
         </div>
       );
