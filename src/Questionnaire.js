@@ -9,6 +9,19 @@ import BusinessMoveSizeQuestion from './BusinessMoveSizeQuestion.js';
 import BusinessMoveSourceAddressQuestion from './BusinessMoveSourceAddressQuestion.js';
 import BusinessMoveTypeQuestion from './BusinessMoveTypeQuestion.js';
 
+import CustomerEmailQuestion from './CustomerEmailQuestion.js';
+import CustomerNameQuestion from './CustomerNameQuestion.js';
+import CustomerPhoneNumberQuestion from './CustomerPhoneNumberQuestion.js';
+
+import HomeMoveAdditionalInfoQuestion from './HomeMoveAdditionalInfoQuestion.js';
+import HomeMoveBudgetQuestion from './HomeMoveBudgetQuestion.js';
+import HomeMoveDateQuestion from './HomeMoveDateQuestion.js';
+import HomeMoveDestinationQuestion from './HomeMoveDestinationQuestion.js';
+import HomeMoveReviewQuestion from './HomeMoveReviewQuestion.js';
+import HomeMoveSizeQuestion from './HomeMoveSizeQuestion.js';
+import HomeMoveSourceAddressQuestion from './HomeMoveSourceAddressQuestion.js';
+
+
 import FirstAndLastNameQuestion from './FirstAndLastNameQuestion.js';
 import EmailQuestion from './EmailQuestion.js';
 import ServiceTypeQuestion from './ServiceTypeQuestion.js';
@@ -26,6 +39,7 @@ class Questionnaire extends React.Component {
       'customer_email' : '',
       'customer_phone' : '',
       'service_type' : '',
+      'home_move_additional_info' : '',
       'home_move_type' : '',
       'home_move_date' :'',
       'home_move_source_address' : '',
@@ -127,6 +141,95 @@ class Questionnaire extends React.Component {
     ---------------------------------------*/
     this.regularBusinessTypeButtonOnClick = this.regularBusinessTypeButtonOnClick.bind(this);
     this.fullServiceBusinessTypeButtonOnClick = this.fullServiceBusinessTypeButtonOnClick.bind(this);
+
+    /*---------------------------------------
+
+     CustomerEmailQuestion support methods
+
+    ---------------------------------------*/
+    this.emailTextboxOnChange = this.emailTextboxOnChange.bind(this);
+    this.customerEmailNextButtonOnClick = this.customerEmailNextButtonOnClick.bind(this);
+
+    /*---------------------------------------
+
+     CustomerNameQuestion support methods
+
+    ---------------------------------------*/
+    this.customerNameTextboxOnChange = this.customerNameTextboxOnChange.bind(this);
+    this.customerNameNextButtonOnClick = this.customerNameNextButtonOnClick.bind(this);
+
+
+    /*---------------------------------------
+
+     CustomerPhoneQuestion support methods
+
+    ---------------------------------------*/
+    this.phoneNumberTextboxOnChange = this.phoneNumberTextboxOnChange.bind(this);
+    this.phoneNumberNextButtonOnClick = this.phoneNumberNextButtonOnClick.bind(this);
+
+
+    /*---------------------------------------
+
+     HomeMoveAdditionalInfoQuestion support methods
+
+    ---------------------------------------*/
+    this.homeMoveAdditionalInfoTextareaOnChange = this.homeMoveAdditionalInfoTextareaOnChange.bind(this);
+    this.homeMoveAdditionalInfoNextButtonOnClick = this.homeMoveAdditionalInfoNextButtonOnClick.bind(this);
+    this.homeMoveAdditionalInfoSkipButtonOnClick = this.homeMoveAdditionalInfoSkipButtonOnClick.bind(this);
+
+    /*---------------------------------------
+
+     HomeMoveBudgeQuestion support methods
+
+    ---------------------------------------*/
+    this.homeMoveBudgetTextboxOnChange = this.homeMoveBudgetTextboxOnChange.bind(this);
+    this.homeMoveBudgetNextButtonOnClick = this.homeMoveBudgetNextButtonOnClick.bind(this);
+    this.homeMoveBudgetSkipButtonOnClick = this.homeMoveBudgetSkipButtonOnClick.bind(this);
+
+
+    /*---------------------------------------
+
+     HomeMoveDateQuestion support methods
+
+    ---------------------------------------*/
+    this.homeMoveDateTextboxOnChange = this.homeMoveDateTextboxOnChange.bind(this);
+    this.homeMoveDateNextButtonOnClick = this.homeMoveDateNextButtonOnClick.bind(this);
+
+    /*---------------------------------------
+
+     HomeMoveDestinationAddressQuestion support methods
+
+    ---------------------------------------*/
+    this.homeMoveDestinationAddressTextboxOnChange = this.homeMoveDestinationAddressTextboxOnChange.bind(this);
+    this.homeMoveDestinationAddressNextButtonOnClick = this.homeMoveDestinationAddressNextButtonOnClick.bind(this);
+
+
+    /*---------------------------------------
+
+     HomeMoveReviewQuestion support methods
+
+    ---------------------------------------*/
+    this.homeMoveReviewTextOnChange = this.homeMoveReviewTextOnChange.bind(this);
+    this.homeMoveSubmitButtonOnClick = this.homeMoveSubmitButtonOnClick.bind(this);
+
+    /*---------------------------------------
+
+     HomeMoveSizeQuestion support methods
+
+    ---------------------------------------*/
+    this.oneBedroomButtonOnClick = this.oneBedroomButtonOnClick.bind(this);
+    this.twoBedroomButtonOnClick = this.twoBedroomButtonOnClick.bind(this);
+    this.threeBedroomButtonOnClick = this.threeBedroomButtonOnClick.bind(this);
+    this.fourBedroomButtonOnClick = this.fourBedroomButtonOnClick.bind(this);
+
+
+    /*---------------------------------------
+
+     HomeMoveSourceAddressQuestion support methods
+
+    ---------------------------------------*/
+    this.homeMoveSourceAddressTextboxOnChange = this.homeMoveSourceAddressTextboxOnChange.bind(this);
+    this.homeMoveSourceAddressNextButtonOnClick = this.homeMoveSourceAddressNextButtonOnClick.bind(this);
 
 
   }
@@ -394,12 +497,276 @@ class Questionnaire extends React.Component {
     });
   }
 
+  /*---------------------------------------
+
+   CustomerEmailQuestion support methods
+
+  ---------------------------------------*/
+  emailTextboxOnChange(text){
+    /* Implement validation logic here */
+    if (text === undefined){
+      throw new Error("text was not defined");
+    }
+  }
+
+  customerEmailNextButtonOnClick(){
+    this.setState({
+      'current_question': ,
+    });
+  }
 
 
-  /*  render logic follows */
+  /*---------------------------------------
+
+   CustomerNameQuestion support methods
+
+  ---------------------------------------*/
+  customerNameTextboxOnChange(text){
+    /* Implement validation logic here */
+    if (text === undefined){
+      throw new Error("text was not defined");
+    }
+
+    this.setState({
+      'customer_name': text,
+    });
+  }
+
+  customerNameNextButtonOnClick(){
+    this.setState({
+      'current_question': '',
+    });
+  }
+
+
+  /*---------------------------------------
+
+   CustomerPhoneQuestion support methods
+
+  ---------------------------------------*/
+  phoneNumberTextboxOnChange(text){
+    /* Implement validation logic here */
+    if (text === undefined){
+      throw new Error("text was not defined");
+    }
+
+    this.setState({
+      'customer_phone': text,
+    });
+  }
+
+  phoneNumberNextButtonOnClick(){
+    this.setState({
+      'current_question': '',
+    });
+
+  }
+
+
+
+  /*---------------------------------------
+
+   HomeMoveAdditionalInfoQuestion support methods
+
+  ---------------------------------------*/
+  homeMoveAdditionalInfoTextareaOnChange(text){
+    /* Implement validation logic here */
+    if (text === undefined){
+      throw new Error("text was not defined");
+    }
+
+    this.setState({
+      'home_move_additional_info': text,
+    });
+  }
+
+  homeMoveAdditionalInfoNextButtonOnClick(){
+    this.setState({
+      'current_question': ,
+    });
+  }
+
+  homeMoveAdditionalInfoSkipButtonOnClick(){
+    this.setState({
+      'current_question': ,
+    });
+  }
+
+
+
+  /*---------------------------------------
+
+   HomeMoveBudgetQuestion support methods
+
+  ---------------------------------------*/
+  homeMoveBudgetTextboxOnChange(text){
+  
+    /* Implement validation logic here */
+    if (text === undefined){
+      throw new Error("text was not defined");
+    }
+  
+    /* Adjust state as needed here */
+    this.setState({
+      'home_move_budget': text,
+    });
+  }
+
+  homeMoveBudgetNextButtonOnClick(){
+    this.setState({
+      'current_question': '',
+    });
+  }
+
+  homeMoveBudgetSkipButtonOnClick(){
+    this.setState({
+      'current_question': '',
+    });
+  }
+
+  /*---------------------------------------
+
+   HomeMoveDateQuestion support methods
+
+  ---------------------------------------*/
+  homeMoveDateTextboxOnChange(text){
+    /* Implement validation logic here */
+    if (text === undefined){
+      throw new Error("text was not defined");
+    }
+    
+    /* Adjust state as needed here */
+    this.setState({
+      'home_move_date': text,
+    });
+  }
+
+  homeMoveDateNextButtonOnClick(){
+    this.setState({
+      'current_question': ,
+    });
+  }
+
+
+
+  /*---------------------------------------
+
+   HomeMoveDestinationAddressQuestion support methods
+
+  ---------------------------------------*/
+  
+  homeMoveDestinationAddressTextboxOnChange(text){
+    
+    /* Implement validation logic here */
+    if (text === undefined){
+      throw new Error("text was not defined");
+    }
+    
+    /* Adjust state as needed here */
+    this.setState({
+      'home_move_destination_address': text,
+    });
+  }
+
+  homeMoveDestinationAddressNextButtonOnClick(){
+    this.setState({
+      'current_question': ,
+    });
+  }
+
+
+  /*---------------------------------------
+
+   HomeMoveReviewQuestion support methods
+
+  ---------------------------------------*/
+  homeMoveReviewTextOnChange(text){
+
+    /* Implement validation logic here */
+    if (text === undefined){
+      throw new Error("text was not defined");
+    }
+    
+    /* Adjust state as needed here */
+    this.setState({
+      'home_move_review': text,
+    });
+  }
+
+  homeMoveSubmitButtonOnClick(){
+    this.setState({
+      'current_question': '',
+    });
+  }
+
+
+  /*---------------------------------------
+
+   HomeMoveSizeQuestion support methods
+
+  ---------------------------------------*/
+
+  oneBedroomButtonOnClick(){
+    this.setState({
+      'home_move_size': '1 BR',
+      'current_question' : ''
+    });
+  }
+
+  twoBedroomButtonOnClick(){
+    this.setState({
+      'home_move_size': '2 BR',
+      'current_question' : ''
+    });
+  }
+
+  threeBedroomButtonOnClick(){
+    this.setState({
+      'home_move_size': '3 BR',
+      'current_question' : ''
+    });
+  }
+
+  fourBedroomButtonOnClick(){
+    this.setState({
+      'home_move_size': '4+ BR',
+      'current_question' : ''
+    });
+  }
+
+
+  /*---------------------------------------
+
+   HomeMoveSourceAddressQuestion support methods
+
+  ---------------------------------------*/
+
+  homeMoveSourceAddressTextboxOnChange(text){
+    /* Implement validation logic here */
+    if (text === undefined){
+      throw new Error("text was not defined");
+    }
+    /* Adjust state as needed here */
+    this.setState({
+      'home_move_source_address': text,
+    });
+  }
+
+  homeMoveSourceAddressNextButtonOnClick(){
+    this.setState({
+      'current_question': '',
+    });
+  }
+
+
+  /*---------------------------------------
+
+    render logic follows
+
+  ----------------------------------------*/
 
   render() {
-    if (this.state.current_question === 'name'){
+    if (this.state.current_question === 'customer_name'){
       return (
         <div>
           <FirstAndLastNameQuestion
@@ -410,7 +777,7 @@ class Questionnaire extends React.Component {
         </div>
       );
     }
-    else if (this.state.current_question === 'email'){
+    else if (this.state.current_question === 'customer_email'){
       return (
         <div>
           <EmailQuestion
@@ -459,7 +826,7 @@ class Questionnaire extends React.Component {
     //     </div>
     //   );
     // }
-    else if (){
+    else if (this.state.current_question === 'business_move_date'){
       return (
         <div>
           <BusinessMoveDateQuestion          
@@ -470,7 +837,7 @@ class Questionnaire extends React.Component {
         </div>
       );
     }
-    else if (){
+    else if (this.state.current_question === 'business_move_destination_address'){
       return (
         <div>
           <BusinessMoveDestinationAddressQuestion          
@@ -481,7 +848,7 @@ class Questionnaire extends React.Component {
         </div>
       );
     }
-    else if (){
+    else if (this.state.current_question === 'business_move_review'){
       return (
         <div>
           <BusinessMoveReviewQuestion
@@ -495,7 +862,7 @@ class Questionnaire extends React.Component {
         </div>
       );
     }
-    else if (){
+    else if (this.state.current_question === 'business_move_additional_info'){
       return (
         <div>
           <BusinessMoveAdditionalInfoQuestion    
@@ -507,7 +874,7 @@ class Questionnaire extends React.Component {
         </div>
       );
     }
-    else if (){
+    else if (this.state.current_question === 'business_move_size'){
       return (
         <div>
           <BusinessMoveSizeQuestion
@@ -518,7 +885,7 @@ class Questionnaire extends React.Component {
         </div>
       );
     }
-    else if (){
+    else if (this.state.current_question === 'business_move_source_address'){
       return (
         <div>
           <BusinessMoveSourceAddressQuestion          
@@ -529,12 +896,127 @@ class Questionnaire extends React.Component {
         </div>
       );
     }
-    else if (){
+    else if (this.state.current_question === 'business_move_type'){
       return (
         <div>
           <BusinessMoveTypeQuestion
             regularBusinessTypeButtonOnClick={this.regularBusinessTypeButtonOnClick}
             fullServiceBusinessTypeButtonOnClick={this.fullServiceBusinessTypeButtonOnClick}
+          />
+        </div>
+      );
+    }
+    else if (this.state.current_question === 'customer_email'){
+      return (
+        <div>
+          <CustomerEmailQuestion          
+            customer_email={this.state.customer_email}          
+            customer_name={this.state.customer_name}          
+            emailTextboxOnChange={this.emailTextboxOnChange}
+            customerEmailNextButtonOnClick={this.customerEmailNextButtonOnClick}
+          />
+        </div>
+      );
+    }
+    else if (this.state.current_question === 'customer_name'){
+      return (
+        <div>
+          <CustomerNameQuestion          
+            customer_name={this.state.customer_name}          
+            customerNameTextboxOnChange={this.customerNameTextboxOnChange}
+            customerNameNextButtonOnClick={this.customerNameNextButtonOnClick}
+          />
+        </div>
+      );
+    }
+    else if (this.state.current_question === 'customer_phone'){
+      return (
+        <div>
+          <CustomerPhoneNumberQuestion          
+            customer_phone={this.state.customer_phone}          
+            phoneNumberTextboxOnChange={this.phoneNumberTextboxOnChange}
+            phoneNumberNextButtonOnClick={this.phoneNumberNextButtonOnClick}
+          />
+        </div>
+      );
+    }
+    else if (this.state.current_question === 'home_move_additional_info'){
+      return (
+        <div>
+          <HomeMoveAdditionalInfoQuestion          
+            home_Move_additional_info={this.state.home_move_additional_info}          
+            homeMoveAdditionalInfoTextareaOnChange={this.homeMoveAdditionalInfoTextareaOnChange}
+            homeMoveAdditionalInfoNextButtonOnClick={this.homeMoveAdditionalInfoNextButtonOnClick}
+            homeMoveAdditionalInfoSkipButtonOnClick={this.homeMoveAdditionalInfoSkipButtonOnClick}
+          />
+        </div>
+      );
+    }
+    else if (this.state.current_question === 'home_move_budget'){
+      return (
+        <div>
+          <HomeMoveBudgetQuestion          
+            budget={this.state.home_move_budget}          
+            homeMoveBudgetTextboxOnChange={this.homeMoveBudgetTextboxOnChange}
+            homeMoveBudgetNextButtonOnClick={this.homeMoveBudgetNextButtonOnClick}
+            homeMoveBudgetSkipButtonOnClick={this.homeMoveBudgetSkipButtonOnClick}
+          />
+        </div>
+      ); 
+    }
+    else if (this.state.current_question == 'home_move_date'){
+      return (
+        <div>
+          <HomeMoveDateQuestion          
+            move_date={this.state.home_move_date}          
+            homeMoveDateTextboxOnChange={this.homeMoveDateTextboxOnChange}
+            homeMoveDateNextButtonOnClick={this.homeMoveDateNextButtonOnClick}
+          />
+        </div>
+      );
+    }
+    else if (this.state.current_question == 'home_move_destination_address'){
+      return (
+        <div>
+          <HomeMoveDestinationQuestion    
+            home_move_destination_address={this.state.home_move_destination_address}    
+            homeMoveDestinationAddressTextboxOnChange={this.homeMoveDestinationAddressTextboxOnChange}
+            homeMoveDestinationAddressNextButtonOnClick={this.homeMoveDestinationAddressNextButtonOnClick}
+          />
+        </div>
+      );
+    }
+    else if (this.state.current_question == 'home_move_review'){
+      return (
+        <div>
+          <HomeMoveReviewQuestion
+            homeMoveReviewTextOnChange={this.homeMoveReviewTextOnChange}
+            homeMoveSubmitButtonOnClick={this.homeMoveSubmitButtonOnClick}
+          />
+        </div>
+      );
+    }
+    else if (this.state.current_question == 'home_move_size'){
+      return (
+        <div>
+          <HomeMoveSizeQuestion          
+            home_move_size={this.state.home_move_size}
+            home_move_source_address={this.state.home_move_source_address}          
+            oneBedroomButtonOnClick={this.oneBedroomButtonOnClick}
+            twoBedroomButtonOnClick={this.twoBedroomButtonOnClick}
+            threeBedroomButtonOnClick={this.threeBedroomButtonOnClick}
+            fourBedroomButtonOnClick={this.fourBedroomButtonOnClick}
+          />
+        </div>
+      );
+    }
+    else if (this.state.current_question == 'home_move_source_address'){
+      return (
+        <div>
+          <HomeMoveSourceAddressQuestion    
+            home_move_source_address={this.state.home_move_source_address}    
+            homeMoveSourceAddressTextboxOnChange={this.homeMoveSourceAddressTextboxOnChange}
+            homeMoveSourceAddressNextButtonOnClick={this.homeMoveSourceAddressNextButtonOnClick}
           />
         </div>
       );
