@@ -1,10 +1,13 @@
 import React from 'react';
 import './index.css';
 
+import BusinessMoveDateQuestion from './BusinessMoveDateQuestion.js';
+import BusinessMoveDestinationAddressQuestion from './BusinessMoveDestinationAddressQuestion.js';
 import FirstAndLastNameQuestion from './FirstAndLastNameQuestion.js';
 import EmailQuestion from './EmailQuestion.js';
-import ServiceTypeQuestion from './ServiceTypeQuestion.js'
-import HomeMovingTypeQuestion from './HomeMovingTypeQuestion.js'
+import ServiceTypeQuestion from './ServiceTypeQuestion.js';
+import HomeMovingTypeQuestion from './HomeMovingTypeQuestion.js';
+import BusinessMoveAdditionalInfoQuestion from './BusinessMoveAdditionalInfoQuestion.js';
 
 class Questionnaire extends React.Component {
 
@@ -30,7 +33,9 @@ class Questionnaire extends React.Component {
       'business_moving_source_address' : '',
       'business_moving_size' : '',
       'business_moving_destination_address' : '',
+      'business_move_additional_info' : ''
     };
+ 
     
     this.nameTextOnChange = this.nameTextOnChange.bind(this);
     this.nameNextButtonOnClick = this.nameNextButtonOnClick.bind(this);
@@ -44,12 +49,38 @@ class Questionnaire extends React.Component {
     this.homeMovingDateButtonOnClick = this.homeMovingDateNextButtonOnClick.bind(this);
 
 
-    this.serviceTypeHomeButtonOnClick = this.serviceTypeHomeButtonOnClick.bind(this);
-    this.serviceTypeBusinessButtonOnClick = this.serviceTypeHomeButtonOnClick.bind(this);
-    this.serviceTypeSpecialityButtonOnClick = this.serviceTypeSpecialityButtonOnClick.bind(this);
-    this.serviceTypeHaulingButtonOnClick = this.serviceTypeHaulingButtonOnClick.bind(this);
-    this.serviceTypeStorageButtonOnClick = this.serviceTypeStorageButtonOnClick.bind(this);
+    /*---------------------------------------
 
+     ServiceTypeQuestion support methods
+
+    ---------------------------------------*/
+    this.homeServiceTypeButtonOnClick = this.homeServiceTypeButtonOnClick.bind(this);
+    this.businessServiceTypeButtonOnClick = this.businessServiceTypeButtonOnClick.bind(this);
+    this.specialtyServiceTypeButtonOnClick = this.specialtyServiceTypeButtonOnClick.bind(this);
+    this.junkRemovalServiceTypeButtonOnClick = this.junkRemovalServiceTypeButtonOnClick.bind(this);
+
+    /*---------------------------------------
+
+     BusinessMoveDateQuestion support methods
+
+    ---------------------------------------*/
+    this.businessMovingDateTextboxOnChange = this.businessMovingDateTextboxOnChange.bind(this);
+    this.homeMovingDateNextButtonOnClick = this.homeMovingDateNextButtonOnClick.bind(this);
+
+    /*---------------------------------------
+
+     BusinessMoveDestinationQuestion support methods
+
+    ---------------------------------------*/
+    this.businessMoveDestinationAddressTextboxOnChange = this.businessMoveDestinationAddressTextboxOnChange.bind(this);
+    this.businessMoveDestinationAddressNextButtonOnClick = this.businessMoveDestinationAddressNextButtonOnClick.bind(this);
+
+       
+    this.businessMoveAdditionalInfoTextareaOnChange = this.businessMoveAdditionalInfoTextareaOnChange.bind(this);
+    this.businessMoveAdditionalInfoNextButtonOnClick = this.businessMoveAdditionalInfoNextButtonOnClick.bind(this);
+    this.businessMoveAdditionalInfoSkipButtonOnClick = this.businessMoveAdditionalInfoSkipButtonOnClick.bind(this);
+ 
+                
   }
 
 
@@ -94,46 +125,110 @@ class Questionnaire extends React.Component {
   }
 
 
-  serviceTypeHomeButtonOnClick(){
+  /*---------------------------------------
+
+   ServiceTypeQuestion support methods
+
+  ---------------------------------------*/
+  homeServiceTypeButtonOnClick(){
     this.setState({
-      service_type : 'home_moving',
-      current_question : ''
+      'current_question': '',
     });
   }
 
-  serviceTypeBusinessButtonOnClick(){
+  businessServiceTypeButtonOnClick(){
     this.setState({
-      service_type : 'business_moving',
-      current_question : ''
+      'current_question': '',
     });
   }
 
-  serviceTypeSpecialityButtonOnClick(){
+  specialtyServiceTypeButtonOnClick(){
     this.setState({
-      service_type : 'speciality_moving',
-      current_question : ''
+      'current_question': '',
     });
   }
 
-  serviceTypeStorageButtonOnClick(){
+  junkRemovalServiceTypeButtonOnClick(){
     this.setState({
-      service_type : 'storage_moving',
-      current_question : ''
+      'current_question': '',
     });
   }
 
-   serviceTypeHaulingButtonOnClick(){
+
+
+ /*---------------------------------------
+
+   BusinessMoveDateQuestion support methods
+
+  ---------------------------------------*/
+  businessMovingDateTextboxOnChange(text){
+    /* Implement validation logic here */
+    if (text === undefined){
+      throw new Error("text was not defined");
+    }
+    /* Adjust state as needed here */
     this.setState({
-      service_type : 'hauling_moving',
-      current_question : ''
+      'business_moving_date': text,
+    });
+
+  }
+  
+  businessMovingDateNextButtonOnClick(text){
+    this.setState({
+      '': ,
     });
   }
+
+
+  /*---------------------------------------
+
+   BusinessMoveDestinationQuestion support methods
+
+  ---------------------------------------*/
+  businessMoveSourceAddressTextboxOnChange(text){
+    /* Implement validation logic here */
+    if (text === undefined){
+      throw new Error("text was not defined");
+    }
+    /* Adjust state as needed here */
+    this.setState({
+      'business_moving_destination_address': text,
+    });
+  }
+
+  businessMoveDestinationAddressNextButtonOnClick(){
+    this.setState({
+      'current_question': '',
+    });
+  }
+
+
+
 
 
 
   homeMovingDateNextButtonOnClick(){
     this.setState({
       current_question : 'home_moving_from_address'
+    });
+  }
+
+  businessMoveAdditionalInfoTextareaOnChange(text){
+   /* Need to add some validation at some point */
+    this.setState({
+      'business_move_additional_info': text,
+    });
+  }
+
+  businessMoveAdditionalInfoNextButtonOnClick(){
+    this.setState({
+      'current_question' : ''
+    });
+  }
+
+  businessMoveAdditionalInfoSkipButtonOnClick(){
+    this.setState({
+      'current_question' : ''
     });
   }
 
@@ -164,17 +259,17 @@ class Questionnaire extends React.Component {
     }
     else if (this.state.current_question === 'service_type'){
       return (
-      <div>
-          <ServiceTypeQuestion
+        <div>
+          <ServiceTypeQuestion          
             customer_email={this.state.customer_email}
             customer_name={this.state.customer_name}
-            serviceTypeHomeButtonOnClick={this.serviceTypeHomeButtonOnClick}
-            serviceTypeBusinessButtonOnClick={this.serviceTypeBusinessButtonOnClick}
-            serviceTypeSpecialityButtonOnClick={this.serviceTypeSpecialityButtonOnClick}
-            serviceTypeStorageButtonOnClick={this.serviceTypeStorageButtonOnClick}
-            serviceTypeHaulingButtonOnClick={this.serviceTypeHaulingButtonOnClick}
+            service_type={this.state.service_type}          
+            homeServiceTypeButtonOnClick={this.homeServiceTypeButtonOnClick}
+            businessServiceTypeButtonOnClick={this.businessServiceTypeButtonOnClick}
+            specialtyServiceTypeButtonOnClick={this.specialtyServiceTypeButtonOnClick}
+            junkRemovalServiceTypeButtonOnClick={this.junkRemovalServiceTypeButtonOnClick}
           />
-      </div>
+        </div>
       );
     }
     else if (this.state.current_question === 'home_service_type'){
@@ -185,6 +280,42 @@ class Questionnaire extends React.Component {
             homeMovingFullServiceButtonOnClick={this.homeMovingFullServiceButtonOnClick}
           />
       </div>
+      );
+    }
+    else if (){
+      return (
+        <div>
+          <BusinessMoveAdditionalInfoQuestion
+          
+            business_additional_info={this.state.business_additional_info}
+          
+            businessMoveAdditionalInfoTextareaOnChange={this.businessMoveAdditionalInfoTextareaOnChange}
+            businessMoveAdditionalInfoNextButtonOnClick={this.businessMoveAdditionalInfoNextButtonOnClick}
+            businessMoveAdditionalInfoSkipButtonOnClick={this.businessMoveAdditionalInfoSkipButtonOnClick}
+          />
+        </div>
+      );
+    }
+    else if (){
+      return (
+        <div>
+          <BusinessMoveDateQuestion          
+            business_moving_date={this.state.business_moving_date}          
+            businessMovingDateTextboxOnChange={this.businessMovingDateTextboxOnChange}
+            businessMovingDateNextButtonOnClick={this.businessMovingDateNextButtonOnClick}
+          />
+        </div>
+      );
+    }
+    else if (){
+      return (
+        <div>
+          <BusinessMoveDestinationAddressQuestion          
+            business_destination_address={this.state.business_destination_address}          
+            businessMoveDestinationAddressTextboxOnChange={this.businessMoveDestinationAddressTextboxOnChange}
+            businessMoveDestinationAddressNextButtonOnClick={this.businessMoveDestinationAddressNextButtonOnClick}
+          />
+        </div>
       );
     }
   }

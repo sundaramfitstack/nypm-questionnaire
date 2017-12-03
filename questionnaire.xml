@@ -328,7 +328,7 @@
 				<type>button</type>
 				<label>Next</label>
 				<action>
-					<method>homeMovingBudgetNextButtonOnClick</method>
+					<method>businessMovingDateNextButtonOnClick</method>
 				</action>
 			</input-element>
 		</input-elements>
@@ -390,7 +390,7 @@
 				<value>business_destination_address</value>
 				<placeholder>"Moving to" address</placeholder>
 				<action>
-					<method>businessMoveSourceAddressTextboxOnChange</method>
+					<method>businessMoveDestinationAddressTextboxOnChange</method>
 				</action>
 			</input-element>
 			<input-element>

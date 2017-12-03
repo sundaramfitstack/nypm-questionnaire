@@ -1,49 +1,43 @@
 import React from 'react';
-import './index.css';
-
 
 class ServiceTypeQuestion extends React.Component {
 
   constructor(props) {
     
     super(props);
-
-    this.homeButtonOnClick = this.homeButtonOnClick.bind(this);
-    this.businessButtonOnClick= this.businessButtonOnClick.bind(this);
-    this.specialityButtonOnClick= this.specialityButtonOnClick.bind(this);
-    this.storageButtonOnClick= this.storageButtonOnClick.bind(this);
-    this.haulingButtonOnClick= this.haulingButtonOnClick.bind(this);
+    
+    this.homeServiceTypeButtonOnClick = this.homeServiceTypeButtonOnClick.bind(this);
+    this.businessServiceTypeButtonOnClick = this.businessServiceTypeButtonOnClick.bind(this);
+    this.specialtyServiceTypeButtonOnClick = this.specialtyServiceTypeButtonOnClick.bind(this);
+    this.junkRemovalServiceTypeButtonOnClick = this.junkRemovalServiceTypeButtonOnClick.bind(this);
   }
   
-  homeButtonOnClick(e) {
-    this.props.homeButtonOnClick();
+  
+  homeServiceTypeButtonOnClick(){
+    this.props.homeServiceTypeButtonOnClick();
   }
 
-  businessButtonOnClick() {
-    this.props.businessButtonOnClick();
+  businessServiceTypeButtonOnClick(){
+    this.props.businessServiceTypeButtonOnClick();
   }
 
-  specialityButtonOnClick() {
-    this.props.specialityButtonOnClick();
+  specialtyServiceTypeButtonOnClick(){
+    this.props.specialtyServiceTypeButtonOnClick();
   }
 
-  storageButtonOnClick() {
-    this.props.storageButtonOnClick();
-  }
-
-  haulingButtonOnClick() {
-    this.props.haulingButtonOnClick();
+  junkRemovalServiceTypeButtonOnClick(){
+    this.props.junkRemovalServiceTypeButtonOnClick();
   }
 
   render(){
     return (
       <div>
-        <span className="question">Thanks! Ok, let's get your quote started.<br />What service are you interested in?</span>
+        <span className="question">Thanks!  Ok, let’s get your quote started. What service are you interested in?</span>
         <br/>
-        <button className="button" onClick={this.homeButtonOnClick}>Home</button> <button className="button" onClick={this.businessButtonOnClick}>Business</button> <button className="button" onClick={this.specialtyButtonOnClick}>Specialty</button> <button className="button" onClick={this.storageButtonOnClick}>Storage</button> <button className="button" onClick={this.haulingButtonOnClick}>Hauling</button> 
+        
+        <button className="" onClick={this.homeServiceTypeButtonOnClick}>Home</button> <button className="" onClick={this.businessServiceTypeButtonOnClick}>Business</button> <button className="" onClick={this.specialtyServiceTypeButtonOnClick}>Specialty</button> <button className="" onClick={this.junkRemovalServiceTypeButtonOnClick}>Junk Removal</button>
       </div>
     );
-
   }
 }
 
