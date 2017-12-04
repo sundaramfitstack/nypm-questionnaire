@@ -22,6 +22,18 @@ import HomeMoveSizeQuestion from './HomeMoveSizeQuestion.js';
 import HomeMoveSourceAddressQuestion from './HomeMoveSourceAddressQuestion.js';
 import HomeMoveTypeQuestion from './HomeMoveTypeQuestion.js';
 
+import JunkRemovalAddtionalInfoQuestion from './JunkRemovalAddtionalInfoQuestion.js';
+import JunkRemovalDateQuestion from './JunkRemovalDateQuestion.js';
+import JunkRemovalReviewQuestion from './JunkRemovalReviewQuestion.js';
+import JunkRemovalSourceAddressQuestion from './JunkRemovalSourceAddressQuestion.js';
+
+
+import SpecialtyMoveAdditionalInfoQuestion from './SpecialtyMoveAdditionalInfoQuestion.js';
+import SpecialtyMoveDateQuestion from './SpecialtyMoveDateQuestion.js';
+import SpecialtyMoveDestinationAddressQuestion from './SpecialtyMoveDestinationAddressQuestion.js';
+import SpecialtyMoveReviewQuestion from './SpecialtyMoveReviewQuestion.js';
+import SpecialtyMoveSourceAddressQuestion from './SpecialtyMoveSourceAddressQuestion.js';
+import SpecialtyMoveTypeQuestion from './SpecialtyMoveTypeQuestion.js';
 
 import FirstAndLastNameQuestion from './FirstAndLastNameQuestion.js';
 import EmailQuestion from './EmailQuestion.js';
@@ -54,7 +66,15 @@ class Questionnaire extends React.Component {
       'business_move_source_address' : '',
       'business_move_size' : '',
       'business_move_destination_address' : '',
-      'business_move_additional_info' : ''
+      'business_move_additional_info' : '',
+      'junk_removal_additional_info' : '',
+      'junk_removal_date' : '',
+      'junk_removal_source_address' : '',
+      'specialty_move_additional_info' : '',
+      'specialty_move_date' : '',
+      'specialty_move_destination_address' : '',
+      'specialty_move_source_address' : '',
+      'specialty_move_type' : '',
     };
  
     
@@ -240,6 +260,92 @@ class Questionnaire extends React.Component {
     this.regularHomeMoveTypeButtonOnClick = this.regularHomeMoveTypeButtonOnClick.bind(this);
     this.fullServiceHomeMoveTypeButtonOnClick = this.fullServiceHomeMoveTypeButtonOnClick.bind(this);
 
+
+    /*---------------------------------------
+
+     JunkRemovalAdditionalInfoQuestion support methods
+
+    ---------------------------------------*/
+    this.junkRemovalAdditionalInfoTextOnChange = this.junkRemovalAdditionalInfoTextOnChange.bind(this);
+    this.junkRemovalAdditionalInfoNextButtonOnClick = this.junkRemovalAdditionalInfoNextButtonOnClick.bind(this);
+
+
+    /*---------------------------------------
+
+     JunkRemovalDateQuestion support methods
+
+    ---------------------------------------*/
+    this.junkRemovalDateTextOnChange = this.junkRemovalDateTextOnChange.bind(this);
+    this.junkRemovalDateNextButtonOnClick = this.junkRemovalDateNextButtonOnClick.bind(this);
+
+    /*---------------------------------------
+
+     JunkRemovalReviewQuestion support methods
+
+    ---------------------------------------*/
+    this.junkRemovalReviewTextOnChange = this.junkRemovalReviewTextOnChange.bind(this);
+    this.specialtyMoveSubmitButtonOnClick = this.specialtyMoveSubmitButtonOnClick.bind(this);
+
+    /*---------------------------------------
+
+     JunkRemovalSourceAddressQuestion support methods
+
+    ---------------------------------------*/
+    this.junkRemovalSourceAddressTextOnChange = this.junkRemovalSourceAddressTextOnChange.bind(this);
+    this.junkRemovalSourceAddressNextButtonOnClick = this.junkRemovalSourceAddressNextButtonOnClick.bind(this);
+
+
+    /*---------------------------------------
+
+     SpecialtyMoveAdditionalInfoQuestion support methods
+
+    ---------------------------------------*/
+    this.specialtyMoveAdditionalInfoOnChange = this.specialtyMoveAdditionalInfoOnChange.bind(this);
+    this.specialtyMoveAdditionalInfoButtonOnClick = this.specialtyMoveAdditionalInfoButtonOnClick.bind(this);
+
+    /*---------------------------------------
+
+     SpecialtyMoveDateQuestion support methods
+
+    ---------------------------------------*/
+    this.specialtyMoveDateOnChange = this.specialtyMoveDateOnChange.bind(this);
+    this.specialtyMoveDateNextButtonOnClick = this.specialtyMoveDateNextButtonOnClick.bind(this);
+
+
+    /*---------------------------------------
+
+     SpecialtyMoveDestinationAddressQuestion support methods
+
+    ---------------------------------------*/
+    this.specialtyMoveDestinationAddressOnChange = this.specialtyMoveDestinationAddressOnChange.bind(this);
+    this.specialtyMoveSourceAddressButtonOnClick = this.specialtyMoveSourceAddressButtonOnClick.bind(this);
+
+
+    /*---------------------------------------
+
+     SpecialtyMoveReviewQuestion support methods
+
+    ---------------------------------------*/
+    this.specialtyMoveReviewTextOnChange = this.specialtyMoveReviewTextOnChange.bind(this);
+    this.specialtyMoveSubmitButtonOnClick = this.specialtyMoveSubmitButtonOnClick.bind(this);
+
+
+    /*---------------------------------------
+
+     SpecialtyMoveSourceAddressQuestion support methods
+
+    ---------------------------------------*/
+    this.specialtyMoveSourceAddressOnChange = this.specialtyMoveSourceAddressOnChange.bind(this);
+    this.specialtyMoveSourceAddressButtonOnClick = this.specialtyMoveSourceAddressButtonOnClick.bind(this);
+
+
+    /*---------------------------------------
+
+     SpecialtyMoveTypeQuestion support methods
+
+    ---------------------------------------*/
+    this.regularSpecialtyMoveButtonOnClick = this.regularSpecialtyMoveButtonOnClick.bind(this);
+    this.fullServiceSpecialtyMoveButtonOnClick = this.fullServiceSpecialtyMoveButtonOnClick.bind(this);
 
   }
 
@@ -793,6 +899,238 @@ class Questionnaire extends React.Component {
   }
 
 
+  /*---------------------------------------
+
+   JunkRemovalAdditionalInfoQuestion support methods
+
+  ---------------------------------------*/
+  junkRemovalAdditionalInfoTextOnChange(text){
+    /* Implement validation logic here */
+    if (text === undefined){
+      throw new Error("text was not defined");
+    }
+    /* Adjust state as needed here */
+    this.setState({
+      'junk_removal_additional_info': text,
+    });
+  }
+
+  junkRemovalAdditionalInfoNextButtonOnClick(){
+    this.setState({
+      'current_question': '',
+    });
+  }
+
+
+  /*---------------------------------------
+
+   JunkRemovalDateQuestion support methods
+
+  ---------------------------------------*/
+  junkRemovalDateTextOnChange(text){
+    /* Implement validation logic here */
+    if (text === undefined){
+      throw new Error("text was not defined");
+    }
+    /* Adjust state as needed here */
+    this.setState({
+      'junk_removal_date': text,
+    });
+  }
+
+  junkRemovalDateNextButtonOnClick(){
+    this.setState({
+      'current_question': '',
+    });
+  }
+
+  /*---------------------------------------
+
+   JunkRemovalReviewQuestion support methods
+
+  ---------------------------------------*/
+  junkRemovalReviewTextOnChange(text){
+    /* Implement validation logic here */
+    if (text === undefined){
+      throw new Error("text was not defined");
+    }
+    /* Adjust state as needed here */
+    this.setState({
+      'junk_removal_review': text,
+    });
+  }
+
+  specialtyMoveSubmitButtonOnClick(){
+    this.setState({
+      'current_question': '',
+    });
+  }
+
+
+
+  /*---------------------------------------
+
+   JunkRemovalSourceAddressQuestion support methods
+
+  ---------------------------------------*/
+
+  junkRemovalSourceAddressTextOnChange(text){
+    /* Implement validation logic here */
+    if (text === undefined){
+      throw new Error("text was not defined");
+    }
+    /* Adjust state as needed here */
+    this.setState({
+      'junk_removal_source_address': text,
+    });
+  }
+
+  junkRemovalSourceAddressNextButtonOnClick(){
+    this.setState({
+      'current_question': '',
+    });
+  }
+
+
+  /*---------------------------------------
+
+   SpecialtyMoveAdditionalInfoQuestion support methods
+
+  ---------------------------------------*/
+  specialtyMoveAdditionalInfoOnChange(text){
+
+    /* Implement validation logic here */
+    if (text === undefined){
+      throw new Error("text was not defined");
+    }
+
+    /* Adjust state as needed here */
+    this.setState({
+      'specialty_move_additional_info': text,
+    });
+  }
+
+  specialtyMoveAdditionalInfoButtonOnClick(){
+    this.setState({
+      'current_question': '',
+    });
+  }
+
+  /*---------------------------------------
+
+   SpecialtyMoveDateQuestion support methods
+
+  ---------------------------------------*/
+
+  specialtyMoveDateOnChange(text){
+    /* Implement validation logic here */
+    if (text === undefined){
+      throw new Error("text was not defined");
+    }
+    /* Adjust state as needed here */
+    this.setState({
+      'specialty_move_date': text,
+    });
+  }
+
+  specialtyMoveDateNextButtonOnClick(){
+    this.setState({
+      'current_question': '',
+    });
+  }
+
+
+  /*---------------------------------------
+
+   SpecialtyMoveDestinationAddressQuestion support methods
+
+  ---------------------------------------*/
+  specialtyMoveDestinationAddressOnChange(text){
+    /* Implement validation logic here */
+    if (text === undefined){
+      throw new Error("text was not defined");
+    }
+    /* Adjust state as needed here */
+    this.setState({
+      'specialty_move_destination_address': text,
+    });
+  }
+
+  specialtyMoveSourceAddressButtonOnClick(){
+    this.setState({
+      'current_question': '',
+    });
+  }
+
+
+  /*---------------------------------------
+
+   SpecialtyMoveReviewQuestion support methods
+
+  ---------------------------------------*/
+  specialtyMoveReviewTextOnChange(text){
+    /* Implement validation logic here */
+    if (text === undefined){
+      throw new Error("text was not defined");
+    }
+    /* Adjust state as needed here */
+    this.setState({
+      'specialty_move_review': text,
+    });
+  }
+
+  specialtyMoveSubmitButtonOnClick(){
+    this.setState({
+      'current_question': '',
+    });
+  }
+
+
+  /*---------------------------------------
+
+   SpecialtyMoveSourceAddressQuestion support methods
+
+  ---------------------------------------*/
+  specialtyMoveSourceAddressOnChange(text){
+    /* Implement validation logic here */
+    if (text === undefined){
+      throw new Error("text was not defined");
+    }
+    /* Adjust state as needed here */
+    this.setState({
+      'specialty_move_source_address': text,
+    });
+  }
+
+  specialtyMoveSourceAddressButtonOnClick(){
+    this.setState({
+      'current_question': '',
+    });
+  }
+
+
+  /*---------------------------------------
+
+   SpecialtyMoveTypeQuestion support methods
+
+  ---------------------------------------*/
+  regularSpecialtyMoveButtonOnClick(){
+
+    this.setState({
+      'specialty_move_type': 'regular',
+      'current_question' : ''
+    });
+  }
+
+  fullServiceSpecialtyMoveButtonOnClick(){
+
+    this.setState({
+      'specialty_move_type': 'full service',
+      'current_question' : ''
+    });
+  }
+
+
 
 
   /*---------------------------------------
@@ -1064,6 +1402,119 @@ class Questionnaire extends React.Component {
             home_move_type={this.state.home_move_type}          
             regularHomeMoveTypeButtonOnClick={this.regularHomeMoveTypeButtonOnClick}
             fullServiceHomeMoveTypeButtonOnClick={this.fullServiceHomeMoveTypeButtonOnClick}
+          />
+        </div>
+      );
+    }
+    else if (this.state.current_question == 'junk_removal_additional_info'){
+      return (
+        <div>
+          <JunkRemovalAddtionalInfoQuestion          
+            junk_removal_additional_info={this.state.junk_removal_additional_info}          
+            junkRemovalAdditionalInfoTextOnChange={this.junkRemovalAdditionalInfoTextOnChange}
+            junkRemovalAdditionalInfoNextButtonOnClick={this.junkRemovalAdditionalInfoNextButtonOnClick}
+          />
+        </div>
+      );
+    }
+    else if (this.state.current_question == 'junk_removal_date'){
+      return (
+        <div>
+          <JunkRemovalDateQuestion          
+            junk_removal_date={this.state.junk_removal_date}          
+            junkRemovalDateTextOnChange={this.junkRemovalDateTextOnChange}
+            junkRemovalDateNextButtonOnClick={this.junkRemovalDateNextButtonOnClick}
+          />
+        </div>
+      );
+    }
+    else if (this.state.current_question == 'junk_removal_review'){
+      return (
+        <div>
+          <JunkRemovalReviewQuestion
+            junk_removal_date={this.state.junk_removal_date}
+            junk_removal_source_address={this.state.junk_removal_source_address}          
+            junkRemovalReviewTextOnChange={this.junkRemovalReviewTextOnChange}
+            specialtyMoveSubmitButtonOnClick={this.specialtyMoveSubmitButtonOnClick}
+          />
+        </div>
+      );
+    }
+    else if (this.state.current_question == 'junk_removal_source_address'){
+      return (
+        <div>
+          <JunkRemovalSourceAddressQuestion          
+            junk_removal_source_address={this.state.junk_removal_source_address}          
+            junkRemovalSourceAddressTextOnChange={this.junkRemovalSourceAddressTextOnChange}
+            junkRemovalSourceAddressNextButtonOnClick={this.junkRemovalSourceAddressNextButtonOnClick}
+          />
+        </div>
+      );
+    }
+    else if (this.state.current_question == 'specialty_move_additional_info'){
+      return (
+        <div>
+          <SpecialtyMoveAdditionalInfoQuestion          
+            specialty_move_additional_info={this.state.specialty_move_additional_info}          
+            specialtyMoveAdditionalInfoOnChange={this.specialtyMoveAdditionalInfoOnChange}
+            specialtyMoveAdditionalInfoButtonOnClick={this.specialtyMoveAdditionalInfoButtonOnClick}
+          />
+        </div>
+      );
+    }
+    else if (this.state.current_question == 'specialty_move_date'){
+      return (
+        <div>
+          <SpecialtyMoveDateQuestion          
+            specialty_move_date={this.state.specialty_move_date}          
+            specialtyMoveDateOnChange={this.specialtyMoveDateOnChange}
+            specialtyMoveDateNextButtonOnClick={this.specialtyMoveDateNextButtonOnClick}
+          />
+        </div>
+      );
+    }
+    else if (this.state.current_question == 'specialty_move_destination_address'){
+      return (
+        <div>
+          <SpecialtyMoveDestinationAddressQuestion          
+            specialty_move_destination_address={this.state.specialty_move_destination_address}          
+            specialtyMoveDestinationAddressOnChange={this.specialtyMoveDestinationAddressOnChange}
+            specialtyMoveSourceAddressButtonOnClick={this.specialtyMoveSourceAddressButtonOnClick}
+          />
+        </div>
+      );
+    }
+    else if (this.state.current_question == 'specialty_move_review'){
+      return (
+        <div>
+          <SpecialtyMoveReviewQuestion
+            specialty_move_destination_address={this.state.specialty_move_destination_address}          
+            specialty_move_date={this.state.specialty_move_date}
+            specialty_move_source_address={this.state.specialty_move_source_address}
+            specialty_move_additional_info={this.state.specialty_move_additional_info}
+            specialtyMoveReviewTextOnChange={this.specialtyMoveReviewTextOnChange}
+            specialtyMoveSubmitButtonOnClick={this.specialtyMoveSubmitButtonOnClick}
+          />
+        </div>
+      );
+    }
+    else if (this.state.current_question == 'specialty_move_source_address'){
+      return (
+        <div>
+          <SpecialtyMoveSourceAddressQuestion          
+            specialty_move_source_address={this.state.specialty_move_source_address}          
+            specialtyMoveSourceAddressOnChange={this.specialtyMoveSourceAddressOnChange}
+            specialtyMoveSourceAddressButtonOnClick={this.specialtyMoveSourceAddressButtonOnClick}
+          />
+        </div>
+      );
+    }
+    else if (this.state.current_question == 'specialty_move_type'){
+      return (
+        <div>
+          <SpecialtyMoveTypeQuestion
+            regularSpecialtyMoveButtonOnClick={this.regularSpecialtyMoveButtonOnClick}
+            fullServiceSpecialtyMoveButtonOnClick={this.fullServiceSpecialtyMoveButtonOnClick}
           />
         </div>
       );
