@@ -18,12 +18,16 @@ class HomeMoveDateQuestion extends React.Component {
     this.props.homeMoveDateNextButtonOnClick();
   }
 
+  componentDidMount(){
+     this.nameInput.focus(); 
+  }
+
   render(){
     return (
       <div>
         <span className="question">What is your preferred move date?</span>
         <br/>        
-        <input type="text" className="" onChange={this.homeMoveDateTextboxOnChange} placeholder="MM/DD/YY" />
+        <input type="text" className="" onChange={this.homeMoveDateTextboxOnChange} placeholder="MM/DD/YY" ref={(input) => { this.nameInput = input; }}/>
         <br />
         <button className="" onClick={this.homeMoveDateNextButtonOnClick}>Next</button>
         <br />

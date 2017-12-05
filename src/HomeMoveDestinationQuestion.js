@@ -18,12 +18,16 @@ class HomeMoveDestinationQuestion extends React.Component {
     this.props.homeMoveDestinationAddressNextButtonOnClick();
   }
 
+  componentDidMount(){
+     this.nameInput.focus(); 
+  }
+
   render(){
     return (
       <div>
         <span className="question">Where would you like us to drop off your things?</span>
         <br/>        
-        <input type="text" className="" onChange={this.homeMoveDestinationAddressTextboxOnChange} placeholder="'Move to' address" />
+        <input type="text" className="" onChange={this.homeMoveDestinationAddressTextboxOnChange} placeholder="'Move to' address" ref={(input) => { this.nameInput = input; }}/>
         <br />
         <button className="" onClick={this.homeMoveDestinationAddressNextButtonOnClick}>Next</button>
         <br />

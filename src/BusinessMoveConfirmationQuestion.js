@@ -2,11 +2,6 @@ import React from 'react';
 
 class BusinessMoveConfirmationQuestion extends React.Component {
 
-  constructor(props) {
-    
-    super(props);   
-  }
-
   render(){
     return (
       <div>

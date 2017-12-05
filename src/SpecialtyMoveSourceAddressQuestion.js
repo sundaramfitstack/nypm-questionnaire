@@ -18,12 +18,16 @@ class SpecialtyMoveSourceAddressQuestion extends React.Component {
     this.props.specialtyMoveSourceAddressButtonOnClick();
   }
 
+  componentDidMount(){
+     this.nameInput.focus(); 
+  }
+
   render(){
     return (
       <div>
         <span className="question">Where will your specialty move start?</span>
         <br/>        
-        <input type="text" className="" onChange={this.specialtyMoveSourceAddressOnChange} placeholder="'Moving from' address" />
+        <input type="text" className="" onChange={this.specialtyMoveSourceAddressOnChange} placeholder="'Moving from' address" ref={(input) => { this.nameInput = input; }}/>
         <br />        
         <button className="" onClick={this.specialtyMoveSourceAddressButtonOnClick}>Next</button>
         <br />

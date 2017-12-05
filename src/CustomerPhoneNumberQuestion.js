@@ -17,12 +17,16 @@ class CustomerPhoneNumberQuestion extends React.Component {
     this.props.phoneNumberNextButtonOnClick();
   }
 
+  componentDidMount(){
+     this.nameInput.focus(); 
+  }
+
   render(){
     return (
       <div>
         <span className="question">And what’s the best phone number to reach you?</span>
         <br/>        
-        <input type="text" className="" onChange={this.phoneNumberTextboxOnChange} placeholder="Phone number" />
+        <input type="text" className="" onChange={this.phoneNumberTextboxOnChange} placeholder="Phone number" ref={(input) => { this.nameInput = input; }}/>
         <br />
         <button className="" onClick={this.phoneNumberNextButtonOnClick}>Next</button>
         <br />

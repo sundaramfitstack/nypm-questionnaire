@@ -17,12 +17,16 @@ class CustomerNameQuestion extends React.Component {
     this.props.customerNameNextButtonOnClick();
   }
 
+  componentDidMount(){
+     this.nameInput.focus(); 
+  }
+
   render(){
     return (
       <div>
         <span className="question">Let’s get started. We’re Name Your Price Movers, what’s your name?</span>
         <br/>        
-        <input type="text" className="" onChange={this.customerNameTextboxOnChange} placeholder="Enter your first and last name" />
+        <input type="text" className="" onChange={this.customerNameTextboxOnChange} placeholder="Enter your first and last name" ref={(input) => { this.nameInput = input; }}/>
         <br />
         <button className="" onClick={this.customerNameNextButtonOnClick}>Next</button>
         <br />

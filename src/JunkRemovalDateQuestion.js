@@ -18,12 +18,16 @@ class JunkRemovalDateQuestion extends React.Component {
     this.props.junkRemovalDateNextButtonOnClick();
   }
 
+  componentDidMount(){
+     this.nameInput.focus(); 
+  }
+
   render(){
     return (
       <div>
         <span className="question">Junk removal it is! What is your preferred pickup date?</span>
         <br/>        
-        <input type="text" className="" onChange={this.junkRemovalDateTextOnChange} placeholder="MM/DD/YY" />
+        <input type="text" className="" onChange={this.junkRemovalDateTextOnChange} placeholder="MM/DD/YY" ref={(input) => { this.nameInput = input; }}/>
         <br />        
         <button className="" onClick={this.junkRemovalDateNextButtonOnClick}>Next</button>
         <br />

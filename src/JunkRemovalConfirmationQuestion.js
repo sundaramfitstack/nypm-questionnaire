@@ -2,11 +2,6 @@ import React from 'react';
 
 class JunkRemovalConfirmationQuestion extends React.Component {
 
-  constructor(props) {
-    
-    super(props);   
-  }
-
   render(){
     return (
       <div>

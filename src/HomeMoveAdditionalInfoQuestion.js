@@ -23,12 +23,16 @@ class HomeMoveAdditionalInfoQuestion extends React.Component {
     this.props.homeMoveAdditionalInfoSkipButtonOnClick();
   }
 
+  componentDidMount(){
+     this.nameInput.focus(); 
+  }
+
   render(){
     return (
       <div>
         <span className="question">Finally, is there anything else you’d like us to know about the move?</span>
         <br/>
-        <textarea className="" onChange={this.homeMoveAdditionalInfoTextareaOnChange}>Additional stops, special place to park, etc.</textarea>
+        <textarea className="" onChange={this.homeMoveAdditionalInfoTextareaOnChange} ref={(input) => { this.nameInput = input; }}>Additional stops, special place to park, etc.</textarea>
         <br />
         <button className="" onClick={this.homeMoveAdditionalInfoNextButtonOnClick}>Next</button> <button className="" onClick={this.homeMoveAdditionalInfoSkipButtonOnClick}>Skip</button>
         <br />

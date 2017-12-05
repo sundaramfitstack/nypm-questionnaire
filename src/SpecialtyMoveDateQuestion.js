@@ -19,12 +19,16 @@ class SpecialtyMoveDateQuestion extends React.Component {
     this.props.specialtyMoveDateNextButtonOnClick();
   }
 
+  componentDidMount(){
+     this.nameInput.focus(); 
+  }
+
   render(){
     return (
       <div>
         <span className="question">What is your preferred moving date?</span>
         <br/>        
-        <input type="text" className="" onChange={this.specialtyMoveDateOnChange} placeholder="MM/DD/YY" />
+        <input type="text" className="" onChange={this.specialtyMoveDateOnChange} placeholder="MM/DD/YY" ref={(input) => { this.nameInput = input; }}/>
         <br />
         <button className="" onClick={this.specialtyMoveDateNextButtonOnClick}>Next</button>
         <br />
