@@ -56,7 +56,8 @@ class Questionnaire extends React.Component {
       'customer_phone' : { 'next' : 'service_type' },
       'home_move_type' : { 'next' : 'home_move_date' },
       'home_move_date' : { 'next' : 'home_move_source_address' },
-      'home_move_source_address' : { 'next' : 'home_move_size' },
+      'home_move_source_address' : { 'next' : 'home_move_destination_address' },
+      'home_move_destination_address' : { 'next' : 'home_move_size' },
       'home_move_size' : { 'next' : 'home_move_budget' },
       'home_move_budget' : { 'next' : 'home_move_additional_info' },
       'home_move_additional_info' : { 'next' : 'home_move_review' },
@@ -488,6 +489,7 @@ class Questionnaire extends React.Component {
   ---------------------------------------*/
   homeServiceTypeButtonOnClick(){
     this.setState({
+      'service_type' : 'home service',
       'current_question': 'home_move_type',
     });
   }
@@ -495,6 +497,7 @@ class Questionnaire extends React.Component {
   businessServiceTypeButtonOnClick(){
 
     this.setState({
+      'service_type' : 'business service',
       'current_question' : 'business_move_type'
     });
   }
@@ -502,6 +505,7 @@ class Questionnaire extends React.Component {
   specialtyServiceTypeButtonOnClick(){
 
     this.setState({
+      'service_type' : 'specialty service',
       'current_question' : 'specialty_move_type'
     });
   }
@@ -509,6 +513,7 @@ class Questionnaire extends React.Component {
   junkRemovalServiceTypeButtonOnClick(){
 
     this.setState({
+      'service_type' : 'junk removal service',
       'current_question' : 'junk_removal_type'
     });
   }
@@ -1473,6 +1478,14 @@ class Questionnaire extends React.Component {
       return (
         <div>
           <HomeMoveReviewQuestion
+            service_type={this.state.service_type}
+            home_move_date={this.state.home_move_date}
+            home_move_additional_info={this.state.home_move_additional_info}
+            home_move_size={this.state.home_move_size}
+            home_move_type={this.state.home_move_type}
+            home_move_budget={this.state.home_move_budget}
+            home_move_source_address={this.state.home_move_source_address}
+            home_move_destination_address={this.state.home_move_destination_address}            
             homeMoveReviewTextOnChange={this.homeMoveReviewTextOnChange}
             homeMoveSubmitButtonOnClick={this.homeMoveSubmitButtonOnClick}
           />
