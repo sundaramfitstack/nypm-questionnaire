@@ -64,7 +64,8 @@ class Questionnaire extends React.Component {
       'home_move_review' : { 'next' : 'home_move_confirmation' },
       'business_move_type' : { 'next' : 'business_move_date' },
       'business_move_date' : { 'next' : 'business_move_source_address' },
-      'business_move_source_address' : { 'next' : 'business_move_size' },
+      'business_move_source_address' : { 'next' : 'business_move_destination_address' },
+      'business_move_destination_address' : { 'next' : 'business_move_size' },
       'business_move_size' : { 'next' : 'business_move_additional_info' },
       'business_move_additional_info' : { 'next' : 'business_move_review' },
       'business_move_review' : { 'next' : 'business_move_confirmation' },
@@ -1323,6 +1324,9 @@ class Questionnaire extends React.Component {
       return (
         <div>
           <BusinessMoveReviewQuestion
+            service_type={this.state.service_type}
+            business_move_size={this.state.business_move_size}
+            business_move_type={this.state.business_move_type}            
             business_move_date={this.state.business_move_date}
             business_move_source_address={this.state.business_move_source_address}
             business_move_destination_address={this.state.business_move_destination_address}
@@ -1562,6 +1566,9 @@ class Questionnaire extends React.Component {
       return (
         <div>
           <JunkRemovalReviewQuestion
+            service_type={this.state.service_type}          
+            junk_removal_additional_info={this.state.junk_removal_additional_info}            
+            junk_removal_type={this.state.junk_removal_type}
             junk_removal_date={this.state.junk_removal_date}
             junk_removal_source_address={this.state.junk_removal_source_address}          
             junkRemovalReviewTextOnChange={this.junkRemovalReviewTextOnChange}
@@ -1637,6 +1644,8 @@ class Questionnaire extends React.Component {
       return (
         <div>
           <SpecialtyMoveReviewQuestion
+            service_type={this.state.service_type}
+            specialty_move_type={this.state.specialty_move_type}
             specialty_move_destination_address={this.state.specialty_move_destination_address}          
             specialty_move_date={this.state.specialty_move_date}
             specialty_move_source_address={this.state.specialty_move_source_address}
