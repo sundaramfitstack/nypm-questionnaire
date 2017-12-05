@@ -22,7 +22,7 @@ class BusinessMoveSourceAddressQuestion extends React.Component {
       <div>
         <span className="question">Where will your business move start?</span>
         <br/>        
-        <input type="text" className="" onChange={this.businessMoveSourceAddressTextboxOnChange} placeholder=""Moving from" address" />
+        <input type="text" className="" onChange={this.businessMoveSourceAddressTextboxOnChange} placeholder="'Moving from' address" />
         <br />
         <button className="" onClick={this.businessMoveSourceAddressNextButtonOnClick}>Next</button>
         <br />

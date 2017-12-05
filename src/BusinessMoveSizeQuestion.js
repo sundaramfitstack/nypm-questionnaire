@@ -19,7 +19,7 @@ class BusinessMoveSizeQuestion extends React.Component {
   }
 
   businessMoveSize4000ButtonOnClick(){
-    this.props.businessMoveSize4000ButtonOnClick(value);
+    this.props.businessMoveSize4000ButtonOnClick();
   }
 
   render(){

@@ -24,9 +24,7 @@ class HomeMoveTypeQuestion extends React.Component {
       <div>
         <span className="question">Home move it is! What type of move would you like?</span>
         <br/>        
-        <button className="" onClick={this.regularHomeMoveTypeButtonOnClick}>Regular</button>
-        <br />
-        <button className="" onClick={this.fullServiceHomeMoveTypeButtonOnClick}>Full Service</button>
+        <button className="" onClick={this.regularHomeMoveTypeButtonOnClick}>Regular</button> <button className="" onClick={this.fullServiceHomeMoveTypeButtonOnClick}>Full Service</button>
         <br />
       </div>
     );

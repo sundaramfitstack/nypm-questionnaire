@@ -8,6 +8,7 @@ import BusinessMoveAdditionalInfoQuestion from './BusinessMoveAdditionalInfoQues
 import BusinessMoveSizeQuestion from './BusinessMoveSizeQuestion.js';
 import BusinessMoveSourceAddressQuestion from './BusinessMoveSourceAddressQuestion.js';
 import BusinessMoveTypeQuestion from './BusinessMoveTypeQuestion.js';
+import BusinessMoveConfirmationQuestion from './BusinessMoveConfirmationQuestion.js';
 
 import CustomerEmailQuestion from './CustomerEmailQuestion.js';
 import CustomerNameQuestion from './CustomerNameQuestion.js';
@@ -21,12 +22,14 @@ import HomeMoveReviewQuestion from './HomeMoveReviewQuestion.js';
 import HomeMoveSizeQuestion from './HomeMoveSizeQuestion.js';
 import HomeMoveSourceAddressQuestion from './HomeMoveSourceAddressQuestion.js';
 import HomeMoveTypeQuestion from './HomeMoveTypeQuestion.js';
+import HomeMoveConfirmationQuestion from './HomeMoveConfirmationQuestion.js';
 
 import JunkRemovalAddtionalInfoQuestion from './JunkRemovalAddtionalInfoQuestion.js';
 import JunkRemovalDateQuestion from './JunkRemovalDateQuestion.js';
 import JunkRemovalReviewQuestion from './JunkRemovalReviewQuestion.js';
 import JunkRemovalSourceAddressQuestion from './JunkRemovalSourceAddressQuestion.js';
-
+import JunkRemovalTypeQuestion from './JunkRemovalTypeQuestion.js';
+import JunkRemovalConfirmationQuestion from './JunkRemovalConfirmationQuestion.js';
 
 import SpecialtyMoveAdditionalInfoQuestion from './SpecialtyMoveAdditionalInfoQuestion.js';
 import SpecialtyMoveDateQuestion from './SpecialtyMoveDateQuestion.js';
@@ -34,11 +37,12 @@ import SpecialtyMoveDestinationAddressQuestion from './SpecialtyMoveDestinationA
 import SpecialtyMoveReviewQuestion from './SpecialtyMoveReviewQuestion.js';
 import SpecialtyMoveSourceAddressQuestion from './SpecialtyMoveSourceAddressQuestion.js';
 import SpecialtyMoveTypeQuestion from './SpecialtyMoveTypeQuestion.js';
+import SpecialtyMoveConfirmationQuestion from './SpecialtyMoveConfirmationQuestion.js';
 
 import FirstAndLastNameQuestion from './FirstAndLastNameQuestion.js';
 import EmailQuestion from './EmailQuestion.js';
 import ServiceTypeQuestion from './ServiceTypeQuestion.js';
-import HomeMoveTypeQuestion from './HomeMoveTypeQuestion.js';
+
 
 
 class Questionnaire extends React.Component {
@@ -46,8 +50,39 @@ class Questionnaire extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      'current_question' : 'name',
+    const question_lookup = {
+      'customer_name' : { 'next' : 'customer_email' },
+      'customer_email' : { 'next' : 'customer_phone' },
+      'customer_phone' : { 'next' : 'service_type' },
+      'home_move_type' : { 'next' : 'home_move_date' },
+      'home_move_date' : { 'next' : 'home_move_source_address' },
+      'home_move_source_address' : { 'next' : 'home_move_size' },
+      'home_move_size' : { 'next' : 'home_move_budget' },
+      'home_move_budget' : { 'next' : 'home_move_additional_info' },
+      'home_move_additional_info' : { 'next' : 'home_move_review' },
+      'home_move_review' : { 'next' : 'home_move_confirmation' },
+      'business_move_type' : { 'next' : 'business_move_date' },
+      'business_move_date' : { 'next' : 'business_move_source_address' },
+      'business_move_source_address' : { 'next' : 'business_move_size' },
+      'business_move_size' : { 'next' : 'business_move_additional_info' },
+      'business_move_additional_info' : { 'next' : 'business_move_review' },
+      'business_move_review' : { 'next' : 'business_move_confirmation' },
+      'specialty_move_type' : { 'next' : 'specialty_move_date' },
+      'specialty_move_date' : { 'next' : 'specialty_move_source_address' },
+      'specialty_move_source_address' : { 'next' : 'specialty_move_destination_address' },
+      'specialty_move_destination_address' : { 'next' : 'specialty_move_additional_info' },
+      'specialty_move_additional_info' : { 'next' : 'specialty_move_review' },
+      'specialty_move_review' : { 'next' : 'specialty_move_confirmation' },
+      'junk_removal_type' : { 'next' : 'junk_removal_date' },
+      'junk_removal_date' : { 'next' : 'junk_removal_source_address' },
+      'junk_removal_source_address' : { 'next' : 'junk_removal_additional_info' },
+      'junk_removal_additional_info' : { 'next' : 'junk_removal_review' },
+      'junk_removal_review' : { 'next' : 'junk_removal_confirmation' },
+
+    };
+
+    this.state = {  
+      'current_question' : 'customer_name',
       'customer_name' : '',
       'customer_email' : '',
       'customer_phone' : '',
@@ -70,24 +105,26 @@ class Questionnaire extends React.Component {
       'junk_removal_additional_info' : '',
       'junk_removal_date' : '',
       'junk_removal_source_address' : '',
+      'junk_removal_type' : '',
       'specialty_move_additional_info' : '',
       'specialty_move_date' : '',
       'specialty_move_destination_address' : '',
       'specialty_move_source_address' : '',
       'specialty_move_type' : '',
+      'question_lookup' : question_lookup
     };
  
     
-    this.nameTextOnChange = this.nameTextOnChange.bind(this);
-    this.nameNextButtonOnClick = this.nameNextButtonOnClick.bind(this);
+    // this.nameTextOnChange = this.nameTextOnChange.bind(this);
+    // this.nameNextButtonOnClick = this.nameNextButtonOnClick.bind(this);
         
 
-    this.emailTextOnChange = this.emailTextOnChange.bind(this);
-    this.emailNextButtonOnClick = this.emailNextButtonOnClick.bind(this);
+    // this.emailTextOnChange = this.emailTextOnChange.bind(this);
+    // this.emailNextButtonOnClick = this.emailNextButtonOnClick.bind(this);
     
 
-    this.homeMoveDateTextOnChange = this.homeMoveDateTextOnChange.bind(this);
-    this.homeMoveDateButtonOnClick = this.homeMoveDateNextButtonOnClick.bind(this);
+    // this.homeMoveDateTextOnChange = this.homeMoveDateTextOnChange.bind(this);
+    // this.homeMoveDateButtonOnClick = this.homeMoveDateNextButtonOnClick.bind(this);
 
 
 
@@ -107,7 +144,7 @@ class Questionnaire extends React.Component {
 
     ---------------------------------------*/
     this.businessMoveDateTextboxOnChange = this.businessMoveDateTextboxOnChange.bind(this);
-    this.homeMoveDateNextButtonOnClick = this.homeMoveDateNextButtonOnClick.bind(this);
+    this.businessMoveDateNextButtonOnClick = this.businessMoveDateNextButtonOnClick.bind(this);
 
     /*---------------------------------------
 
@@ -297,6 +334,14 @@ class Questionnaire extends React.Component {
 
     /*---------------------------------------
 
+     JunkRemovalTypeQuestion support methods
+
+    ---------------------------------------*/
+    this.regularJunkRemovalTypeButtonOnClick = this.regularJunkRemovalTypeButtonOnClick.bind(this);
+    this.fullServiceJunkRemovalTypeButtonOnClick = this.fullServiceJunkRemovalTypeButtonOnClick.bind(this);
+
+    /*---------------------------------------
+
      SpecialtyMoveAdditionalInfoQuestion support methods
 
     ---------------------------------------*/
@@ -350,70 +395,90 @@ class Questionnaire extends React.Component {
   }
 
 
-  homeMoveDateNextButtonOnClick(){
+
+  setNextQuestion(next_question){
+
+    if (next_question === undefined){
+      next_question = this.getNextQuestion();
+    }
+
     this.setState({
-      current_question : 'home_move_from_address'
+      'current_question' : next_question
     });
   }
 
-  businessMoveAdditionalInfoTextareaOnChange(text){
-   /* Need to add some validation at some point */
-    this.setState({
-      'business_move_additional_info': text,
-    });
+  getNextQuestion(){
+
+    const current_question = this.state.current_question;
+    
+    const next_question = this.state.question_lookup[current_question]['next'];
+
+    if (next_question === undefined){
+      throw new Error("next_question is not defined for current_question '" + current_question + "'");
+    }
+
+    return next_question;
   }
 
-  businessMoveAdditionalInfoNextButtonOnClick(){
-    this.setState({
-      'current_question' : ''
-    });
-  }
 
-  businessMoveAdditionalInfoSkipButtonOnClick(){
-    this.setState({
-      'current_question' : ''
-    });
-  }
+  // businessMoveAdditionalInfoTextareaOnChange(text){
+  //  /* Need to add some validation at some point */
+  //   this.setState({
+  //     'business_move_additional_info': text,
+  //   });
+  // }
 
-  handleNameTextChange(nameText) {
-    /* Need to add some validation at some point */
-    this.setState({
-      customer_name: nameText,
-    });
-  }
+  // businessMoveAdditionalInfoNextButtonOnClick(){
+
+  //   this.setNextQuestion();
+  // }
+
+  // businessMoveAdditionalInfoSkipButtonOnClick(){
+
+  //   this.setNextQuestion();
+  // }
+
+  // handleNameTextChange(nameText) {
+  //   /* Need to add some validation at some point */
+  //   this.setState({
+  //     customer_name: nameText,
+  //   });
+  // }
   
-  handleNameNextButtonOnClick(){
-    /* Need to add some validation at some point */
-    this.setState({
-      current_question : 'email',
-    });
-  }
+  // handleNameNextButtonOnClick(){
+    
+  //   const next_question = getNextQuestion();
+
+  //   this.setState({
+  //     current_question : next_question
+  //   });
+  // }
 
 
 
-  handleEmailTextChange(emailText) {
-    /* Need to add some validation at some point */
-    this.setState({
-      customer_email: emailText,
-    });
-    console.log(emailText);
-  }
+  // handleEmailTextChange(emailText) {
+
+  //   this.setState({
+  //     customer_email: emailText,
+  //   });
+
+  // }
 
  
-  handleEmailNextButtonOnClick(){
-    /* Need to add some validation at some point */
-    this.setState({
-      current_question : 'service_type'
-    });
-  }
+  // handleEmailNextButtonOnClick(){
+  //   /* Need to add some validation at some point */
+  //   this.setState({
+  //     current_question : 'service_type'
+  //   });
+  // }
 
 
-  homeMoveDateTextOnChange(text) {
-    /* Need to add some validation at some point */
-    this.setState({
-      'home_move_date': text,
-    });
-  }
+  // homeMoveDateTextOnChange(text) {
+  //    Need to add some validation at some point 
+  //   this.setState({
+  //     'home_move_date': text,
+  //   });
+  // }
 
 
   /*---------------------------------------
@@ -423,25 +488,28 @@ class Questionnaire extends React.Component {
   ---------------------------------------*/
   homeServiceTypeButtonOnClick(){
     this.setState({
-      'current_question': '',
+      'current_question': 'home_move_type',
     });
   }
 
   businessServiceTypeButtonOnClick(){
+
     this.setState({
-      'current_question': '',
+      'current_question' : 'business_move_type'
     });
   }
 
   specialtyServiceTypeButtonOnClick(){
+
     this.setState({
-      'current_question': '',
+      'current_question' : 'specialty_move_type'
     });
   }
 
   junkRemovalServiceTypeButtonOnClick(){
+
     this.setState({
-      'current_question': '',
+      'current_question' : 'junk_removal_type'
     });
   }
 
@@ -461,13 +529,11 @@ class Questionnaire extends React.Component {
     this.setState({
       'business_move_date': text,
     });
-
   }
   
-  businessMoveDateNextButtonOnClick(text){
-    this.setState({
-      '': ,
-    });
+  businessMoveDateNextButtonOnClick(){
+
+    this.setNextQuestion();
   }
 
 
@@ -476,7 +542,7 @@ class Questionnaire extends React.Component {
    BusinessMoveDestinationQuestion support methods
 
   ---------------------------------------*/
-  businessMoveSourceAddressTextboxOnChange(text){
+  businessMoveDestinationAddressTextboxOnChange(text){
     /* Implement validation logic here */
     if (text === undefined){
       throw new Error("text was not defined");
@@ -488,12 +554,9 @@ class Questionnaire extends React.Component {
   }
 
   businessMoveDestinationAddressNextButtonOnClick(){
-    this.setState({
-      'current_question': '',
-    });
+
+    this.setNextQuestion();
   }
-
-
 
 
   /*---------------------------------------
@@ -508,15 +571,13 @@ class Questionnaire extends React.Component {
     }
     /* Adjust state as needed here */
     this.setState({
-      '': ,
+      'business_move_review' : text,
     });
   }
 
   businessMoveSubmitButtonOnClick(){
-    /* Adjust state as needed here */
-    this.setState({
-      '': ,
-    });
+    
+    this.setNextQuestion();
   }
 
 
@@ -530,18 +591,20 @@ class Questionnaire extends React.Component {
     if (text === undefined){
       throw new Error("text was not defined");
     }
+
+    this.setState({
+      'business_move_additional_info' : text,
+    });
   }
 
   businessMoveAdditionalInfoNextButtonOnClick(){
-    this.setState({
-        'current_question': ,
-    });
+
+    this.setNextQuestion();
   }
 
   businessMoveAdditionalInfoSkipButtonOnClick(){
-    this.setState({
-      'current_question': ,
-    });
+
+    this.setNextQuestion();
   }
 
 
@@ -551,21 +614,30 @@ class Questionnaire extends React.Component {
 
   ---------------------------------------*/
   businessMoveSize2000ButtonOnClick(){
+
     this.setState({
-      'current_question': ,
+      'business_move_size' : '2000 sqft'
     });
+
+    this.setNextQuestion();
   }
 
   businessMoveSize3000ButtonOnClick(){
+
     this.setState({
-      'current_question': ,
+      'business_move_size' : '2000 - 4000 sqft'
     });
+
+    this.setNextQuestion();
   }
 
   businessMoveSize4000ButtonOnClick(){
+
     this.setState({
-      'current_question': ,
+      'business_move_size' : '4000+ sqft'      
     });
+
+    this.setNextQuestion();
   }
 
 
@@ -581,15 +653,13 @@ class Questionnaire extends React.Component {
     }
 
     this.setState({
-      '': ,
+      'business_move_source_address' : text,
     });
-
   }
 
   businessMoveSourceAddressNextButtonOnClick(){
-    this.setState({
-      'current_question': ,
-    });
+
+    this.setNextQuestion();
   }
 
 
@@ -599,17 +669,22 @@ class Questionnaire extends React.Component {
 
   ---------------------------------------*/
   regularBusinessTypeButtonOnClick(){
+
     this.setState({
-      'business_move_type': 'regular',
-      'current_question' : ''
+      'business_move_type' : 'regular'      
     });
+
+    this.setNextQuestion();
   }
 
-  fullServiceBusinessTypeButtonOnClick(text){
-      this.setState({
-      'business_move_type': 'full service',
-      'current_question' : ''
+  fullServiceBusinessTypeButtonOnClick(){
+
+     
+    this.setState({
+      'business_move_type' : 'full service'
     });
+
+    this.setNextQuestion();
   }
 
   /*---------------------------------------
@@ -622,12 +697,15 @@ class Questionnaire extends React.Component {
     if (text === undefined){
       throw new Error("text was not defined");
     }
+
+    this.setState({
+      'customer_email' : text
+    });
   }
 
   customerEmailNextButtonOnClick(){
-    this.setState({
-      'current_question': ,
-    });
+
+    this.setNextQuestion();
   }
 
 
@@ -648,9 +726,8 @@ class Questionnaire extends React.Component {
   }
 
   customerNameNextButtonOnClick(){
-    this.setState({
-      'current_question': '',
-    });
+
+    this.setNextQuestion();
   }
 
 
@@ -671,12 +748,9 @@ class Questionnaire extends React.Component {
   }
 
   phoneNumberNextButtonOnClick(){
-    this.setState({
-      'current_question': '',
-    });
 
+    this.setNextQuestion();
   }
-
 
 
   /*---------------------------------------
@@ -696,17 +770,14 @@ class Questionnaire extends React.Component {
   }
 
   homeMoveAdditionalInfoNextButtonOnClick(){
-    this.setState({
-      'current_question': ,
-    });
+
+    this.setNextQuestion();
   }
 
   homeMoveAdditionalInfoSkipButtonOnClick(){
-    this.setState({
-      'current_question': ,
-    });
-  }
 
+    this.setNextQuestion();
+  }
 
 
   /*---------------------------------------
@@ -723,20 +794,18 @@ class Questionnaire extends React.Component {
   
     /* Adjust state as needed here */
     this.setState({
-      'home_move_budget': text,
+      'home_move_budget' : text,
     });
   }
 
   homeMoveBudgetNextButtonOnClick(){
-    this.setState({
-      'current_question': '',
-    });
+    
+    this.setNextQuestion();
   }
 
   homeMoveBudgetSkipButtonOnClick(){
-    this.setState({
-      'current_question': '',
-    });
+
+    this.setNextQuestion();
   }
 
   /*---------------------------------------
@@ -752,14 +821,13 @@ class Questionnaire extends React.Component {
     
     /* Adjust state as needed here */
     this.setState({
-      'home_move_date': text,
+      'home_move_date' : text,
     });
   }
 
   homeMoveDateNextButtonOnClick(){
-    this.setState({
-      'current_question': ,
-    });
+
+    this.setNextQuestion();
   }
 
 
@@ -784,9 +852,8 @@ class Questionnaire extends React.Component {
   }
 
   homeMoveDestinationAddressNextButtonOnClick(){
-    this.setState({
-      'current_question': ,
-    });
+    
+    this.setNextQuestion();
   }
 
 
@@ -809,9 +876,8 @@ class Questionnaire extends React.Component {
   }
 
   homeMoveSubmitButtonOnClick(){
-    this.setState({
-      'current_question': '',
-    });
+
+    this.setNextQuestion();
   }
 
 
@@ -822,31 +888,39 @@ class Questionnaire extends React.Component {
   ---------------------------------------*/
 
   oneBedroomButtonOnClick(){
+    
     this.setState({
       'home_move_size': '1 BR',
-      'current_question' : ''
     });
+
+    this.setNextQuestion();
   }
 
   twoBedroomButtonOnClick(){
+    
     this.setState({
       'home_move_size': '2 BR',
-      'current_question' : ''
     });
+
+    this.setNextQuestion();
   }
 
   threeBedroomButtonOnClick(){
+    
     this.setState({
       'home_move_size': '3 BR',
-      'current_question' : ''
     });
+
+    this.setNextQuestion();
   }
 
   fourBedroomButtonOnClick(){
+    
     this.setState({
       'home_move_size': '4+ BR',
-      'current_question' : ''
     });
+
+    this.setNextQuestion();
   }
 
 
@@ -868,34 +942,32 @@ class Questionnaire extends React.Component {
   }
 
   homeMoveSourceAddressNextButtonOnClick(){
-    this.setState({
-      'current_question': '',
-    });
+
+    this.setNextQuestion();
   }
 
 
   /*---------------------------------------
 
-   HomeMoveSourceAddressQuestion support methods
+   HomeMoveTypeQuestion support methods
 
   ---------------------------------------*/
-  regularHomeMoveTypeButtonOnClick(text){
-    
-    /* Implement validation logic here */
-    if (text === undefined){
-      throw new Error("text was not defined");
-    }
+  regularHomeMoveTypeButtonOnClick(){
 
-    /* Adjust state as needed here */
     this.setState({
-      'home_move_type': text,
+      'home_move_type': 'regular',
     });
+
+    this.setNextQuestion();
   }
 
   fullServiceHomeMoveTypeButtonOnClick(){
+
     this.setState({
-      'current_question': '',
+      'home_move_type': 'full service',
     });
+
+    this.setNextQuestion();
   }
 
 
@@ -916,9 +988,8 @@ class Questionnaire extends React.Component {
   }
 
   junkRemovalAdditionalInfoNextButtonOnClick(){
-    this.setState({
-      'current_question': '',
-    });
+
+    this.setNextQuestion();
   }
 
 
@@ -939,9 +1010,8 @@ class Questionnaire extends React.Component {
   }
 
   junkRemovalDateNextButtonOnClick(){
-    this.setState({
-      'current_question': '',
-    });
+
+    this.setNextQuestion();
   }
 
   /*---------------------------------------
@@ -960,12 +1030,10 @@ class Questionnaire extends React.Component {
     });
   }
 
-  specialtyMoveSubmitButtonOnClick(){
-    this.setState({
-      'current_question': '',
-    });
-  }
+  junkRemovalSubmitButtonOnClick(){
 
+    this.setNextQuestion();
+  }
 
 
   /*---------------------------------------
@@ -986,10 +1054,34 @@ class Questionnaire extends React.Component {
   }
 
   junkRemovalSourceAddressNextButtonOnClick(){
-    this.setState({
-      'current_question': '',
-    });
+
+    this.setNextQuestion();
   }
+
+
+  /*---------------------------------------
+
+   JunkRemovalTypeQuestion support methods
+
+  ---------------------------------------*/
+  regularJunkRemovalTypeButtonOnClick(){
+
+    this.setState({
+      'junk_removal_type': 'regular',
+    });
+
+    this.setNextQuestion();
+  }
+
+  fullServiceJunkRemovalTypeButtonOnClick(){
+
+    this.setState({
+      'junk_removal_type': 'full service',
+    });
+
+    this.setNextQuestion();
+  }
+
 
 
   /*---------------------------------------
@@ -1011,9 +1103,8 @@ class Questionnaire extends React.Component {
   }
 
   specialtyMoveAdditionalInfoButtonOnClick(){
-    this.setState({
-      'current_question': '',
-    });
+
+   this.setNextQuestion();
   }
 
   /*---------------------------------------
@@ -1034,9 +1125,8 @@ class Questionnaire extends React.Component {
   }
 
   specialtyMoveDateNextButtonOnClick(){
-    this.setState({
-      'current_question': '',
-    });
+    
+    this.setNextQuestion();
   }
 
 
@@ -1056,10 +1146,9 @@ class Questionnaire extends React.Component {
     });
   }
 
-  specialtyMoveSourceAddressButtonOnClick(){
-    this.setState({
-      'current_question': '',
-    });
+  specialtyMoveDestinationAddressButtonOnClick(){
+    
+    this.setNextQuestion();
   }
 
 
@@ -1080,9 +1169,8 @@ class Questionnaire extends React.Component {
   }
 
   specialtyMoveSubmitButtonOnClick(){
-    this.setState({
-      'current_question': '',
-    });
+
+    this.setNextQuestion();
   }
 
 
@@ -1103,9 +1191,8 @@ class Questionnaire extends React.Component {
   }
 
   specialtyMoveSourceAddressButtonOnClick(){
-    this.setState({
-      'current_question': '',
-    });
+    
+    this.setNextQuestion();
   }
 
 
@@ -1117,17 +1204,19 @@ class Questionnaire extends React.Component {
   regularSpecialtyMoveButtonOnClick(){
 
     this.setState({
-      'specialty_move_type': 'regular',
-      'current_question' : ''
+      'specialty_move_type': 'regular'
     });
+
+    this.setNextQuestion();
   }
 
   fullServiceSpecialtyMoveButtonOnClick(){
 
     this.setState({
-      'specialty_move_type': 'full service',
-      'current_question' : ''
+      'specialty_move_type': 'full service',      
     });
+
+    this.setNextQuestion();
   }
 
 
@@ -1140,7 +1229,10 @@ class Questionnaire extends React.Component {
   ----------------------------------------*/
 
   render() {
-    if (this.state.current_question === 'customer_name'){
+    const cq = this.state.current_question;
+    console.log(cq);
+
+    if (this.state.current_question === 'customer_name_original'){
       return (
         <div>
           <FirstAndLastNameQuestion
@@ -1151,7 +1243,7 @@ class Questionnaire extends React.Component {
         </div>
       );
     }
-    else if (this.state.current_question === 'customer_email'){
+    else if (this.state.current_question === 'customer_email_original'){
       return (
         <div>
           <EmailQuestion
@@ -1178,16 +1270,16 @@ class Questionnaire extends React.Component {
         </div>
       );
     }
-    else if (this.state.current_question === 'home_service_type'){
-      return (
-      <div>
-          <HomeServiceTypeQuestion
-            homeMoveRegularButtonOnClick={this.homeMoveRegularButtonOnClick}
-            homeMoveFullServiceButtonOnClick={this.homeMoveFullServiceButtonOnClick}
-          />
-      </div>
-      );
-    }
+    // else if (this.state.current_question === 'home_service_type'){
+    //   return (
+    //   <div>
+    //       <HomeMoveTypeQuestion
+    //         homeMoveRegularButtonOnClick={this.homeMoveRegularButtonOnClick}
+    //         homeMoveFullServiceButtonOnClick={this.homeMoveFullServiceButtonOnClick}
+    //       />
+    //   </div>
+    //   );
+    // }
     // else if (){
     //   return (
     //     <div>
@@ -1280,6 +1372,15 @@ class Questionnaire extends React.Component {
         </div>
       );
     }
+    else if (this.state.current_question === 'business_move_confirmation'){
+      return (
+        <div>
+          <BusinessMoveConfirmationQuestion
+          />
+        </div>
+      );
+    }
+
     else if (this.state.current_question === 'customer_email'){
       return (
         <div>
@@ -1326,6 +1427,14 @@ class Questionnaire extends React.Component {
         </div>
       );
     }
+    else if (this.state.current_question === 'home_move_confirmation'){
+      return (
+        <div>
+          <HomeMoveConfirmationQuestion
+          />
+        </div>
+      );
+    }
     else if (this.state.current_question === 'home_move_budget'){
       return (
         <div>
@@ -1338,7 +1447,7 @@ class Questionnaire extends React.Component {
         </div>
       ); 
     }
-    else if (this.state.current_question == 'home_move_date'){
+    else if (this.state.current_question === 'home_move_date'){
       return (
         <div>
           <HomeMoveDateQuestion          
@@ -1349,7 +1458,7 @@ class Questionnaire extends React.Component {
         </div>
       );
     }
-    else if (this.state.current_question == 'home_move_destination_address'){
+    else if (this.state.current_question === 'home_move_destination_address'){
       return (
         <div>
           <HomeMoveDestinationQuestion    
@@ -1360,7 +1469,7 @@ class Questionnaire extends React.Component {
         </div>
       );
     }
-    else if (this.state.current_question == 'home_move_review'){
+    else if (this.state.current_question === 'home_move_review'){
       return (
         <div>
           <HomeMoveReviewQuestion
@@ -1370,7 +1479,7 @@ class Questionnaire extends React.Component {
         </div>
       );
     }
-    else if (this.state.current_question == 'home_move_size'){
+    else if (this.state.current_question === 'home_move_size'){
       return (
         <div>
           <HomeMoveSizeQuestion          
@@ -1384,7 +1493,7 @@ class Questionnaire extends React.Component {
         </div>
       );
     }
-    else if (this.state.current_question == 'home_move_source_address'){
+    else if (this.state.current_question === 'home_move_source_address'){
       return (
         <div>
           <HomeMoveSourceAddressQuestion    
@@ -1395,7 +1504,7 @@ class Questionnaire extends React.Component {
         </div>
       );
     }
-    else if (this.state.current_question == 'home_move_type'){
+    else if (this.state.current_question === 'home_move_type'){
       return (
         <div>
           <HomeMoveTypeQuestion          
@@ -1406,7 +1515,7 @@ class Questionnaire extends React.Component {
         </div>
       );
     }
-    else if (this.state.current_question == 'junk_removal_additional_info'){
+    else if (this.state.current_question === 'junk_removal_additional_info'){
       return (
         <div>
           <JunkRemovalAddtionalInfoQuestion          
@@ -1417,7 +1526,15 @@ class Questionnaire extends React.Component {
         </div>
       );
     }
-    else if (this.state.current_question == 'junk_removal_date'){
+    else if (this.state.current_question === 'junk_removal_confirmation'){
+      return (
+        <div>
+          <JunkRemovalConfirmationQuestion
+          />
+        </div>
+      );
+    }
+    else if (this.state.current_question === 'junk_removal_date'){
       return (
         <div>
           <JunkRemovalDateQuestion          
@@ -1428,7 +1545,7 @@ class Questionnaire extends React.Component {
         </div>
       );
     }
-    else if (this.state.current_question == 'junk_removal_review'){
+    else if (this.state.current_question === 'junk_removal_review'){
       return (
         <div>
           <JunkRemovalReviewQuestion
@@ -1440,7 +1557,7 @@ class Questionnaire extends React.Component {
         </div>
       );
     }
-    else if (this.state.current_question == 'junk_removal_source_address'){
+    else if (this.state.current_question === 'junk_removal_source_address'){
       return (
         <div>
           <JunkRemovalSourceAddressQuestion          
@@ -1451,7 +1568,18 @@ class Questionnaire extends React.Component {
         </div>
       );
     }
-    else if (this.state.current_question == 'specialty_move_additional_info'){
+    else if (this.state.current_question === 'junk_removal_type'){
+      return (
+        <div>
+          <JunkRemovalTypeQuestion          
+            junk_removal_type={this.state.junk_removal_type}          
+            regularJunkRemovalTypeButtonOnClick={this.regularJunkRemovalTypeButtonOnClick}
+            fullServiceJunkRemovalTypeButtonOnClick={this.fullServiceJunkRemovalTypeButtonOnClick}
+          />
+        </div>
+      );
+    }
+    else if (this.state.current_question === 'specialty_move_additional_info'){
       return (
         <div>
           <SpecialtyMoveAdditionalInfoQuestion          
@@ -1462,7 +1590,15 @@ class Questionnaire extends React.Component {
         </div>
       );
     }
-    else if (this.state.current_question == 'specialty_move_date'){
+    else if (this.state.current_question === 'specialty_move_confirmation'){
+      return (
+        <div>
+          <SpecialtyMoveConfirmationQuestion
+          />
+        </div>
+      );
+    }
+    else if (this.state.current_question === 'specialty_move_date'){
       return (
         <div>
           <SpecialtyMoveDateQuestion          
@@ -1473,7 +1609,7 @@ class Questionnaire extends React.Component {
         </div>
       );
     }
-    else if (this.state.current_question == 'specialty_move_destination_address'){
+    else if (this.state.current_question === 'specialty_move_destination_address'){
       return (
         <div>
           <SpecialtyMoveDestinationAddressQuestion          
@@ -1484,7 +1620,7 @@ class Questionnaire extends React.Component {
         </div>
       );
     }
-    else if (this.state.current_question == 'specialty_move_review'){
+    else if (this.state.current_question === 'specialty_move_review'){
       return (
         <div>
           <SpecialtyMoveReviewQuestion
@@ -1498,7 +1634,7 @@ class Questionnaire extends React.Component {
         </div>
       );
     }
-    else if (this.state.current_question == 'specialty_move_source_address'){
+    else if (this.state.current_question === 'specialty_move_source_address'){
       return (
         <div>
           <SpecialtyMoveSourceAddressQuestion          
@@ -1509,7 +1645,7 @@ class Questionnaire extends React.Component {
         </div>
       );
     }
-    else if (this.state.current_question == 'specialty_move_type'){
+    else if (this.state.current_question === 'specialty_move_type'){
       return (
         <div>
           <SpecialtyMoveTypeQuestion
@@ -1518,6 +1654,11 @@ class Questionnaire extends React.Component {
           />
         </div>
       );
+    }
+    else {
+      return (
+        <div>Something is wrong</div>
+      );   
     }
   }
 }

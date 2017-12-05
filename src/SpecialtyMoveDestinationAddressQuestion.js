@@ -24,7 +24,7 @@ class SpecialtyMoveDestinationAddressQuestion extends React.Component {
       <div>
         <span className="question">Where would you like us to move your specialty item(s)?</span>
         <br/>        
-        <input type="text" className="" onChange={this.specialtyMoveDestinationAddressOnChange} placeholder=""Moving to" address" />
+        <input type="text" className="" onChange={this.specialtyMoveDestinationAddressOnChange} placeholder="'Moving to' address" />
         <br />        
         <button className="" onClick={this.specialtyMoveSourceAddressButtonOnClick}>Next</button>
         <br />

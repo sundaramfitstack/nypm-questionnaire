@@ -15,12 +15,12 @@ class HomeMoveAdditionalInfoQuestion extends React.Component {
     this.props.homeMoveAdditionalInfoTextareaOnChange(event.target.value);
   }
 
-  homeMoveAdditionalInfoNextButtonOnClick(event){
-    this.props.homeMoveAdditionalInfoNextButtonOnClick(event.target.value);
+  homeMoveAdditionalInfoNextButtonOnClick(){
+    this.props.homeMoveAdditionalInfoNextButtonOnClick();
   }
 
-  homeMoveAdditionalInfoSkipButtonOnClick(event){
-    this.props.homeMoveAdditionalInfoSkipButtonOnClick(event.target.value);
+  homeMoveAdditionalInfoSkipButtonOnClick(){
+    this.props.homeMoveAdditionalInfoSkipButtonOnClick();
   }
 
   render(){
@@ -28,7 +28,7 @@ class HomeMoveAdditionalInfoQuestion extends React.Component {
       <div>
         <span className="question">Finally, is there anything else you’d like us to know about the move?</span>
         <br/>
-        <textarea className="" onChange={this.homeMoveAdditionalInfoTextareaOnChange}>Budget</textarea>
+        <textarea className="" onChange={this.homeMoveAdditionalInfoTextareaOnChange}>Additional stops, special place to park, etc.</textarea>
         <br />
         <button className="" onClick={this.homeMoveAdditionalInfoNextButtonOnClick}>Next</button> <button className="" onClick={this.homeMoveAdditionalInfoSkipButtonOnClick}>Skip</button>
         <br />

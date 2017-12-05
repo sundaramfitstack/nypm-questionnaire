@@ -23,7 +23,7 @@ class SpecialtyMoveSourceAddressQuestion extends React.Component {
       <div>
         <span className="question">Where will your specialty move start?</span>
         <br/>        
-        <input type="text" className="" onChange={this.specialtyMoveSourceAddressOnChange} placeholder=""Moving from" address" />
+        <input type="text" className="" onChange={this.specialtyMoveSourceAddressOnChange} placeholder="'Moving from' address" />
         <br />        
         <button className="" onClick={this.specialtyMoveSourceAddressButtonOnClick}>Next</button>
         <br />

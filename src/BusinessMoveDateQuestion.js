@@ -4,26 +4,26 @@ class BusinessMoveDateQuestion extends React.Component {
 
   constructor(props) {    
     super(props);    
-    this.businessMovingDateTextboxOnChange = this.businessMovingDateTextboxOnChange.bind(this);
-    this.businessMovingDateNextButtonOnClick = this.businessMovingDateButtonOnClick.bind(this);
+    this.businessMoveDateTextboxOnChange = this.businessMoveDateTextboxOnChange.bind(this);
+    this.businessMoveDateNextButtonOnClick = this.businessMoveDateNextButtonOnClick.bind(this);
   }
   
-  businessMovingDateTextboxOnChange(event){
-    this.props.businessMovingDateTextboxOnChange(event.target.value);
+  businessMoveDateTextboxOnChange(event){
+    this.props.businessMoveDateTextboxOnChange(event.target.value);
   }
 
-  businessMovingDateNextButtonOnClick(){
-    this.props.businessMovingDateNextButtonOnClick();
+  businessMoveDateNextButtonOnClick(){
+    this.props.businessMoveDateNextButtonOnClick();
   }
 
   render(){
     return (
       <div>
-        <span className="question">What is your preferred moving date?</span>
+        <span className="question">What is your preferred move date?</span>
         <br/>        
-        <input type="text" className="" onChange={this.businessMovingDateTextboxOnChange} placeholder="MM/DD/YY" />
+        <input type="text" className="" onChange={this.businessMoveDateTextboxOnChange} placeholder="MM/DD/YY" />
         <br />        
-        <button className="" onClick={this.businessMovingDateNextButtonOnClick}>Next</button>
+        <button className="" onClick={this.businessMoveDateNextButtonOnClick}>Next</button>
         <br />
       </div>
     );
