@@ -12,6 +12,17 @@ body {
     /*font-size: calc(28px + 30 * ((100vw - 520px)/ 920));    */
 }
 
+input {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid black;
+}
+
+textarea {
+  width: 500px;
+  height: 200px;
+}
 /*
 ol, ul {
   padding-left: 30px;
