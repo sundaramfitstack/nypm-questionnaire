@@ -582,8 +582,26 @@ class Questionnaire extends React.Component {
   }
 
   businessMoveSubmitButtonOnClick(){
-    
+
+    this.sendBusinessMoveNotificationEmail();
+
     this.setNextQuestion();
+  }
+
+
+  sendBusinessMoveNotificationEmail(){
+
+    const info = {
+      'service_type' : this.state.service_type,
+      'business_move_size' : this.state.business_move_size,
+      'business_move_type' : this.state.business_move_type,            
+      'business_move_date' : this.state.business_move_date,
+      'business_move_source_address' : this.state.business_move_source_address,
+      'business_move_destination_address' : this.state.business_move_destination_address,
+      'business_move_additional_info' : this.state.business_move_additional_info
+    };
+
+    console.log("Here is the business move info to be emailed to the owner: " + info);
   }
 
 
@@ -883,9 +901,26 @@ class Questionnaire extends React.Component {
 
   homeMoveSubmitButtonOnClick(){
 
+    this.sendHomeMoveNotificationEmail();
+
     this.setNextQuestion();
   }
 
+  sendHomeMoveNotificationEmail(){
+
+    const info = {
+      'service_type' : this.state.service_type,
+      'home_move_date' : this.state.home_move_date,
+      'home_move_additional_info' : this.state.home_move_additional_info,
+      'home_move_size' : this.state.home_move_size,
+      'home_move_type' : this.state.home_move_type,
+      'home_move_budget' : this.state.home_move_budget,
+      'home_move_source_address' : this.state.home_move_source_address,
+      'home_move_destination_address' : this.state.home_move_destination_address             
+    };
+
+    console.log("Here is the home move info to be emailed to the owner: " + info);
+  }
 
   /*---------------------------------------
 
@@ -1038,7 +1073,23 @@ class Questionnaire extends React.Component {
 
   junkRemovalSubmitButtonOnClick(){
 
+    this.sendJunkRemovalNotificationEmail();
+
     this.setNextQuestion();
+  }
+
+
+  sendJunkRemovalNotificationEmail(){
+
+    const info = {
+      'service_type' : this.state.service_type,
+      'junk_removal_additional_info' : this.state.junk_removal_additional_info,
+      'junk_removal_type' : this.state.junk_removal_type,
+      'junk_removal_date' : this.state.junk_removal_date,
+      'junk_removal_source_address' : this.state.junk_removal_source_address
+    };
+
+     console.log("Here is the junk removal info to be emailed to the owner: " + info); 
   }
 
 
@@ -1176,7 +1227,23 @@ class Questionnaire extends React.Component {
 
   specialtyMoveSubmitButtonOnClick(){
 
+    this.sendSpecialtyMoveNotificationEmail();
+
     this.setNextQuestion();
+  }
+
+  sendSpecialtyMoveNotificationEmail(){
+
+    const info = {
+      'service_type' : this.state.service_type,
+      'specialty_move_type' : this.state.specialty_move_type,
+      'specialty_move_destination_address' : this.state.specialty_move_destination_address,
+      'specialty_move_date' : this.state.specialty_move_date,
+      'specialty_move_source_address' : this.state.specialty_move_source_address,
+      'specialty_move_additional_info' : this.state.specialty_move_additional_info
+    };
+
+      console.log("Here is the specialty move info to be emailed to the owner: " + info);
   }
 
 
@@ -1572,7 +1639,7 @@ class Questionnaire extends React.Component {
             junk_removal_date={this.state.junk_removal_date}
             junk_removal_source_address={this.state.junk_removal_source_address}          
             junkRemovalReviewTextOnChange={this.junkRemovalReviewTextOnChange}
-            specialtyMoveSubmitButtonOnClick={this.specialtyMoveSubmitButtonOnClick}
+            junkRemovalSubmitButtonOnClick={this.junkRemovalSubmitButtonOnClick}
           />
         </div>
       );
