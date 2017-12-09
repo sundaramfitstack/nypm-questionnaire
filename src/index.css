@@ -1,8 +1,18 @@
 body {
   font: 14px "Century Gothic", Futura, sans-serif;
   margin: 20px;
+  background: #ffd654;
 }
 
+.question {
+    line-height: 1.2;
+    /* font-family: pier_sansbold; */
+    font-weight: 900;
+    letter-spacing: .03em;
+    /*font-size: calc(28px + 30 * ((100vw - 520px)/ 920));    */
+}
+
+/*
 ol, ul {
   padding-left: 30px;
 }
@@ -48,3 +58,4 @@ ol, ul {
 .game-info {
   margin-left: 20px;
 }
+*/
