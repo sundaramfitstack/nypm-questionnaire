@@ -1,12 +1,28 @@
 import React from 'react';
 
+const home_move_guide_url = 'http://www.cnn.com';
+
 class HomeMoveConfirmationQuestion extends React.Component {
+
+ constructor(props) {
+    
+    super(props);
+    
+    this.viewTheGuideButtonOnClick = this.viewTheGuideButtonOnClick.bind(this);    
+  }
+  
+  viewTheGuideButtonOnClick(){
+    window.open(home_move_guide_url, "_blank");
+  }
 
   render(){
     return (
       <div>
-        <span className="question">Thank you. We appreciate the opportunity to help with your home move. We'll be in touch soon.</span>
+        <span className="question">Thanks! We've received you request and will email your quote in &lt; 24 hours.</span>
+        <br/>
+        <span className="smallprint">To help you prepare for your move, we've put together <a href="#" onClick={this.viewTheGuideButtonOnClick}>The Ultimate Home Moving Guide: Moving Tips & Tricks To Make Your Life Easier.</a> If you find the guide useful, please share it!</span>
         <br/>        
+        <button onClick={this.viewTheGuideButtonOnClick}>View The Guide</button>
       </div>
     );
   }
