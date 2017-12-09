@@ -20,7 +20,11 @@ class HomeMoveConfirmationQuestion extends React.Component {
       <div>
         <span className="question">Thanks! We've received you request and will email your quote in &lt; 24 hours.</span>
         <br/>
-        <span className="smallprint">To help you prepare for your move, we've put together <a href="#" onClick={this.viewTheGuideButtonOnClick}>The Ultimate Home Moving Guide: Moving Tips & Tricks To Make Your Life Easier.</a> If you find the guide useful, please share it!</span>
+        <br/>
+        <span className="smallprint">To help you prepare for your move, we've put together <a href="#" onClick={this.viewTheGuideButtonOnClick}>The Ultimate Home Moving Guide: Moving Tips & Tricks To Make Your Life Easier.</a></span>
+        <br/>
+        <span className="smallprint">If you find the guide useful, please share it!</span>
+        <br/>
         <br/>        
         <button onClick={this.viewTheGuideButtonOnClick}>View The Guide</button>
       </div>

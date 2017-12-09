@@ -4,6 +4,10 @@ body {
   background: #ffd654;
 }
 
+button {
+ background: #ffd654;
+}
+
 .question {
     line-height: 1.2;
     /* font-family: pier_sansbold; */
@@ -22,6 +26,10 @@ input {
 textarea {
   width: 500px;
   height: 200px;
+}
+
+.smallprint {
+  font-size: smaller;
 }
 /*
 ol, ul {
