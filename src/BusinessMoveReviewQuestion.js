@@ -45,6 +45,7 @@ class BusinessMoveReviewQuestion extends React.Component {
         <br/>
         <span className="question">Let’s quickly review the information for your business move free quote:</span>
         <br/>        
+        <br/>
         <table className="table table-condensed">
           <tbody>
             <tr>

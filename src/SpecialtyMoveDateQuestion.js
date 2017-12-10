@@ -51,9 +51,11 @@ class SpecialtyMoveDateQuestion extends React.Component {
         <br/>
         <br/>
         <span className="question">What is your preferred moving date?</span>
+        <br/>
         <br/>        
         <input type="text" className="" onChange={this.specialtyMoveDateOnChange} placeholder="MM/DD/YY" ref={(input) => { this.nameInput = input; }}/>
-        <br />
+        <br/>
+        <br/>
         <button className="" onClick={this.specialtyMoveDateNextButtonOnClick}>Next</button>
         <br />
       </div>

@@ -50,9 +50,11 @@ class HomeMoveSourceAddressQuestion extends React.Component {
         <br/>
         <br/>
         <span className="question">Where would you like us to pick up your things?</span>
+        <br/>
         <br/>        
         <input type="text" className="" onChange={this.homeMoveSourceAddressTextboxOnChange} placeholder="'Move from' address" ref={(input) => { this.nameInput = input; }}/>
-        <br />
+        <br/>
+        <br/>
         <button className="" onClick={this.homeMoveSourceAddressNextButtonOnClick}>Next</button>
         <br />
       </div>

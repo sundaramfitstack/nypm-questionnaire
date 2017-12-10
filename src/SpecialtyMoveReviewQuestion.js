@@ -47,6 +47,7 @@ class SpecialtyMoveReviewQuestion extends React.Component {
         <br/>
         <span className="question">Let’s quickly review the information for your specialty move free quote:</span>
         <br/>        
+        <br/>
         <table className="table table-condensed">
           <tbody>
             <tr>

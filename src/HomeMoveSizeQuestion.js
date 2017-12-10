@@ -57,6 +57,7 @@ class HomeMoveSizeQuestion extends React.Component {
         <br/>
         <span className="question">And what’s the size of your home at {this.props.home_move_source_address}?</span>
         <br/>
+        <br/>
         <button className="" onClick={this.oneBedroomButtonOnClick}>Studio - 1BR</button> <button className="" onClick={this.twoBedroomButtonOnClick}>2BR</button> <button className="" onClick={this.threeBedroomButtonOnClick}>3BR</button> <button className="" onClick={this.fourBedroomButtonOnClick}>4BR+</button>
       </div>
     );

@@ -49,9 +49,11 @@ class CustomerPhoneNumberQuestion extends React.Component {
         <br/>
         <br/>
         <span className="question">And what’s the best phone number to reach you?</span>
+        <br/>
         <br/>        
         <input type="text" className="" onChange={this.phoneNumberTextboxOnChange} placeholder="Phone number" ref={(input) => { this.nameInput = input; }}/>
-        <br />
+        <br/>
+        <br/>
         <button className="" onClick={this.phoneNumberNextButtonOnClick}>Next</button>
         <br />
       </div>

@@ -51,11 +51,13 @@ class SpecialtyMoveAdditionalInfoQuestion extends React.Component {
         <br/>
         <br/>
         <span className="question">Finally, is there anything else you’d like us to know about the move?</span>
+        <br/>
         <br/>        
         <textarea className="" onChange={this.specialtyMoveAdditionalInfoOnChange} ref={(input) => { this.nameInput = input; }}>Additional stops, special place to park, etc.</textarea>
-        <br />        
+        <br/>        
+        <br/>
         <button className="" onClick={this.specialtyMoveAdditionalInfoButtonOnClick}>Next</button>
-        <br />
+        <br/>
       </div>
     );
   }

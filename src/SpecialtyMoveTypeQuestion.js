@@ -47,8 +47,9 @@ class SpecialtyMoveTypeQuestion extends React.Component {
         <br/>
         <span className="question">Specialty moving it is! What type of move would you like?</span>
         <br/>
+        <br/>
         <button className="" onClick={this.regularSpecialtyMoveButtonOnClick}>Regular</button> <button className="" onClick={this.fullServiceSpecialtyMoveButtonOnClick}>Full Service</button>
-        <br />
+        <br/>
       </div>
     );
   }

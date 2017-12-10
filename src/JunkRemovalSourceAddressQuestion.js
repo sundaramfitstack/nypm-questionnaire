@@ -50,11 +50,13 @@ class JunkRemovalSourceAddressQuestion extends React.Component {
         <br/>
         <br/>
         <span className="question">Where would you like us to make the pickup?</span>
+        <br/>
         <br/>        
         <input type="text" className="" onChange={this.junkRemovalSourceAddressTextOnChange} placeholder="'Pickup' address" ref={(input) => { this.nameInput = input; }}/>
-        <br />
+        <br/>
+        <br/>
         <button className="" onClick={this.junkRemovalSourceAddressNextButtonOnClick}>Next</button>
-        <br />
+        <br/>
       </div>
     );
   }

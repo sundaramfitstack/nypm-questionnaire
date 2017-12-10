@@ -50,11 +50,13 @@ class BusinessMoveSourceAddressQuestion extends React.Component {
         <br/>
         <br/>
         <span className="question">Where will your business move start?</span>
+        <br/>
         <br/>        
         <input type="text" className="" onChange={this.businessMoveSourceAddressTextboxOnChange} placeholder="'Moving from' address" ref={(input) => { this.nameInput = input; }}/>
-        <br />
+        <br/>
+        <br/>
         <button className="" onClick={this.businessMoveSourceAddressNextButtonOnClick}>Next</button>
-        <br />
+        <br/>
       </div>
     );
   }

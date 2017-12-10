@@ -42,6 +42,7 @@ class SpecialtyMoveConfirmationQuestion extends React.Component {
         <br/>
         <span className="smallprint">To help you prepare for your move, we've put together <a onClick={this.viewTheGuideButtonOnClick}>The Ultimate Specialty Moving Guide: Moving Tips & Tricks To Make Your Life Easier.</a></span>
         <br/>
+        <br/>
         <span className="smallprint">If you find the guide useful, please share it!</span>
         <br/>
         <br/>        

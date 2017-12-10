@@ -49,9 +49,11 @@ class BusinessMoveDestinationAddressQuestion extends React.Component {
         <br/>
         <br/>
         <span className="question">Where is your new office located?</span>
+        <br/>
         <br/>        
         <input type="text" className="" onChange={this.businessMoveDestinationAddressTextboxOnChange} placeholder="'Moving to' address" ref={(input) => { this.nameInput = input; }}/>
-        <br />
+        <br/>
+        <br/>
         <button className="" onClick={this.businessMoveDestinationAddressNextButtonOnClick}>Next</button>
         <br />
       </div>

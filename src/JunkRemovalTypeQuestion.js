@@ -47,9 +47,10 @@ class JunkRemovalTypeQuestion extends React.Component {
         <br/>
         <br/>
         <span className="question">Home move it is! What type of move would you like?</span>
-        <br/>        
+        <br/> 
+        <br/>       
         <button className="" onClick={this.regularJunkRemovalTypeButtonOnClick}>Regular</button> <button className="" onClick={this.fullServiceJunkRemovalTypeButtonOnClick}>Full Service</button>
-        <br />
+        <br/>
       </div>
     );
   }

@@ -47,6 +47,7 @@ class BusinessMoveTypeQuestion extends React.Component {
         <br/>
         <span className="question">Business moving it is! What type of move would you like?</span>
         <br/>
+        <br/>
         <button className="" onClick={this.regularBusinessTypeButtonOnClick}>Regular</button> <button className="" onClick={this.fullServiceBusinessTypeButtonOnClick}>Full Service</button>
         <br />
       </div>

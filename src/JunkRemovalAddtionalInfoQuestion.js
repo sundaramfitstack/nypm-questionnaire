@@ -52,10 +52,12 @@ class JunkRemovalAddtionalInfoQuestion extends React.Component {
         <br/>
         <span className="question">Finally, is there anything else you’d like us to know about the junk removal pickup?</span>
         <br/>
+        <br/>
         <textarea className="" onChange={this.junkRemovalAdditionalInfoTextOnChange} ref={(input) => { this.nameInput = input; }}>Additional stops, special place to park, etc.</textarea>
-        <br />
+        <br/>
+        <br/>
         <button className="" onClick={this.junkRemovalAdditionalInfoNextButtonOnClick}>Next</button>
-        <br />
+        <br/>
       </div>
     );
   }

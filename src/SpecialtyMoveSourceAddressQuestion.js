@@ -50,11 +50,13 @@ class SpecialtyMoveSourceAddressQuestion extends React.Component {
         <br/>
         <br/>
         <span className="question">Where will your specialty move start?</span>
+        <br/>
         <br/>        
         <input type="text" className="" onChange={this.specialtyMoveSourceAddressOnChange} placeholder="'Moving from' address" ref={(input) => { this.nameInput = input; }}/>
-        <br />        
+        <br/>        
+        <br/>
         <button className="" onClick={this.specialtyMoveSourceAddressButtonOnClick}>Next</button>
-        <br />
+        <br/>
       </div>
     );
   }

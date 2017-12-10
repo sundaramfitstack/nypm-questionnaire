@@ -50,11 +50,13 @@ class JunkRemovalDateQuestion extends React.Component {
         <br/>
         <br/>
         <span className="question">Junk removal it is! What is your preferred pickup date?</span>
+        <br/>
         <br/>        
         <input type="text" className="" onChange={this.junkRemovalDateTextOnChange} placeholder="MM/DD/YY" ref={(input) => { this.nameInput = input; }}/>
-        <br />        
+        <br/>        
+        <br/>
         <button className="" onClick={this.junkRemovalDateNextButtonOnClick}>Next</button>
-        <br />
+        <br/>
       </div>
     );
   }

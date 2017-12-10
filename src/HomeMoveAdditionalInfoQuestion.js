@@ -58,8 +58,10 @@ class HomeMoveAdditionalInfoQuestion extends React.Component {
         <br/>
         <span className="question">Finally, is there anything else you’d like us to know about the move?</span>
         <br/>
+        <br/>
         <textarea className="" onChange={this.homeMoveAdditionalInfoTextareaOnChange} ref={(input) => { this.nameInput = input; }}>Additional stops, special place to park, etc.</textarea>
-        <br />
+        <br/>
+        <br/>
         <button className="" onClick={this.homeMoveAdditionalInfoNextButtonOnClick}>Next</button> <button className="" onClick={this.homeMoveAdditionalInfoSkipButtonOnClick}>Skip</button>
         <br />
       </div>

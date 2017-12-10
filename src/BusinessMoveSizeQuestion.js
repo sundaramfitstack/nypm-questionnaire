@@ -51,8 +51,10 @@ class BusinessMoveSizeQuestion extends React.Component {
         <br/>
         <span className="question">And what’s the size of the office at [business_move_source_address]?</span>
         <br/>
+        <br/>
         <button className="" onClick={this.businessMoveSize2000ButtonOnClick}>&lt; 2,000 sqft</button> <button className="" onClick={this.businessMoveSize3000ButtonOnClick}>2,000 - 4,000 sqft</button>  <button className="" onClick={this.businessMoveSize4000ButtonOnClick}> &gt; 4,000 sqft</button>
-        <br />
+        <br/>
+        <br/>
       </div>
     );
   }
