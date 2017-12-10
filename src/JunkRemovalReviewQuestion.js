@@ -7,15 +7,15 @@ class JunkRemovalReviewQuestion extends React.Component {
     super(props);
 
     this.junkRemovalReviewTextOnChange = this.junkRemovalReviewTextOnChange.bind(this);
-    this.specialtyMoveSubmitButtonOnClick = this.specialtyMoveSubmitButtonOnClick.bind(this);
+    this.junkRemovalSubmitButtonOnClick = this.junkRemovalSubmitButtonOnClick.bind(this);
   }
     
   junkRemovalReviewTextOnChange(event){
     this.props.junkRemovalReviewTextOnChange(event.target.value);
   }
 
-  specialtyMoveSubmitButtonOnClick(){
-    this.props.specialtyMoveSubmitButtonOnClick();
+  junkRemovalSubmitButtonOnClick(){
+    this.props.junkRemovalSubmitButtonOnClick();
   }
 
   render(){
@@ -42,7 +42,7 @@ class JunkRemovalReviewQuestion extends React.Component {
             </tr>
           </tbody>
         </table>
-        <button className="" onClick={this.specialtyMoveSubmitButtonOnClick}>Submit</button>
+        <button className="" onClick={this.junkRemovalSubmitButtonOnClick}>Submit</button>
         <br />
       </div>
     );
