@@ -54,6 +54,7 @@ class Questionnaire extends React.Component {
       'customer_name' : { 'next' : 'customer_email' },
       'customer_email' : { 'next' : 'customer_phone', 'prev' : 'customer_name' },
       'customer_phone' : { 'next' : 'service_type', 'prev' : 'customer_email' },
+      'service_type' : { 'prev' : 'customer_phone' },
       'home_move_type' : { 'next' : 'home_move_date', 'prev' : 'service_type' },
       'home_move_date' : { 'next' : 'home_move_source_address', 'prev' : 'home_move_type' },
       'home_move_source_address' : { 'next' : 'home_move_destination_address', 'prev' : 'home_move_date' },
