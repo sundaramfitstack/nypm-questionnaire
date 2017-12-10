@@ -5,6 +5,8 @@ class BusinessMoveReviewQuestion extends React.Component {
     super(props);    
     this.businessMoveReviewTextOnChanage = this.businessMoveReviewTextOnChange.bind(this);
     this.businessMoveSubmitButtonOnClick = this.businessMoveSubmitButtonOnClick.bind(this);
+    this.closeButtonOnClick = this.closeButtonOnClick.bind(this);
+    this.backButtonOnClick = this.backButtonOnClick.bind(this);
   }
 
   
@@ -16,9 +18,31 @@ class BusinessMoveReviewQuestion extends React.Component {
     this.props.businessMoveSubmitButtonOnClick();
   }
 
+  closeButtonOnClick(){
+    this.props.closeButtonOnClick();
+  }
+
+  backButtonOnClick(){
+    this.props.backButtonOnClick();
+  }
+
   render(){
     return (
       <div>
+        <div className="nav-container">
+          <div className="back-button">
+            <span className="" onClick={this.backButtonOnClick}>
+              <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            </span>
+          </div>
+          <div className="close-button">
+            <span className="" onClick={this.closeButtonOnClick}>
+              <i class="fa fa-times" aria-hidden="true"></i>
+            </span>
+          </div>
+        </div>
+        <br/>
+        <br/>
         <span className="question">Let’s quickly review the information for your business move free quote:</span>
         <br/>        
         <table className="table table-condensed">

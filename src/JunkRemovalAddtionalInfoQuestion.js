@@ -8,6 +8,9 @@ class JunkRemovalAddtionalInfoQuestion extends React.Component {
     
     this.junkRemovalAdditionalInfoTextOnChange = this.junkRemovalAdditionalInfoTextOnChange.bind(this);
     this.junkRemovalAdditionalInfoNextButtonOnClick = this.junkRemovalAdditionalInfoNextButtonOnClick.bind(this);
+    this.closeButtonOnClick = this.closeButtonOnClick.bind(this);
+    this.backButtonOnClick = this.backButtonOnClick.bind(this);
+
   } 
   
   junkRemovalAdditionalInfoTextOnChange(event){
@@ -22,9 +25,31 @@ class JunkRemovalAddtionalInfoQuestion extends React.Component {
      this.nameInput.focus(); 
   }
 
+  closeButtonOnClick(){
+    this.props.closeButtonOnClick();
+  }
+
+  backButtonOnClick(){
+    this.props.backButtonOnClick();
+  }
+
   render(){
     return (
       <div>
+        <div className="nav-container">
+          <div className="back-button">
+            <span className="" onClick={this.backButtonOnClick}>
+              <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            </span>
+          </div>
+          <div className="close-button">
+            <span className="" onClick={this.closeButtonOnClick}>
+              <i class="fa fa-times" aria-hidden="true"></i>
+            </span>
+          </div>
+        </div>
+        <br/>
+        <br/>
         <span className="question">Finally, is there anything else you’d like us to know about the junk removal pickup?</span>
         <br/>
         <textarea className="" onChange={this.junkRemovalAdditionalInfoTextOnChange} ref={(input) => { this.nameInput = input; }}>Additional stops, special place to park, etc.</textarea>

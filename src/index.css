@@ -4,6 +4,20 @@ body {
   background: #ffd654;
 }
 
+.nav-container {
+
+  display: table;
+  width : 100%;
+}
+
+.nav-container > .back-button {
+  display: table-cell;
+}
+
+.nav-container > .close-button {
+  text-align: right;
+}
+
 button {
  background: #ffd654;
 }
@@ -21,6 +35,7 @@ input {
   outline: 0;
   background: transparent;
   border-bottom: 1px solid black;
+  width: 350px;
 }
 
 textarea {

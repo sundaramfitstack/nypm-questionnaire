@@ -8,6 +8,9 @@ class HomeMoveReviewQuestion extends React.Component {
     
     this.homeMoveReviewTextOnChange = this.homeMoveReviewTextOnChange.bind(this);
     this.homeMoveSubmitButtonOnClick = this.homeMoveSubmitButtonOnClick.bind(this);
+    this.closeButtonOnClick = this.closeButtonOnClick.bind(this);
+    this.backButtonOnClick = this.backButtonOnClick.bind(this);
+
   }
   
   homeMoveReviewTextOnChange(event){
@@ -18,9 +21,31 @@ class HomeMoveReviewQuestion extends React.Component {
     this.props.homeMoveSubmitButtonOnClick();
   }
 
+  closeButtonOnClick(){
+    this.props.closeButtonOnClick();
+  }
+
+  backButtonOnClick(){
+    this.props.backButtonOnClick();
+  }
+
   render(){
     return (
       <div>
+        <div className="nav-container">
+          <div className="back-button">
+            <span className="" onClick={this.backButtonOnClick}>
+              <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            </span>
+          </div>
+          <div className="close-button">
+            <span className="" onClick={this.closeButtonOnClick}>
+              <i class="fa fa-times" aria-hidden="true"></i>
+            </span>
+          </div>
+        </div>
+        <br/>
+        <br/>
         <span className="question">Let’s quickly review the information for your free quote:</span>
         <br/>        
         <table className="table table-condensed">

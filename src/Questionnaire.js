@@ -39,11 +39,11 @@ import SpecialtyMoveSourceAddressQuestion from './SpecialtyMoveSourceAddressQues
 import SpecialtyMoveTypeQuestion from './SpecialtyMoveTypeQuestion.js';
 import SpecialtyMoveConfirmationQuestion from './SpecialtyMoveConfirmationQuestion.js';
 
-import FirstAndLastNameQuestion from './FirstAndLastNameQuestion.js';
-import EmailQuestion from './EmailQuestion.js';
+// import FirstAndLastNameQuestion from './FirstAndLastNameQuestion.js';
+// import EmailQuestion from './EmailQuestion.js';
 import ServiceTypeQuestion from './ServiceTypeQuestion.js';
 
-
+const main_url = 'https://www.nypmovers.com/';
 
 class Questionnaire extends React.Component {
 
@@ -52,35 +52,34 @@ class Questionnaire extends React.Component {
 
     const question_lookup = {
       'customer_name' : { 'next' : 'customer_email' },
-      'customer_email' : { 'next' : 'customer_phone' },
-      'customer_phone' : { 'next' : 'service_type' },
-      'home_move_type' : { 'next' : 'home_move_date' },
-      'home_move_date' : { 'next' : 'home_move_source_address' },
-      'home_move_source_address' : { 'next' : 'home_move_destination_address' },
-      'home_move_destination_address' : { 'next' : 'home_move_size' },
-      'home_move_size' : { 'next' : 'home_move_budget' },
-      'home_move_budget' : { 'next' : 'home_move_additional_info' },
-      'home_move_additional_info' : { 'next' : 'home_move_review' },
-      'home_move_review' : { 'next' : 'home_move_confirmation' },
-      'business_move_type' : { 'next' : 'business_move_date' },
-      'business_move_date' : { 'next' : 'business_move_source_address' },
-      'business_move_source_address' : { 'next' : 'business_move_destination_address' },
-      'business_move_destination_address' : { 'next' : 'business_move_size' },
-      'business_move_size' : { 'next' : 'business_move_additional_info' },
-      'business_move_additional_info' : { 'next' : 'business_move_review' },
-      'business_move_review' : { 'next' : 'business_move_confirmation' },
-      'specialty_move_type' : { 'next' : 'specialty_move_date' },
-      'specialty_move_date' : { 'next' : 'specialty_move_source_address' },
-      'specialty_move_source_address' : { 'next' : 'specialty_move_destination_address' },
-      'specialty_move_destination_address' : { 'next' : 'specialty_move_additional_info' },
-      'specialty_move_additional_info' : { 'next' : 'specialty_move_review' },
-      'specialty_move_review' : { 'next' : 'specialty_move_confirmation' },
-      'junk_removal_type' : { 'next' : 'junk_removal_date' },
-      'junk_removal_date' : { 'next' : 'junk_removal_source_address' },
-      'junk_removal_source_address' : { 'next' : 'junk_removal_additional_info' },
-      'junk_removal_additional_info' : { 'next' : 'junk_removal_review' },
-      'junk_removal_review' : { 'next' : 'junk_removal_confirmation' },
-
+      'customer_email' : { 'next' : 'customer_phone', 'prev' : 'customer_name' },
+      'customer_phone' : { 'next' : 'service_type', 'prev' : 'customer_email' },
+      'home_move_type' : { 'next' : 'home_move_date', 'prev' : 'service_type' },
+      'home_move_date' : { 'next' : 'home_move_source_address', 'prev' : 'home_move_type' },
+      'home_move_source_address' : { 'next' : 'home_move_destination_address', 'prev' : 'home_move_date' },
+      'home_move_destination_address' : { 'next' : 'home_move_size', 'prev' : 'home_move_source_address' },
+      'home_move_size' : { 'next' : 'home_move_budget', 'prev' : 'home_move_destination_address' },
+      'home_move_budget' : { 'next' : 'home_move_additional_info', 'prev' : 'home_move_size' },
+      'home_move_additional_info' : { 'next' : 'home_move_review', 'prev' : 'home_move_budget' },
+      'home_move_review' : { 'next' : 'home_move_confirmation', 'prev' : 'home_move_additional_info' },
+      'business_move_type' : { 'next' : 'business_move_date', 'prev' : 'service_type' },
+      'business_move_date' : { 'next' : 'business_move_source_address', 'prev' : 'business_move_type' },
+      'business_move_source_address' : { 'next' : 'business_move_destination_address', 'prev' : 'business_move_date' },
+      'business_move_destination_address' : { 'next' : 'business_move_size', 'prev' :'business_move_source_address' },
+      'business_move_size' : { 'next' : 'business_move_additional_info', 'prev' : 'business_move_destination_address' },
+      'business_move_additional_info' : { 'next' : 'business_move_review', 'prev' : 'business_move_size' },
+      'business_move_review' : { 'next' : 'business_move_confirmation', 'prev' : 'business_move_additional_info' },
+      'specialty_move_type' : { 'next' : 'specialty_move_date', 'prev' : 'service_type' },
+      'specialty_move_date' : { 'next' : 'specialty_move_source_address', 'prev': 'specialty_move_type' },
+      'specialty_move_source_address' : { 'next' : 'specialty_move_destination_address', 'prev' : 'specialty_move_date' },
+      'specialty_move_destination_address' : { 'next' : 'specialty_move_additional_info', 'prev' : 'specialty_move_source_address' },
+      'specialty_move_additional_info' : { 'next' : 'specialty_move_review', 'prev' : 'specialty_move_destination_address' },
+      'specialty_move_review' : { 'next' : 'specialty_move_confirmation', 'prev': 'specialty_move_additional_info' },
+      'junk_removal_type' : { 'next' : 'junk_removal_date', 'prev' : 'service_type' },
+      'junk_removal_date' : { 'next' : 'junk_removal_source_address', 'prev' : 'junk_removal_type' },
+      'junk_removal_source_address' : { 'next' : 'junk_removal_additional_info', 'prev': 'junk_removal_date' },
+      'junk_removal_additional_info' : { 'next' : 'junk_removal_review', 'prev' : 'junk_removal_source_address' },
+      'junk_removal_review' : { 'next' : 'junk_removal_confirmation', 'prev' : 'junk_removal_additional_info' }
     };
 
     this.state = {  
@@ -129,6 +128,8 @@ class Questionnaire extends React.Component {
     // this.homeMoveDateButtonOnClick = this.homeMoveDateNextButtonOnClick.bind(this);
 
 
+    this.closeButtonOnClick = this.closeButtonOnClick.bind(this);
+    this.previousButtonOnClick = this.previousButtonOnClick.bind(this);
 
     /*---------------------------------------
 
@@ -422,6 +423,29 @@ class Questionnaire extends React.Component {
     return next_question;
   }
 
+  setPreviousQuestion(previous_question){
+
+    if (previous_question === undefined){
+      previous_question = this.getPreviousQuestion();
+    }
+
+    this.setState({
+      'current_question' : previous_question
+    });
+  }
+
+  getPreviousQuestion(){
+
+    const current_question = this.state.current_question;
+    
+    const previous_question = this.state.question_lookup[current_question]['prev'];
+
+    if (previous_question === undefined){
+      throw new Error("previous_question is not defined for current_question '" + current_question + "'");
+    }
+
+    return previous_question;
+  }
 
   // businessMoveAdditionalInfoTextareaOnChange(text){
   //  /* Need to add some validation at some point */
@@ -483,6 +507,18 @@ class Questionnaire extends React.Component {
   // }
 
 
+  previousButtonOnClick(){
+
+    this.setPreviousQuestion();
+  }
+
+  closeButtonOnClick(){
+
+    console.log("Going to redirect to '" + main_url  + "'");
+
+    window.open(main_url);
+  }
+
   /*---------------------------------------
 
    ServiceTypeQuestion support methods
@@ -542,7 +578,6 @@ class Questionnaire extends React.Component {
     this.setNextQuestion();
   }
 
-
   /*---------------------------------------
 
    BusinessMoveDestinationQuestion support methods
@@ -563,7 +598,6 @@ class Questionnaire extends React.Component {
 
     this.setNextQuestion();
   }
-
 
   /*---------------------------------------
 
@@ -1305,30 +1339,30 @@ class Questionnaire extends React.Component {
     const cq = this.state.current_question;
     console.log(cq);
 
-    if (this.state.current_question === 'customer_name_original'){
-      return (
-        <div>
-          <FirstAndLastNameQuestion
-            // customer_name={this.state.customer_name}
-            nameTextOnChange={this.handleNameTextChange}
-            nameNextButtonOnClick={this.nameNextButtonOnClick}
-          />
-        </div>
-      );
-    }
-    else if (this.state.current_question === 'customer_email_original'){
-      return (
-        <div>
-          <EmailQuestion
-            // customer_email={this.state.customer_email}
-            customer_name={this.state.customer_name}
-            emailTextOnChange={this.handleEmailTextChange}
-            emailNextButtonOnClick={this.emailNextButtonOnClick}
-          />
-        </div>
-      );
-    }
-    else if (this.state.current_question === 'service_type'){
+    // if (this.state.current_question === 'customer_name_original'){
+    //   return (
+    //     <div>
+    //       <FirstAndLastNameQuestion
+    //         // customer_name={this.state.customer_name}
+    //         nameTextOnChange={this.handleNameTextChange}
+    //         nameNextButtonOnClick={this.nameNextButtonOnClick}
+    //       />
+    //     </div>
+    //   );
+    // }
+    // else if (this.state.current_question === 'customer_email_original'){
+    //   return (
+    //     <div>
+    //       <EmailQuestion
+    //         // customer_email={this.state.customer_email}
+    //         customer_name={this.state.customer_name}
+    //         emailTextOnChange={this.handleEmailTextChange}
+    //         emailNextButtonOnClick={this.emailNextButtonOnClick}
+    //       />
+    //     </div>
+    //   );
+    // }
+    if (this.state.current_question === 'service_type'){
       return (
         <div>
           <ServiceTypeQuestion          
@@ -1339,6 +1373,8 @@ class Questionnaire extends React.Component {
             businessServiceTypeButtonOnClick={this.businessServiceTypeButtonOnClick}
             specialtyServiceTypeButtonOnClick={this.specialtyServiceTypeButtonOnClick}
             junkRemovalServiceTypeButtonOnClick={this.junkRemovalServiceTypeButtonOnClick}
+            backButtonOnClick={this.previousButtonOnClick}
+            closeButtonOnClick={this.closeButtonOnClick}
           />
         </div>
       );
@@ -1372,6 +1408,8 @@ class Questionnaire extends React.Component {
             business_move_date={this.state.business_move_date}          
             businessMoveDateTextboxOnChange={this.businessMoveDateTextboxOnChange}
             businessMoveDateNextButtonOnClick={this.businessMoveDateNextButtonOnClick}
+            backButtonOnClick={this.previousButtonOnClick}
+            closeButtonOnClick={this.closeButtonOnClick}
           />
         </div>
       );
@@ -1383,6 +1421,8 @@ class Questionnaire extends React.Component {
             business_destination_address={this.state.business_move_destination_address}          
             businessMoveDestinationAddressTextboxOnChange={this.businessMoveDestinationAddressTextboxOnChange}
             businessMoveDestinationAddressNextButtonOnClick={this.businessMoveDestinationAddressNextButtonOnClick}
+            backButtonOnClick={this.previousButtonOnClick}
+            closeButtonOnClick={this.closeButtonOnClick}
           />
         </div>
       );
@@ -1400,6 +1440,8 @@ class Questionnaire extends React.Component {
             business_move_additional_info={this.state.business_move_additional_info}
             businessMoveReviewTextOnChanage={this.businessMoveReviewTextOnChanage}
             businessMoveSubmitButtonOnClick={this.businessMoveSubmitButtonOnClick}
+            backButtonOnClick={this.previousButtonOnClick}
+            closeButtonOnClick={this.closeButtonOnClick}
           />
         </div>
       );
@@ -1412,6 +1454,8 @@ class Questionnaire extends React.Component {
             businessMoveAdditionalInfoTextareaOnChange={this.businessMoveAdditionalInfoTextareaOnChange}
             businessMoveAdditionalInfoNextButtonOnClick={this.businessMoveAdditionalInfoNextButtonOnClick}
             businessMoveAdditionalInfoSkipButtonOnClick={this.businessMoveAdditionalInfoSkipButtonOnClick}
+            backButtonOnClick={this.previousButtonOnClick}
+            closeButtonOnClick={this.closeButtonOnClick}
           />
         </div>
       );
@@ -1423,6 +1467,8 @@ class Questionnaire extends React.Component {
             businessMoveSize2000ButtonOnClick={this.businessMoveSize2000ButtonOnClick}
             businessMoveSize3000ButtonOnClick={this.businessMoveSize3000ButtonOnClick}
             businessMoveSize4000ButtonOnClick={this.businessMoveSize4000ButtonOnClick}
+            backButtonOnClick={this.previousButtonOnClick}
+            closeButtonOnClick={this.closeButtonOnClick}
           />
         </div>
       );
@@ -1434,6 +1480,8 @@ class Questionnaire extends React.Component {
             business_move_source_address={this.state.business_move_source_address}          
             businessMoveSourceAddressTextboxOnChange={this.businessMoveSourceAddressTextboxOnChange}
             businessMoveSourceAddressNextButtonOnClick={this.businessMoveSourceAddressNextButtonOnClick}
+            backButtonOnClick={this.previousButtonOnClick}
+            closeButtonOnClick={this.closeButtonOnClick}
           />
         </div>
       );
@@ -1444,6 +1492,8 @@ class Questionnaire extends React.Component {
           <BusinessMoveTypeQuestion
             regularBusinessTypeButtonOnClick={this.regularBusinessTypeButtonOnClick}
             fullServiceBusinessTypeButtonOnClick={this.fullServiceBusinessTypeButtonOnClick}
+            backButtonOnClick={this.previousButtonOnClick}
+            closeButtonOnClick={this.closeButtonOnClick}
           />
         </div>
       );
@@ -1451,7 +1501,8 @@ class Questionnaire extends React.Component {
     else if (this.state.current_question === 'business_move_confirmation'){
       return (
         <div>
-          <BusinessMoveConfirmationQuestion
+          <BusinessMoveConfirmationQuestion            
+            closeButtonOnClick={this.closeButtonOnClick}
           />
         </div>
       );
@@ -1465,6 +1516,8 @@ class Questionnaire extends React.Component {
             customer_name={this.state.customer_name}          
             emailTextboxOnChange={this.emailTextboxOnChange}
             customerEmailNextButtonOnClick={this.customerEmailNextButtonOnClick}
+            backButtonOnClick={this.previousButtonOnClick}
+            closeButtonOnClick={this.closeButtonOnClick}
           />
         </div>
       );
@@ -1476,6 +1529,8 @@ class Questionnaire extends React.Component {
             customer_name={this.state.customer_name}          
             customerNameTextboxOnChange={this.customerNameTextboxOnChange}
             customerNameNextButtonOnClick={this.customerNameNextButtonOnClick}
+            backButtonOnClick={this.previousButtonOnClick}
+            closeButtonOnClick={this.closeButtonOnClick}
           />
         </div>
       );
@@ -1487,6 +1542,8 @@ class Questionnaire extends React.Component {
             customer_phone={this.state.customer_phone}          
             phoneNumberTextboxOnChange={this.phoneNumberTextboxOnChange}
             phoneNumberNextButtonOnClick={this.phoneNumberNextButtonOnClick}
+            backButtonOnClick={this.previousButtonOnClick}
+            closeButtonOnClick={this.closeButtonOnClick}
           />
         </div>
       );
@@ -1499,6 +1556,8 @@ class Questionnaire extends React.Component {
             homeMoveAdditionalInfoTextareaOnChange={this.homeMoveAdditionalInfoTextareaOnChange}
             homeMoveAdditionalInfoNextButtonOnClick={this.homeMoveAdditionalInfoNextButtonOnClick}
             homeMoveAdditionalInfoSkipButtonOnClick={this.homeMoveAdditionalInfoSkipButtonOnClick}
+            backButtonOnClick={this.previousButtonOnClick}
+            closeButtonOnClick={this.closeButtonOnClick}
           />
         </div>
       );
@@ -1506,7 +1565,8 @@ class Questionnaire extends React.Component {
     else if (this.state.current_question === 'home_move_confirmation'){
       return (
         <div>
-          <HomeMoveConfirmationQuestion
+          <HomeMoveConfirmationQuestion            
+            closeButtonOnClick={this.closeButtonOnClick}
           />
         </div>
       );
@@ -1519,6 +1579,8 @@ class Questionnaire extends React.Component {
             homeMoveBudgetTextboxOnChange={this.homeMoveBudgetTextboxOnChange}
             homeMoveBudgetNextButtonOnClick={this.homeMoveBudgetNextButtonOnClick}
             homeMoveBudgetSkipButtonOnClick={this.homeMoveBudgetSkipButtonOnClick}
+            backButtonOnClick={this.previousButtonOnClick}
+            closeButtonOnClick={this.closeButtonOnClick}
           />
         </div>
       ); 
@@ -1530,6 +1592,8 @@ class Questionnaire extends React.Component {
             move_date={this.state.home_move_date}          
             homeMoveDateTextboxOnChange={this.homeMoveDateTextboxOnChange}
             homeMoveDateNextButtonOnClick={this.homeMoveDateNextButtonOnClick}
+            backButtonOnClick={this.previousButtonOnClick}
+            closeButtonOnClick={this.closeButtonOnClick}
           />
         </div>
       );
@@ -1541,6 +1605,8 @@ class Questionnaire extends React.Component {
             home_move_destination_address={this.state.home_move_destination_address}    
             homeMoveDestinationAddressTextboxOnChange={this.homeMoveDestinationAddressTextboxOnChange}
             homeMoveDestinationAddressNextButtonOnClick={this.homeMoveDestinationAddressNextButtonOnClick}
+            backButtonOnClick={this.previousButtonOnClick}
+            closeButtonOnClick={this.closeButtonOnClick}
           />
         </div>
       );
@@ -1559,6 +1625,8 @@ class Questionnaire extends React.Component {
             home_move_destination_address={this.state.home_move_destination_address}            
             homeMoveReviewTextOnChange={this.homeMoveReviewTextOnChange}
             homeMoveSubmitButtonOnClick={this.homeMoveSubmitButtonOnClick}
+            backButtonOnClick={this.previousButtonOnClick}
+            closeButtonOnClick={this.closeButtonOnClick}
           />
         </div>
       );
@@ -1573,6 +1641,8 @@ class Questionnaire extends React.Component {
             twoBedroomButtonOnClick={this.twoBedroomButtonOnClick}
             threeBedroomButtonOnClick={this.threeBedroomButtonOnClick}
             fourBedroomButtonOnClick={this.fourBedroomButtonOnClick}
+            backButtonOnClick={this.previousButtonOnClick}
+            closeButtonOnClick={this.closeButtonOnClick}
           />
         </div>
       );
@@ -1584,6 +1654,8 @@ class Questionnaire extends React.Component {
             home_move_source_address={this.state.home_move_source_address}    
             homeMoveSourceAddressTextboxOnChange={this.homeMoveSourceAddressTextboxOnChange}
             homeMoveSourceAddressNextButtonOnClick={this.homeMoveSourceAddressNextButtonOnClick}
+            backButtonOnClick={this.previousButtonOnClick}
+            closeButtonOnClick={this.closeButtonOnClick}
           />
         </div>
       );
@@ -1595,6 +1667,8 @@ class Questionnaire extends React.Component {
             home_move_type={this.state.home_move_type}          
             regularHomeMoveTypeButtonOnClick={this.regularHomeMoveTypeButtonOnClick}
             fullServiceHomeMoveTypeButtonOnClick={this.fullServiceHomeMoveTypeButtonOnClick}
+            backButtonOnClick={this.previousButtonOnClick}
+            closeButtonOnClick={this.closeButtonOnClick}
           />
         </div>
       );
@@ -1606,6 +1680,8 @@ class Questionnaire extends React.Component {
             junk_removal_additional_info={this.state.junk_removal_additional_info}          
             junkRemovalAdditionalInfoTextOnChange={this.junkRemovalAdditionalInfoTextOnChange}
             junkRemovalAdditionalInfoNextButtonOnClick={this.junkRemovalAdditionalInfoNextButtonOnClick}
+            backButtonOnClick={this.previousButtonOnClick}
+            closeButtonOnClick={this.closeButtonOnClick}
           />
         </div>
       );
@@ -1614,6 +1690,7 @@ class Questionnaire extends React.Component {
       return (
         <div>
           <JunkRemovalConfirmationQuestion
+            closeButtonOnClick={this.closeButtonOnClick}
           />
         </div>
       );
@@ -1625,6 +1702,8 @@ class Questionnaire extends React.Component {
             junk_removal_date={this.state.junk_removal_date}          
             junkRemovalDateTextOnChange={this.junkRemovalDateTextOnChange}
             junkRemovalDateNextButtonOnClick={this.junkRemovalDateNextButtonOnClick}
+            backButtonOnClick={this.previousButtonOnClick}
+            closeButtonOnClick={this.closeButtonOnClick}
           />
         </div>
       );
@@ -1640,6 +1719,8 @@ class Questionnaire extends React.Component {
             junk_removal_source_address={this.state.junk_removal_source_address}          
             junkRemovalReviewTextOnChange={this.junkRemovalReviewTextOnChange}
             junkRemovalSubmitButtonOnClick={this.junkRemovalSubmitButtonOnClick}
+            backButtonOnClick={this.previousButtonOnClick}
+            closeButtonOnClick={this.closeButtonOnClick}
           />
         </div>
       );
@@ -1651,6 +1732,8 @@ class Questionnaire extends React.Component {
             junk_removal_source_address={this.state.junk_removal_source_address}          
             junkRemovalSourceAddressTextOnChange={this.junkRemovalSourceAddressTextOnChange}
             junkRemovalSourceAddressNextButtonOnClick={this.junkRemovalSourceAddressNextButtonOnClick}
+            backButtonOnClick={this.previousButtonOnClick}
+            closeButtonOnClick={this.closeButtonOnClick}
           />
         </div>
       );
@@ -1662,6 +1745,8 @@ class Questionnaire extends React.Component {
             junk_removal_type={this.state.junk_removal_type}          
             regularJunkRemovalTypeButtonOnClick={this.regularJunkRemovalTypeButtonOnClick}
             fullServiceJunkRemovalTypeButtonOnClick={this.fullServiceJunkRemovalTypeButtonOnClick}
+            backButtonOnClick={this.previousButtonOnClick}
+            closeButtonOnClick={this.closeButtonOnClick}
           />
         </div>
       );
@@ -1673,6 +1758,8 @@ class Questionnaire extends React.Component {
             specialty_move_additional_info={this.state.specialty_move_additional_info}          
             specialtyMoveAdditionalInfoOnChange={this.specialtyMoveAdditionalInfoOnChange}
             specialtyMoveAdditionalInfoButtonOnClick={this.specialtyMoveAdditionalInfoButtonOnClick}
+            backButtonOnClick={this.previousButtonOnClick}
+            closeButtonOnClick={this.closeButtonOnClick}
           />
         </div>
       );
@@ -1681,6 +1768,7 @@ class Questionnaire extends React.Component {
       return (
         <div>
           <SpecialtyMoveConfirmationQuestion
+            closeButtonOnClick={this.closeButtonOnClick}
           />
         </div>
       );
@@ -1692,6 +1780,8 @@ class Questionnaire extends React.Component {
             specialty_move_date={this.state.specialty_move_date}          
             specialtyMoveDateOnChange={this.specialtyMoveDateOnChange}
             specialtyMoveDateNextButtonOnClick={this.specialtyMoveDateNextButtonOnClick}
+            backButtonOnClick={this.previousButtonOnClick}
+            closeButtonOnClick={this.closeButtonOnClick}
           />
         </div>
       );
@@ -1703,6 +1793,8 @@ class Questionnaire extends React.Component {
             specialty_move_destination_address={this.state.specialty_move_destination_address}          
             specialtyMoveDestinationAddressOnChange={this.specialtyMoveDestinationAddressOnChange}
             specialtyMoveSourceAddressButtonOnClick={this.specialtyMoveSourceAddressButtonOnClick}
+            backButtonOnClick={this.previousButtonOnClick}
+            closeButtonOnClick={this.closeButtonOnClick}
           />
         </div>
       );
@@ -1719,6 +1811,8 @@ class Questionnaire extends React.Component {
             specialty_move_additional_info={this.state.specialty_move_additional_info}
             specialtyMoveReviewTextOnChange={this.specialtyMoveReviewTextOnChange}
             specialtyMoveSubmitButtonOnClick={this.specialtyMoveSubmitButtonOnClick}
+            backButtonOnClick={this.previousButtonOnClick}
+            closeButtonOnClick={this.closeButtonOnClick}
           />
         </div>
       );
@@ -1730,6 +1824,8 @@ class Questionnaire extends React.Component {
             specialty_move_source_address={this.state.specialty_move_source_address}          
             specialtyMoveSourceAddressOnChange={this.specialtyMoveSourceAddressOnChange}
             specialtyMoveSourceAddressButtonOnClick={this.specialtyMoveSourceAddressButtonOnClick}
+            backButtonOnClick={this.previousButtonOnClick}
+            closeButtonOnClick={this.closeButtonOnClick}
           />
         </div>
       );
@@ -1740,6 +1836,8 @@ class Questionnaire extends React.Component {
           <SpecialtyMoveTypeQuestion
             regularSpecialtyMoveButtonOnClick={this.regularSpecialtyMoveButtonOnClick}
             fullServiceSpecialtyMoveButtonOnClick={this.fullServiceSpecialtyMoveButtonOnClick}
+            backButtonOnClick={this.previousButtonOnClick}
+            closeButtonOnClick={this.closeButtonOnClick}
           />
         </div>
       );
