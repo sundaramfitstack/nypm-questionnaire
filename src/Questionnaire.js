@@ -325,7 +325,7 @@ class Questionnaire extends React.Component {
 
     ---------------------------------------*/
     this.junkRemovalReviewTextOnChange = this.junkRemovalReviewTextOnChange.bind(this);
-    this.specialtyMoveSubmitButtonOnClick = this.specialtyMoveSubmitButtonOnClick.bind(this);
+    this.junkRemovalSubmitButtonOnClick = this.junkRemovalSubmitButtonOnClick.bind(this);
 
     /*---------------------------------------
 
