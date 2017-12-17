@@ -4,6 +4,11 @@ body {
   background: #ffd654;
 }
 
+span.back-button, span.close-button {
+  cursor: pointer;
+}
+
+
 .percent {
   position: absolute;
   bottom: 0;

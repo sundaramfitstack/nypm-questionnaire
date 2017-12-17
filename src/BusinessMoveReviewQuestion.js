@@ -31,12 +31,12 @@ class BusinessMoveReviewQuestion extends React.Component {
       <div>
         <div className="nav-container">
           <div className="back-button">
-            <span className="" onClick={this.backButtonOnClick}>
+            <span className="back-button" onClick={this.backButtonOnClick}>
               <i class="fa fa-arrow-left" aria-hidden="true"></i>
             </span>
           </div>
           <div className="close-button">
-            <span className="" onClick={this.closeButtonOnClick}>
+            <span className="close-button" onClick={this.closeButtonOnClick}>
               <i class="fa fa-times" aria-hidden="true"></i>
             </span>
           </div>
