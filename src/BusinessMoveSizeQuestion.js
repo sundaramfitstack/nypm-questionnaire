@@ -33,6 +33,9 @@ class BusinessMoveSizeQuestion extends React.Component {
   }
 
   render(){
+
+    let styles = {'width' : this.props.percent+'%'};
+
     return (
       <div>
         <div className="nav-container">
@@ -60,6 +63,11 @@ class BusinessMoveSizeQuestion extends React.Component {
         <br/>
         <br/>
         <span className="percent">{this.props.percent}% Complete</span>
+        <br/>
+        <br/>
+        <div className="progress">
+          <div id='pb' className="progress-bar" role="progressbar" aria-valuenow="{this.props.percent}" aria-valuemin="0" aria-valuemax="100" style={styles}></div>
+        </div>
       </div>
     );
   }

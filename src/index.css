@@ -4,17 +4,26 @@ body {
   background: #ffd654;
 }
 
+#pb {
+    background-image: none;
+    background-color: black;
+}
+
+.progress {
+  width: 200px;
+}
+
 span.back-button, span.close-button {
   cursor: pointer;
 }
 
 
-.percent {
+/*.percent {
   position: absolute;
   bottom: 0;
   left: 0;
 }
-
+*/
 .nav-container {
 
   display: table;
