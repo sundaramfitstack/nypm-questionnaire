@@ -1469,6 +1469,7 @@ class Questionnaire extends React.Component {
       return (
         <div>
           <BusinessMoveSizeQuestion
+            business_move_source_address={this.state.business_move_source_address}
             businessMoveSize2000ButtonOnClick={this.businessMoveSize2000ButtonOnClick}
             businessMoveSize3000ButtonOnClick={this.businessMoveSize3000ButtonOnClick}
             businessMoveSize4000ButtonOnClick={this.businessMoveSize4000ButtonOnClick}
