@@ -32,7 +32,7 @@ class HomeMoveConfirmationQuestion extends React.Component {
         <div className="nav-container">
           <div className="close-button">
             <span className="close-button" onClick={this.closeButtonOnClick}>
-              <i class="fa fa-times" aria-hidden="true"></i>
+              <i className="fa fa-times" aria-hidden="true"></i>
             </span>
           </div>
         </div>

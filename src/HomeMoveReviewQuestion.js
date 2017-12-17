@@ -38,12 +38,12 @@ class HomeMoveReviewQuestion extends React.Component {
         <div className="nav-container">
           <div className="back-button">
             <span className="back-button" onClick={this.backButtonOnClick}>
-              <i class="fa fa-arrow-left" aria-hidden="true"></i>
+              <i className="fa fa-arrow-left" aria-hidden="true"></i>
             </span>
           </div>
           <div className="close-button">
             <span className="close-button" onClick={this.closeButtonOnClick}>
-              <i class="fa fa-times" aria-hidden="true"></i>
+              <i className="fa fa-times" aria-hidden="true"></i>
             </span>
           </div>
         </div>
