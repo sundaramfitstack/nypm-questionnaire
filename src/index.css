@@ -4,6 +4,12 @@ body {
   background: #ffd654;
 }
 
+.percent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
 .nav-container {
 
   display: table;

@@ -53,6 +53,11 @@ class HomeMoveTypeQuestion extends React.Component {
         <button type="button" className="btn btn-warning" onClick={this.regularHomeMoveTypeButtonOnClick}>Regular</button> <button type="button" className="btn btn-warning" onClick={this.fullServiceHomeMoveTypeButtonOnClick}>Full Service</button>
         <br/>
         <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <span className="percent">{this.props.percent}% Complete</span>
       </div>
     );
   }

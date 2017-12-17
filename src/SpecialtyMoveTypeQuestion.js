@@ -50,6 +50,11 @@ class SpecialtyMoveTypeQuestion extends React.Component {
         <br/>
         <button type="button" className="btn btn-warning" onClick={this.regularSpecialtyMoveButtonOnClick}>Regular</button> <button type="button" className="btn btn-warning" onClick={this.fullServiceSpecialtyMoveButtonOnClick}>Full Service</button>
         <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <span className="percent">{this.props.percent}% Complete</span>
       </div>
     );
   }

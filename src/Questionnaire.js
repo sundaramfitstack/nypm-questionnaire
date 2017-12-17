@@ -55,32 +55,32 @@ class Questionnaire extends React.Component {
       'customer_email' : { 'next' : 'customer_phone', 'prev' : 'customer_name' },
       'customer_phone' : { 'next' : 'service_type', 'prev' : 'customer_email' },
       'service_type' : { 'prev' : 'customer_phone' },
-      'home_move_type' : { 'next' : 'home_move_date', 'prev' : 'service_type' },
-      'home_move_date' : { 'next' : 'home_move_source_address', 'prev' : 'home_move_type' },
-      'home_move_source_address' : { 'next' : 'home_move_destination_address', 'prev' : 'home_move_date' },
-      'home_move_destination_address' : { 'next' : 'home_move_size', 'prev' : 'home_move_source_address' },
-      'home_move_size' : { 'next' : 'home_move_budget', 'prev' : 'home_move_destination_address' },
-      'home_move_budget' : { 'next' : 'home_move_additional_info', 'prev' : 'home_move_size' },
-      'home_move_additional_info' : { 'next' : 'home_move_review', 'prev' : 'home_move_budget' },
-      'home_move_review' : { 'next' : 'home_move_confirmation', 'prev' : 'home_move_additional_info' },
-      'business_move_type' : { 'next' : 'business_move_date', 'prev' : 'service_type' },
-      'business_move_date' : { 'next' : 'business_move_source_address', 'prev' : 'business_move_type' },
-      'business_move_source_address' : { 'next' : 'business_move_destination_address', 'prev' : 'business_move_date' },
-      'business_move_destination_address' : { 'next' : 'business_move_size', 'prev' :'business_move_source_address' },
-      'business_move_size' : { 'next' : 'business_move_additional_info', 'prev' : 'business_move_destination_address' },
-      'business_move_additional_info' : { 'next' : 'business_move_review', 'prev' : 'business_move_size' },
-      'business_move_review' : { 'next' : 'business_move_confirmation', 'prev' : 'business_move_additional_info' },
-      'specialty_move_type' : { 'next' : 'specialty_move_date', 'prev' : 'service_type' },
-      'specialty_move_date' : { 'next' : 'specialty_move_source_address', 'prev': 'specialty_move_type' },
-      'specialty_move_source_address' : { 'next' : 'specialty_move_destination_address', 'prev' : 'specialty_move_date' },
-      'specialty_move_destination_address' : { 'next' : 'specialty_move_additional_info', 'prev' : 'specialty_move_source_address' },
-      'specialty_move_additional_info' : { 'next' : 'specialty_move_review', 'prev' : 'specialty_move_destination_address' },
-      'specialty_move_review' : { 'next' : 'specialty_move_confirmation', 'prev': 'specialty_move_additional_info' },
-      'junk_removal_type' : { 'next' : 'junk_removal_date', 'prev' : 'service_type' },
-      'junk_removal_date' : { 'next' : 'junk_removal_source_address', 'prev' : 'junk_removal_type' },
-      'junk_removal_source_address' : { 'next' : 'junk_removal_additional_info', 'prev': 'junk_removal_date' },
-      'junk_removal_additional_info' : { 'next' : 'junk_removal_review', 'prev' : 'junk_removal_source_address' },
-      'junk_removal_review' : { 'next' : 'junk_removal_confirmation', 'prev' : 'junk_removal_additional_info' }
+      'home_move_type' : { 'next' : 'home_move_date', 'prev' : 'service_type', 'percent' : '30' },
+      'home_move_date' : { 'next' : 'home_move_source_address', 'prev' : 'home_move_type', 'percent' : '40' },
+      'home_move_source_address' : { 'next' : 'home_move_destination_address', 'prev' : 'home_move_date', 'percent' : '50' },
+      'home_move_destination_address' : { 'next' : 'home_move_size', 'prev' : 'home_move_source_address', 'percent' : '60' },
+      'home_move_size' : { 'next' : 'home_move_budget', 'prev' : 'home_move_destination_address', 'percent' : '70' },
+      'home_move_budget' : { 'next' : 'home_move_additional_info', 'prev' : 'home_move_size', 'percent' : '80' },
+      'home_move_additional_info' : { 'next' : 'home_move_review', 'prev' : 'home_move_budget', 'percent' : '90' },
+      'home_move_review' : { 'next' : 'home_move_confirmation', 'prev' : 'home_move_additional_info', 'percent' : '100' },
+      'business_move_type' : { 'next' : 'business_move_date', 'prev' : 'service_type', 'percent' : '10' },
+      'business_move_date' : { 'next' : 'business_move_source_address', 'prev' : 'business_move_type', 'percent' : '20' },
+      'business_move_source_address' : { 'next' : 'business_move_destination_address', 'prev' : 'business_move_date', 'percent' : '30' },
+      'business_move_destination_address' : { 'next' : 'business_move_size', 'prev' :'business_move_source_address', 'percent' : '40' },
+      'business_move_size' : { 'next' : 'business_move_additional_info', 'prev' : 'business_move_destination_address', 'percent' : '60' },
+      'business_move_additional_info' : { 'next' : 'business_move_review', 'prev' : 'business_move_size', 'percent' : '80' },
+      'business_move_review' : { 'next' : 'business_move_confirmation', 'prev' : 'business_move_additional_info', 'percent' : '100' },
+      'specialty_move_type' : { 'next' : 'specialty_move_date', 'prev' : 'service_type', 'percent' : '10' },
+      'specialty_move_date' : { 'next' : 'specialty_move_source_address', 'prev': 'specialty_move_type', 'percent' : '20' },
+      'specialty_move_source_address' : { 'next' : 'specialty_move_destination_address', 'prev' : 'specialty_move_date', 'percent' : '40' },
+      'specialty_move_destination_address' : { 'next' : 'specialty_move_additional_info', 'prev' : 'specialty_move_source_address', 'percent' : '60' },
+      'specialty_move_additional_info' : { 'next' : 'specialty_move_review', 'prev' : 'specialty_move_destination_address', 'percent' : '80' },
+      'specialty_move_review' : { 'next' : 'specialty_move_confirmation', 'prev': 'specialty_move_additional_info', 'percent' : '100' },
+      'junk_removal_type' : { 'next' : 'junk_removal_date', 'prev' : 'service_type', 'percent' : '20' },
+      'junk_removal_date' : { 'next' : 'junk_removal_source_address', 'prev' : 'junk_removal_type', 'percent' : '40' },
+      'junk_removal_source_address' : { 'next' : 'junk_removal_additional_info', 'prev': 'junk_removal_date', 'percent' : '60' },
+      'junk_removal_additional_info' : { 'next' : 'junk_removal_review', 'prev' : 'junk_removal_source_address', 'percent' : '80' },
+      'junk_removal_review' : { 'next' : 'junk_removal_confirmation', 'prev' : 'junk_removal_additional_info', 'percent' : '100' }
     };
 
     this.state = {  
@@ -1411,6 +1411,7 @@ class Questionnaire extends React.Component {
             businessMoveDateNextButtonOnClick={this.businessMoveDateNextButtonOnClick}
             backButtonOnClick={this.previousButtonOnClick}
             closeButtonOnClick={this.closeButtonOnClick}
+            percent={this.state.question_lookup.business_move_date.percent}
           />
         </div>
       );
@@ -1424,6 +1425,7 @@ class Questionnaire extends React.Component {
             businessMoveDestinationAddressNextButtonOnClick={this.businessMoveDestinationAddressNextButtonOnClick}
             backButtonOnClick={this.previousButtonOnClick}
             closeButtonOnClick={this.closeButtonOnClick}
+            percent={this.state.question_lookup.business_move_destination_address.percent}
           />
         </div>
       );
@@ -1443,6 +1445,7 @@ class Questionnaire extends React.Component {
             businessMoveSubmitButtonOnClick={this.businessMoveSubmitButtonOnClick}
             backButtonOnClick={this.previousButtonOnClick}
             closeButtonOnClick={this.closeButtonOnClick}
+            percent={this.state.question_lookup.business_move_review.percent}
           />
         </div>
       );
@@ -1457,6 +1460,7 @@ class Questionnaire extends React.Component {
             businessMoveAdditionalInfoSkipButtonOnClick={this.businessMoveAdditionalInfoSkipButtonOnClick}
             backButtonOnClick={this.previousButtonOnClick}
             closeButtonOnClick={this.closeButtonOnClick}
+            percent={this.state.question_lookup.business_move_additional_info.percent}
           />
         </div>
       );
@@ -1470,6 +1474,7 @@ class Questionnaire extends React.Component {
             businessMoveSize4000ButtonOnClick={this.businessMoveSize4000ButtonOnClick}
             backButtonOnClick={this.previousButtonOnClick}
             closeButtonOnClick={this.closeButtonOnClick}
+            percent={this.state.question_lookup.business_move_size.percent}
           />
         </div>
       );
@@ -1483,6 +1488,7 @@ class Questionnaire extends React.Component {
             businessMoveSourceAddressNextButtonOnClick={this.businessMoveSourceAddressNextButtonOnClick}
             backButtonOnClick={this.previousButtonOnClick}
             closeButtonOnClick={this.closeButtonOnClick}
+            percent={this.state.question_lookup.business_move_source_address.percent}
           />
         </div>
       );
@@ -1495,6 +1501,7 @@ class Questionnaire extends React.Component {
             fullServiceBusinessTypeButtonOnClick={this.fullServiceBusinessTypeButtonOnClick}
             backButtonOnClick={this.previousButtonOnClick}
             closeButtonOnClick={this.closeButtonOnClick}
+            percent={this.state.question_lookup.business_move_type.percent}
           />
         </div>
       );
@@ -1559,6 +1566,8 @@ class Questionnaire extends React.Component {
             homeMoveAdditionalInfoSkipButtonOnClick={this.homeMoveAdditionalInfoSkipButtonOnClick}
             backButtonOnClick={this.previousButtonOnClick}
             closeButtonOnClick={this.closeButtonOnClick}
+            percent={this.state.question_lookup.home_move_additional_info.percent}
+
           />
         </div>
       );
@@ -1582,6 +1591,7 @@ class Questionnaire extends React.Component {
             homeMoveBudgetSkipButtonOnClick={this.homeMoveBudgetSkipButtonOnClick}
             backButtonOnClick={this.previousButtonOnClick}
             closeButtonOnClick={this.closeButtonOnClick}
+            percent={this.state.question_lookup.home_move_budget.percent}
           />
         </div>
       ); 
@@ -1595,6 +1605,7 @@ class Questionnaire extends React.Component {
             homeMoveDateNextButtonOnClick={this.homeMoveDateNextButtonOnClick}
             backButtonOnClick={this.previousButtonOnClick}
             closeButtonOnClick={this.closeButtonOnClick}
+            percent={this.state.question_lookup.home_move_date.percent}
           />
         </div>
       );
@@ -1608,6 +1619,7 @@ class Questionnaire extends React.Component {
             homeMoveDestinationAddressNextButtonOnClick={this.homeMoveDestinationAddressNextButtonOnClick}
             backButtonOnClick={this.previousButtonOnClick}
             closeButtonOnClick={this.closeButtonOnClick}
+            percent={this.state.question_lookup.home_move_destination_address.percent}
           />
         </div>
       );
@@ -1628,6 +1640,7 @@ class Questionnaire extends React.Component {
             homeMoveSubmitButtonOnClick={this.homeMoveSubmitButtonOnClick}
             backButtonOnClick={this.previousButtonOnClick}
             closeButtonOnClick={this.closeButtonOnClick}
+            percent={this.state.question_lookup.home_move_review.percent}
           />
         </div>
       );
@@ -1644,6 +1657,7 @@ class Questionnaire extends React.Component {
             fourBedroomButtonOnClick={this.fourBedroomButtonOnClick}
             backButtonOnClick={this.previousButtonOnClick}
             closeButtonOnClick={this.closeButtonOnClick}
+            percent={this.state.question_lookup.home_move_size.percent}
           />
         </div>
       );
@@ -1657,6 +1671,7 @@ class Questionnaire extends React.Component {
             homeMoveSourceAddressNextButtonOnClick={this.homeMoveSourceAddressNextButtonOnClick}
             backButtonOnClick={this.previousButtonOnClick}
             closeButtonOnClick={this.closeButtonOnClick}
+            percent={this.state.question_lookup.home_move_source_address.percent}
           />
         </div>
       );
@@ -1670,6 +1685,7 @@ class Questionnaire extends React.Component {
             fullServiceHomeMoveTypeButtonOnClick={this.fullServiceHomeMoveTypeButtonOnClick}
             backButtonOnClick={this.previousButtonOnClick}
             closeButtonOnClick={this.closeButtonOnClick}
+            percent={this.state.question_lookup.home_move_type.percent}
           />
         </div>
       );
@@ -1683,6 +1699,7 @@ class Questionnaire extends React.Component {
             junkRemovalAdditionalInfoNextButtonOnClick={this.junkRemovalAdditionalInfoNextButtonOnClick}
             backButtonOnClick={this.previousButtonOnClick}
             closeButtonOnClick={this.closeButtonOnClick}
+            percent={this.state.question_lookup.junk_removal_additional_info.percent}
           />
         </div>
       );
@@ -1705,6 +1722,7 @@ class Questionnaire extends React.Component {
             junkRemovalDateNextButtonOnClick={this.junkRemovalDateNextButtonOnClick}
             backButtonOnClick={this.previousButtonOnClick}
             closeButtonOnClick={this.closeButtonOnClick}
+            percent={this.state.question_lookup.junk_removal_date.percent}
           />
         </div>
       );
@@ -1722,6 +1740,7 @@ class Questionnaire extends React.Component {
             junkRemovalSubmitButtonOnClick={this.junkRemovalSubmitButtonOnClick}
             backButtonOnClick={this.previousButtonOnClick}
             closeButtonOnClick={this.closeButtonOnClick}
+            percent={this.state.question_lookup.junk_removal_review.percent}
           />
         </div>
       );
@@ -1735,6 +1754,7 @@ class Questionnaire extends React.Component {
             junkRemovalSourceAddressNextButtonOnClick={this.junkRemovalSourceAddressNextButtonOnClick}
             backButtonOnClick={this.previousButtonOnClick}
             closeButtonOnClick={this.closeButtonOnClick}
+            percent={this.state.question_lookup.junk_removal_source_address.percent}
           />
         </div>
       );
@@ -1748,6 +1768,7 @@ class Questionnaire extends React.Component {
             fullServiceJunkRemovalTypeButtonOnClick={this.fullServiceJunkRemovalTypeButtonOnClick}
             backButtonOnClick={this.previousButtonOnClick}
             closeButtonOnClick={this.closeButtonOnClick}
+            percent={this.state.question_lookup.junk_removal_type.percent}
           />
         </div>
       );
@@ -1761,6 +1782,7 @@ class Questionnaire extends React.Component {
             specialtyMoveAdditionalInfoButtonOnClick={this.specialtyMoveAdditionalInfoButtonOnClick}
             backButtonOnClick={this.previousButtonOnClick}
             closeButtonOnClick={this.closeButtonOnClick}
+            percent={this.state.question_lookup.specialty_move_additional_info.percent}
           />
         </div>
       );
@@ -1783,6 +1805,7 @@ class Questionnaire extends React.Component {
             specialtyMoveDateNextButtonOnClick={this.specialtyMoveDateNextButtonOnClick}
             backButtonOnClick={this.previousButtonOnClick}
             closeButtonOnClick={this.closeButtonOnClick}
+            percent={this.state.question_lookup.specialty_move_date.percent}
           />
         </div>
       );
@@ -1796,6 +1819,7 @@ class Questionnaire extends React.Component {
             specialtyMoveSourceAddressButtonOnClick={this.specialtyMoveSourceAddressButtonOnClick}
             backButtonOnClick={this.previousButtonOnClick}
             closeButtonOnClick={this.closeButtonOnClick}
+            percent={this.state.question_lookup.specialty_move_destination_address.percent}
           />
         </div>
       );
@@ -1814,6 +1838,7 @@ class Questionnaire extends React.Component {
             specialtyMoveSubmitButtonOnClick={this.specialtyMoveSubmitButtonOnClick}
             backButtonOnClick={this.previousButtonOnClick}
             closeButtonOnClick={this.closeButtonOnClick}
+            percent={this.state.question_lookup.specialty_move_review.percent}
           />
         </div>
       );
@@ -1827,6 +1852,7 @@ class Questionnaire extends React.Component {
             specialtyMoveSourceAddressButtonOnClick={this.specialtyMoveSourceAddressButtonOnClick}
             backButtonOnClick={this.previousButtonOnClick}
             closeButtonOnClick={this.closeButtonOnClick}
+            percent={this.state.question_lookup.specialty_move_source_address.percent}
           />
         </div>
       );
@@ -1839,6 +1865,7 @@ class Questionnaire extends React.Component {
             fullServiceSpecialtyMoveButtonOnClick={this.fullServiceSpecialtyMoveButtonOnClick}
             backButtonOnClick={this.previousButtonOnClick}
             closeButtonOnClick={this.closeButtonOnClick}
+            percent={this.state.question_lookup.specialty_move_type.percent}
           />
         </div>
       );

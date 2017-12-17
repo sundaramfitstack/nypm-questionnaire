@@ -59,6 +59,11 @@ class HomeMoveSizeQuestion extends React.Component {
         <br/>
         <br/>
         <button type="button" className="btn btn-warning" onClick={this.oneBedroomButtonOnClick}>Studio - 1BR</button> <button type="button" className="btn btn-warning" onClick={this.twoBedroomButtonOnClick}>2BR</button> <button type="button" className="btn btn-warning" onClick={this.threeBedroomButtonOnClick}>3BR</button> <button type="button" className="btn btn-warning" onClick={this.fourBedroomButtonOnClick}>4BR+</button>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <span className="percent">{this.props.percent}% Complete</span>
       </div>
     );
   }

@@ -61,6 +61,11 @@ class BusinessMoveAdditionalInfoQuestion extends React.Component {
         <br/>
         <button type="button" className="btn btn-warning" onClick={this.businessMoveAdditionalInfoNextButtonOnClick}>Next</button> <button type="button" className="btn btn-warning" onClick={this.businessMoveAdditionalInfoSkipButtonOnClick}>Skip</button>
         <br />
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <span className="percent">{this.props.percent}% Complete</span>
       </div>
     );
   }

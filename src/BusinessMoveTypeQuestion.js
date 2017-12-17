@@ -50,6 +50,11 @@ class BusinessMoveTypeQuestion extends React.Component {
         <br/>
         <button type="button" className="btn btn-warning" onClick={this.regularBusinessTypeButtonOnClick}>Regular</button> <button type="button" className="btn btn-warning" onClick={this.fullServiceBusinessTypeButtonOnClick}>Full Service</button>
         <br />
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <span className="percent">{this.props.percent}% Complete</span>
       </div>
     );
   }

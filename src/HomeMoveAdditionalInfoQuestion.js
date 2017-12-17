@@ -64,6 +64,11 @@ class HomeMoveAdditionalInfoQuestion extends React.Component {
         <br/>
         <button type="button" className="btn btn-warning" onClick={this.homeMoveAdditionalInfoNextButtonOnClick}>Next</button> <button type="button" className="btn btn-warning" onClick={this.homeMoveAdditionalInfoSkipButtonOnClick}>Skip</button>
         <br />
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <span className="percent">{this.props.percent}% Complete</span>
       </div>
     );
   }

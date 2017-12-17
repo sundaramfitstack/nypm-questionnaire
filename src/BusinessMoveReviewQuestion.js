@@ -73,6 +73,11 @@ class BusinessMoveReviewQuestion extends React.Component {
         </table>
         <button type="button" className="btn btn-warning" onClick={this.businessMoveSubmitButtonOnClick}>Submit</button>
         <br />
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <span className="percent">{this.props.percent}% Complete</span>
       </div>
     );
   }

@@ -57,6 +57,11 @@ class HomeMoveDestinationQuestion extends React.Component {
         <br/>
         <button type="button" className="btn btn-warning" onClick={this.homeMoveDestinationAddressNextButtonOnClick}>Next</button>
         <br />
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <span className="percent">{this.props.percent}% Complete</span>
       </div>
     );
   }

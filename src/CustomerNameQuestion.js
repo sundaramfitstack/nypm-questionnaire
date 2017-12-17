@@ -37,12 +37,12 @@ class CustomerNameQuestion extends React.Component {
         <div className="nav-container">
           <div className="back-button">
             <span className="" onClick={this.backButtonOnClick}>
-              <i class="fa fa-arrow-left" aria-hidden="true"></i>
+              <i className="fa fa-arrow-left" aria-hidden="true"></i>
             </span>
           </div>
           <div className="close-button">
             <span className="" onClick={this.closeButtonOnClick}>
-              <i class="fa fa-times" aria-hidden="true"></i>
+              <i className="fa fa-times" aria-hidden="true"></i>
             </span>
           </div>
         </div>
@@ -54,7 +54,7 @@ class CustomerNameQuestion extends React.Component {
         <input type="text" className="" onChange={this.customerNameTextboxOnChange} placeholder="Enter your first and last name" ref={(input) => { this.nameInput = input; }}/>
         <br/>
         <br/>
-        <button type="button"  className="btn btn-warning" onClick={this.customerNameNextButtonOnClick}>Next</button>
+        <button type="button" className="btn btn-warning" onClick={this.customerNameNextButtonOnClick}>Next</button>
         <br />
       </div>
     );

@@ -48,6 +48,7 @@ class HomeMoveConfirmationQuestion extends React.Component {
         <br/>
         <br/>        
         <button type="button" className="btn btn-warning" onClick={this.viewTheGuideButtonOnClick}>View The Guide</button>
+        <br/>
       </div>
     );
   }

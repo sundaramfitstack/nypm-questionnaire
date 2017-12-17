@@ -55,6 +55,11 @@ class BusinessMoveSizeQuestion extends React.Component {
         <button type="button" className="btn btn-warning" onClick={this.businessMoveSize2000ButtonOnClick}>&lt; 2,000 sqft</button> <button type="button" className="btn btn-warning" onClick={this.businessMoveSize3000ButtonOnClick}>2,000 - 4,000 sqft</button>  <button type="button" className="btn btn-warning" onClick={this.businessMoveSize4000ButtonOnClick}> &gt; 4,000 sqft</button>
         <br/>
         <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <span className="percent">{this.props.percent}% Complete</span>
       </div>
     );
   }
