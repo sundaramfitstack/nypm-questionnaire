@@ -53,7 +53,7 @@ class CustomerEmailQuestion extends React.Component {
         <input type="text" className="" onChange={this.emailTextboxOnChange} placeholder="Email address" ref={(input) => { this.nameInput = input; }}/>
         <br/>        
         <br/>
-        <button className="" onClick={this.customerEmailNextButtonOnClick}>Next</button>
+        <button type="button" className="btn btn-warning" onClick={this.customerEmailNextButtonOnClick}>Next</button>
         <br />
       </div>
     );

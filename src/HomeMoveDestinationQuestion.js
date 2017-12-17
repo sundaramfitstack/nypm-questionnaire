@@ -55,7 +55,7 @@ class HomeMoveDestinationQuestion extends React.Component {
         <input type="text" className="" onChange={this.homeMoveDestinationAddressTextboxOnChange} placeholder="'Move to' address" ref={(input) => { this.nameInput = input; }}/>
         <br/>
         <br/>
-        <button className="" onClick={this.homeMoveDestinationAddressNextButtonOnClick}>Next</button>
+        <button type="button" className="btn btn-warning" onClick={this.homeMoveDestinationAddressNextButtonOnClick}>Next</button>
         <br />
       </div>
     );

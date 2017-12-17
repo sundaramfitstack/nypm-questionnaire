@@ -62,7 +62,7 @@ class HomeMoveAdditionalInfoQuestion extends React.Component {
         <textarea className="" onChange={this.homeMoveAdditionalInfoTextareaOnChange} ref={(input) => { this.nameInput = input; }}>Additional stops, special place to park, etc.</textarea>
         <br/>
         <br/>
-        <button className="" onClick={this.homeMoveAdditionalInfoNextButtonOnClick}>Next</button> <button className="" onClick={this.homeMoveAdditionalInfoSkipButtonOnClick}>Skip</button>
+        <button type="button" className="btn btn-warning" onClick={this.homeMoveAdditionalInfoNextButtonOnClick}>Next</button> <button type="button" className="btn btn-warning" onClick={this.homeMoveAdditionalInfoSkipButtonOnClick}>Skip</button>
         <br />
       </div>
     );

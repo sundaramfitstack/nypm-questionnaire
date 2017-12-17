@@ -67,7 +67,7 @@ class JunkRemovalReviewQuestion extends React.Component {
             </tr>
           </tbody>
         </table>
-        <button className="" onClick={this.junkRemovalSubmitButtonOnClick}>Submit</button>
+        <button type="button" className="btn btn-warning" onClick={this.junkRemovalSubmitButtonOnClick}>Submit</button>
         <br />
       </div>
     );

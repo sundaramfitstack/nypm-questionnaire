@@ -55,7 +55,7 @@ class HomeMoveSourceAddressQuestion extends React.Component {
         <input type="text" className="" onChange={this.homeMoveSourceAddressTextboxOnChange} placeholder="'Move from' address" ref={(input) => { this.nameInput = input; }}/>
         <br/>
         <br/>
-        <button className="" onClick={this.homeMoveSourceAddressNextButtonOnClick}>Next</button>
+        <button type="button" className="btn btn-warning" onClick={this.homeMoveSourceAddressNextButtonOnClick}>Next</button>
         <br />
       </div>
     );

@@ -56,7 +56,7 @@ class SpecialtyMoveDestinationAddressQuestion extends React.Component {
         <input type="text" className="" onChange={this.specialtyMoveDestinationAddressOnChange} placeholder="'Moving to' address" ref={(input) => { this.nameInput = input; }}/>
         <br/>        
         <br/>
-        <button className="" onClick={this.specialtyMoveSourceAddressButtonOnClick}>Next</button>
+        <button type="button" className="btn btn-warning" onClick={this.specialtyMoveSourceAddressButtonOnClick}>Next</button>
         <br/>
       </div>
     );

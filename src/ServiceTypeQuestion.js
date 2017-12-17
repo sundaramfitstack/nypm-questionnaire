@@ -59,7 +59,7 @@ class ServiceTypeQuestion extends React.Component {
         <span className="question">Thanks!  Ok, let’s get your quote started. What service are you interested in?</span>
         <br/>
         <br/>        
-        <button className="" onClick={this.homeServiceTypeButtonOnClick}>Home</button> <button className="" onClick={this.businessServiceTypeButtonOnClick}>Business</button> <button className="" onClick={this.specialtyServiceTypeButtonOnClick}>Specialty</button> <button className="" onClick={this.junkRemovalServiceTypeButtonOnClick}>Junk Removal</button>
+        <button type="button" className="btn btn-warning" onClick={this.homeServiceTypeButtonOnClick}>Home</button> <button type="button" className="btn btn-warning" onClick={this.businessServiceTypeButtonOnClick}>Business</button> <button type="button" className="btn btn-warning" onClick={this.specialtyServiceTypeButtonOnClick}>Specialty</button> <button type="button" className="btn btn-warning" onClick={this.junkRemovalServiceTypeButtonOnClick}>Junk Removal</button>
       </div>
     );
   }

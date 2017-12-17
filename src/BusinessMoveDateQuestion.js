@@ -53,7 +53,7 @@ class BusinessMoveDateQuestion extends React.Component {
         <input type="text" className="" onChange={this.businessMoveDateTextboxOnChange} placeholder="MM/DD/YY" ref={(input) => { this.nameInput = input; }}/>
         <br/>        
         <br/>
-        <button className="" onClick={this.businessMoveDateNextButtonOnClick}>Next</button>
+        <button type="button" className="btn btn-warning" onClick={this.businessMoveDateNextButtonOnClick}>Next</button>
         <br/>
       </div>
     );

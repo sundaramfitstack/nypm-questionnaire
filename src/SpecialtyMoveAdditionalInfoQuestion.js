@@ -56,7 +56,7 @@ class SpecialtyMoveAdditionalInfoQuestion extends React.Component {
         <textarea className="" onChange={this.specialtyMoveAdditionalInfoOnChange} ref={(input) => { this.nameInput = input; }}>Additional stops, special place to park, etc.</textarea>
         <br/>        
         <br/>
-        <button className="" onClick={this.specialtyMoveAdditionalInfoButtonOnClick}>Next</button>
+        <button type="button" className="btn btn-warning" onClick={this.specialtyMoveAdditionalInfoButtonOnClick}>Next</button>
         <br/>
       </div>
     );

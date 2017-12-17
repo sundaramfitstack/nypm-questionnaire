@@ -54,7 +54,7 @@ class CustomerNameQuestion extends React.Component {
         <input type="text" className="" onChange={this.customerNameTextboxOnChange} placeholder="Enter your first and last name" ref={(input) => { this.nameInput = input; }}/>
         <br/>
         <br/>
-        <button className="" onClick={this.customerNameNextButtonOnClick}>Next</button>
+        <button type="button"  className="btn btn-warning" onClick={this.customerNameNextButtonOnClick}>Next</button>
         <br />
       </div>
     );

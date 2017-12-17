@@ -56,7 +56,7 @@ class JunkRemovalAddtionalInfoQuestion extends React.Component {
         <textarea className="" onChange={this.junkRemovalAdditionalInfoTextOnChange} ref={(input) => { this.nameInput = input; }}>Additional stops, special place to park, etc.</textarea>
         <br/>
         <br/>
-        <button className="" onClick={this.junkRemovalAdditionalInfoNextButtonOnClick}>Next</button>
+        <button type="button" className="btn btn-warning" onClick={this.junkRemovalAdditionalInfoNextButtonOnClick}>Next</button>
         <br/>
       </div>
     );

@@ -59,7 +59,7 @@ class BusinessMoveAdditionalInfoQuestion extends React.Component {
         <textarea className="" onChange={this.businessMoveAdditionalInfoTextareaOnChange} ref={(input) => { this.nameInput = input; }}>Additional stops, special place to park, etc.</textarea>
         <br />        
         <br/>
-        <button className="" onClick={this.businessMoveAdditionalInfoNextButtonOnClick}>Next</button> <button className="" onClick={this.businessMoveAdditionalInfoSkipButtonOnClick}>Skip</button>
+        <button type="button" className="btn btn-warning" onClick={this.businessMoveAdditionalInfoNextButtonOnClick}>Next</button> <button type="button" className="btn btn-warning" onClick={this.businessMoveAdditionalInfoSkipButtonOnClick}>Skip</button>
         <br />
       </div>
     );

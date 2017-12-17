@@ -55,7 +55,7 @@ class JunkRemovalDateQuestion extends React.Component {
         <input type="text" className="" onChange={this.junkRemovalDateTextOnChange} placeholder="MM/DD/YY" ref={(input) => { this.nameInput = input; }}/>
         <br/>        
         <br/>
-        <button className="" onClick={this.junkRemovalDateNextButtonOnClick}>Next</button>
+        <button type="button" className="btn btn-warning" onClick={this.junkRemovalDateNextButtonOnClick}>Next</button>
         <br/>
       </div>
     );

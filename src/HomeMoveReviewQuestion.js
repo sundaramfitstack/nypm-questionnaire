@@ -78,7 +78,7 @@ class HomeMoveReviewQuestion extends React.Component {
           </tbody>
         </table>
         <br />
-        <button className="" onClick={this.homeMoveSubmitButtonOnClick}>Submit</button>
+        <button type="button" className="btn btn-warning" onClick={this.homeMoveSubmitButtonOnClick}>Submit</button>
         <br />
       </div>
     );

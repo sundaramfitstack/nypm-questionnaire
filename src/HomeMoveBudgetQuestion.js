@@ -60,7 +60,7 @@ class HomeMoveBudgetQuestion extends React.Component {
         <input type="text" className="" onChange={this.homeMoveBudgetTextboxOnChange} placeholder="Budget" ref={(input) => { this.nameInput = input; }}/>
         <br/>                
         <br/>
-        <button className="" onClick={this.homeMoveBudgetNextButtonOnClick}>Next</button> <button className="" onClick={this.homeMoveBudgetSkipButtonOnClick}>Skip</button>
+        <button type="button" className="btn btn-warning" onClick={this.homeMoveBudgetNextButtonOnClick}>Next</button> <button type="button" className="btn btn-warning" onClick={this.homeMoveBudgetSkipButtonOnClick}>Skip</button>
         <br/>
       </div>
     );

@@ -47,7 +47,7 @@ class JunkRemovalConfirmationQuestion extends React.Component {
         <span className="smallprint">If you find the guide useful, please share it!</span>
         <br/>
         <br/>        
-        <button onClick={this.viewTheGuideButtonOnClick}>View The Guide</button>
+        <button type="button" className="btn btn-warning" onClick={this.viewTheGuideButtonOnClick}>View The Guide</button>
       </div>    
     );
   }

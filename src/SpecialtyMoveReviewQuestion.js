@@ -70,7 +70,7 @@ class SpecialtyMoveReviewQuestion extends React.Component {
             </tr>
           </tbody>
         </table>
-        <button className="" onClick={this.specialtyMoveSubmitButtonOnClick}>Submit</button>
+        <button type="button" className="btn btn-warning" onClick={this.specialtyMoveSubmitButtonOnClick}>Submit</button>
         <br />
       </div>
     );
