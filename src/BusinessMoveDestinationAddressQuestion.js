@@ -1,5 +1,7 @@
 import React from 'react';
 
+const MIN_BUSINESS_MOVE_DESTINATION_ADDRESS_LENGTH = 5;
+
 class BusinessMoveDestinationAddressQuestion extends React.Component {
 
   constructor(props) {    
@@ -9,14 +11,23 @@ class BusinessMoveDestinationAddressQuestion extends React.Component {
     this.businessMoveDestinationAddressNextButtonOnClick = this.businessMoveDestinationAddressNextButtonOnClick.bind(this);
     this.closeButtonOnClick = this.closeButtonOnClick.bind(this);
     this.backButtonOnClick = this.backButtonOnClick.bind(this);
+
+    this.address = '';
   }
     
   businessMoveDestinationAddressTextboxOnChange(event){
+    this.address = event.target.value;
     this.props.businessMoveDestinationAddressTextboxOnChange(event.target.value);
   }
 
-  businessMoveDestinationAddressNextButtonOnClick(event){
-    this.props.businessMoveDestinationAddressNextButtonOnClick(event.target.value);
+  businessMoveDestinationAddressNextButtonOnClick(){
+    if (this.address.length > MIN_BUSINESS_MOVE_DESTINATION_ADDRESS_LENGTH){
+      this.props.businessMoveDestinationAddressNextButtonOnClick();
+    }
+    else{
+      alert("Please provide a valid destination address");
+      document.getElementById("business-move-destination-address").focus();
+    }
   }
 
   componentDidMount(){
@@ -54,7 +65,7 @@ class BusinessMoveDestinationAddressQuestion extends React.Component {
         <span className="question">Where is your new office located?</span>
         <br/>
         <br/>        
-        <input type="text" className="" onChange={this.businessMoveDestinationAddressTextboxOnChange} placeholder="'Moving to' address" ref={(input) => { this.nameInput = input; }}/>
+        <input id="business-move-destination-address" type="text" className="" onChange={this.businessMoveDestinationAddressTextboxOnChange} placeholder="'Moving to' address" ref={(input) => { this.nameInput = input; }}/>
         <br/>
         <br/>
         <button type="button" className="btn btn-warning" onClick={this.businessMoveDestinationAddressNextButtonOnClick}>Next</button>

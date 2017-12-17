@@ -11,16 +11,38 @@ class HomeMoveDateQuestion extends React.Component {
     this.closeButtonOnClick = this.closeButtonOnClick.bind(this);
     this.backButtonOnClick = this.backButtonOnClick.bind(this);
 
+    this.date = '';
   }  
   
   homeMoveDateTextboxOnChange(event){
+    this.date = event.target.value;
     this.props.homeMoveDateTextboxOnChange(event.target.value);
   }
 
   homeMoveDateNextButtonOnClick(){
-    this.props.homeMoveDateNextButtonOnClick();
+    if (this.validateDate(this.date)){
+      this.props.homeMoveDateNextButtonOnClick();
+    }
+    else {
+      alert("Please provide validate date");
+      document.getElementById("home-move-date").focus();
+    }
   }
 
+  validateDate(inputtxt) {
+    
+    if (inputtxt.length > 1){
+      
+      const dateMask = /^[0-9]{2}\/[0-9]{2}\/[0-9]{2}$/;
+      
+      if(inputtxt.match(dateMask)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+  
   componentDidMount(){
      this.nameInput.focus(); 
   }
@@ -56,7 +78,7 @@ class HomeMoveDateQuestion extends React.Component {
         <span className="question">What is your preferred move date?</span>
         <br/>
         <br/>        
-        <input type="text" className="" onChange={this.homeMoveDateTextboxOnChange} placeholder="MM/DD/YY" ref={(input) => { this.nameInput = input; }}/>
+        <input type="text" id="home-move-date" className="move-date" onChange={this.homeMoveDateTextboxOnChange} placeholder="MM/DD/YY" ref={(input) => { this.nameInput = input; }}/>
         <br/>
         <br/>
         <button type="button" className="btn btn-warning" onClick={this.homeMoveDateNextButtonOnClick}>Next</button>

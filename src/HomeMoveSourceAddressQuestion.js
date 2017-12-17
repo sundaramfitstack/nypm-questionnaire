@@ -1,5 +1,7 @@
 import React from 'react';
 
+const HOME_MOVE_SOURCE_ADDRESS_MIN_LENGTH = 5;
+
 class HomeMoveSourceAddressQuestion extends React.Component {
 
   constructor(props) {
@@ -10,14 +12,23 @@ class HomeMoveSourceAddressQuestion extends React.Component {
     this.homeMoveSourceAddressNextButtonOnClick = this.homeMoveSourceAddressNextButtonOnClick.bind(this);
     this.closeButtonOnClick = this.closeButtonOnClick.bind(this);
     this.backButtonOnClick = this.backButtonOnClick.bind(this);
+
+    this.address = '';
   }
   
   homeMoveSourceAddressTextboxOnChange(event){
+    this.address = event.target.value;
     this.props.homeMoveSourceAddressTextboxOnChange(event.target.value);
   }
 
   homeMoveSourceAddressNextButtonOnClick(){
-    this.props.homeMoveSourceAddressNextButtonOnClick();
+    if (this.address.length > HOME_MOVE_SOURCE_ADDRESS_MIN_LENGTH){
+      this.props.homeMoveSourceAddressNextButtonOnClick();
+    }
+    else {
+      alert("Please provide a valid source address");
+      document.getElementById("home-move-source-address").focus();
+    }
   }
 
   componentDidMount(){
@@ -55,7 +66,7 @@ class HomeMoveSourceAddressQuestion extends React.Component {
         <span className="question">Where would you like us to pick up your things?</span>
         <br/>
         <br/>        
-        <input type="text" className="" onChange={this.homeMoveSourceAddressTextboxOnChange} placeholder="'Move from' address" ref={(input) => { this.nameInput = input; }}/>
+        <input id="home-move-source-address" type="text" className="" onChange={this.homeMoveSourceAddressTextboxOnChange} placeholder="'Move from' address" ref={(input) => { this.nameInput = input; }}/>
         <br/>
         <br/>
         <button type="button" className="btn btn-warning" onClick={this.homeMoveSourceAddressNextButtonOnClick}>Next</button>

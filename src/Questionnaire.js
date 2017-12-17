@@ -367,7 +367,7 @@ class Questionnaire extends React.Component {
 
     ---------------------------------------*/
     this.specialtyMoveDestinationAddressOnChange = this.specialtyMoveDestinationAddressOnChange.bind(this);
-    this.specialtyMoveSourceAddressButtonOnClick = this.specialtyMoveSourceAddressButtonOnClick.bind(this);
+    this.specialtyMoveDestinationAddressButtonOnClick = this.specialtyMoveDestinationAddressButtonOnClick.bind(this);
 
 
     /*---------------------------------------
@@ -1817,7 +1817,7 @@ class Questionnaire extends React.Component {
           <SpecialtyMoveDestinationAddressQuestion          
             specialty_move_destination_address={this.state.specialty_move_destination_address}          
             specialtyMoveDestinationAddressOnChange={this.specialtyMoveDestinationAddressOnChange}
-            specialtyMoveSourceAddressButtonOnClick={this.specialtyMoveSourceAddressButtonOnClick}
+            specialtyMoveDestinationAddressButtonOnClick={this.specialtyMoveDestinationAddressButtonOnClick}
             backButtonOnClick={this.previousButtonOnClick}
             closeButtonOnClick={this.closeButtonOnClick}
             percent={this.state.question_lookup.specialty_move_destination_address.percent}

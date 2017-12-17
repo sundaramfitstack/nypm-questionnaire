@@ -1,5 +1,7 @@
 import React from 'react';
 
+const SPECIALTY_MOVE_DESTINATION_ADDRESS_MIN_LENGTH = 5;
+
 class SpecialtyMoveDestinationAddressQuestion extends React.Component {
 
   constructor(props) {
@@ -7,18 +9,27 @@ class SpecialtyMoveDestinationAddressQuestion extends React.Component {
     super(props);
     
     this.specialtyMoveDestinationAddressOnChange = this.specialtyMoveDestinationAddressOnChange.bind(this);
-    this.specialtyMoveSourceAddressButtonOnClick = this.specialtyMoveSourceAddressButtonOnClick.bind(this);
+    this.specialtyMoveDestinationAddressButtonOnClick = this.specialtyMoveDestinationAddressButtonOnClick.bind(this);
     this.closeButtonOnClick = this.closeButtonOnClick.bind(this);
     this.backButtonOnClick = this.backButtonOnClick.bind(this);
+
+    this.address = '';
   }
   
   
   specialtyMoveDestinationAddressOnChange(event){
+    this.address = event.target.value;
     this.props.specialtyMoveDestinationAddressOnChange(event.target.value);
   }
 
-  specialtyMoveSourceAddressButtonOnClick(){
-    this.props.specialtyMoveSourceAddressButtonOnClick();
+  specialtyMoveDestinationAddressButtonOnClick(){
+    if (this.address.length > SPECIALTY_MOVE_DESTINATION_ADDRESS_MIN_LENGTH){
+      this.props.specialtyMoveDestinationAddressButtonOnClick();
+    }
+    else {
+      alert("Please provide a valid address");
+      document.getElementById("specialty-move-destination-address").focus();
+    }
   }
 
   componentDidMount(){
@@ -56,10 +67,10 @@ class SpecialtyMoveDestinationAddressQuestion extends React.Component {
         <span className="question">Where would you like us to move your specialty item(s)?</span>
         <br/>
         <br/>        
-        <input type="text" className="" onChange={this.specialtyMoveDestinationAddressOnChange} placeholder="'Moving to' address" ref={(input) => { this.nameInput = input; }}/>
+        <input id="specialty-move-destination-address" type="text" className="" onChange={this.specialtyMoveDestinationAddressOnChange} placeholder="'Moving to' address" ref={(input) => { this.nameInput = input; }}/>
         <br/>        
         <br/>
-        <button type="button" className="btn btn-warning" onClick={this.specialtyMoveSourceAddressButtonOnClick}>Next</button>
+        <button type="button" className="btn btn-warning" onClick={this.specialtyMoveDestinationAddressButtonOnClick}>Next</button>
         <br/>
         <br/>
         <br/>

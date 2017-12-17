@@ -8,14 +8,29 @@ class CustomerEmailQuestion extends React.Component {
     this.customerEmailNextButtonOnClick = this.customerEmailNextButtonOnClick.bind(this);
     this.closeButtonOnClick = this.closeButtonOnClick.bind(this);
     this.backButtonOnClick = this.backButtonOnClick.bind(this);
+
+    this.email = '';
   }
   
   emailTextboxOnChange(event){
+    this.email = event.target.value;
     this.props.emailTextboxOnChange(event.target.value);
   }
 
+
+  validateEmail(email) {
+      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email.toLowerCase());
+  }
+
   customerEmailNextButtonOnClick(){
-    this.props.customerEmailNextButtonOnClick();
+    if (this.validateEmail(this.email)){
+      this.props.customerEmailNextButtonOnClick();
+    }
+    else {
+      alert("Please provde a valid email address");
+      document.getElementById("customer-email").focus();
+    }
   }
 
   componentDidMount(){
@@ -50,7 +65,7 @@ class CustomerEmailQuestion extends React.Component {
         <span className="question">Hi {this.props.customer_name}, great to meet you! What email should we use to send your free quote?</span>
         <br/>
         <br/>        
-        <input type="text" className="" onChange={this.emailTextboxOnChange} placeholder="Email address" ref={(input) => { this.nameInput = input; }}/>
+        <input id="customer-email" type="text" className="" onChange={this.emailTextboxOnChange} placeholder="Email address" ref={(input) => { this.nameInput = input; }}/>
         <br/>        
         <br/>
         <button type="button" className="btn btn-warning" onClick={this.customerEmailNextButtonOnClick}>Next</button>

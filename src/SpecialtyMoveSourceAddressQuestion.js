@@ -1,5 +1,7 @@
 import React from 'react';
 
+const SPECIALTY_MOVE_SOURCE_ADDRESS_MIN_LENGTH = 5;
+
 class SpecialtyMoveSourceAddressQuestion extends React.Component {
 
   constructor(props) {
@@ -10,14 +12,23 @@ class SpecialtyMoveSourceAddressQuestion extends React.Component {
     this.specialtyMoveSourceAddressButtonOnClick = this.specialtyMoveSourceAddressButtonOnClick.bind(this);
     this.closeButtonOnClick = this.closeButtonOnClick.bind(this);
     this.backButtonOnClick = this.backButtonOnClick.bind(this);
+
+    this.address = '';
   } 
   
   specialtyMoveSourceAddressOnChange(event){
+    this.address = event.target.value;
     this.props.specialtyMoveSourceAddressOnChange(event.target.value);
   }
 
   specialtyMoveSourceAddressButtonOnClick(){
-    this.props.specialtyMoveSourceAddressButtonOnClick();
+    if (this.address.length > SPECIALTY_MOVE_SOURCE_ADDRESS_MIN_LENGTH){
+      this.props.specialtyMoveSourceAddressButtonOnClick();
+    }
+    else {
+      alert("Please provide a valid address");
+      document.getElementById("specialty-move-source-address").focus();
+    }
   }
 
   componentDidMount(){
@@ -55,7 +66,7 @@ class SpecialtyMoveSourceAddressQuestion extends React.Component {
         <span className="question">Where will your specialty move start?</span>
         <br/>
         <br/>        
-        <input type="text" className="" onChange={this.specialtyMoveSourceAddressOnChange} placeholder="'Moving from' address" ref={(input) => { this.nameInput = input; }}/>
+        <input id="specialty-move-source-address" type="text" className="" onChange={this.specialtyMoveSourceAddressOnChange} placeholder="'Moving from' address" ref={(input) => { this.nameInput = input; }}/>
         <br/>        
         <br/>
         <button type="button" className="btn btn-warning" onClick={this.specialtyMoveSourceAddressButtonOnClick}>Next</button>

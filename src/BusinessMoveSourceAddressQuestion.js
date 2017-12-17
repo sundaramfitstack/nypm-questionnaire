@@ -1,5 +1,7 @@
 import React from 'react';
 
+const MIN_BUSINESS_MOVE_SOURCE_ADDRESS_LENGTH = 5;
+
 class BusinessMoveSourceAddressQuestion extends React.Component {
 
   constructor(props) {    
@@ -9,15 +11,23 @@ class BusinessMoveSourceAddressQuestion extends React.Component {
     this.closeButtonOnClick = this.closeButtonOnClick.bind(this);
     this.backButtonOnClick = this.backButtonOnClick.bind(this);
 
+    this.address = '';
   }
   
  
   businessMoveSourceAddressTextboxOnChange(event){
+    this.address = event.target.value;
     this.props.businessMoveSourceAddressTextboxOnChange(event.target.value);
   }
 
-  businessMoveSourceAddressNextButtonOnClick(event){
-    this.props.businessMoveSourceAddressNextButtonOnClick(event.target.value);
+  businessMoveSourceAddressNextButtonOnClick(){
+    if (this.address.length > MIN_BUSINESS_MOVE_SOURCE_ADDRESS_LENGTH){
+      this.props.businessMoveSourceAddressNextButtonOnClick();
+    }
+    else {
+      alert("Please provide a valid source address");
+      document.getElementById("business-move-source-address").focus();
+    }
   }
 
   componentDidMount(){
@@ -55,7 +65,7 @@ class BusinessMoveSourceAddressQuestion extends React.Component {
         <span className="question">Where will your business move start?</span>
         <br/>
         <br/>        
-        <input type="text" className="" onChange={this.businessMoveSourceAddressTextboxOnChange} placeholder="'Moving from' address" ref={(input) => { this.nameInput = input; }}/>
+        <input id="business-move-source-address" type="text" className="" onChange={this.businessMoveSourceAddressTextboxOnChange} placeholder="'Moving from' address" ref={(input) => { this.nameInput = input; }}/>
         <br/>
         <br/>
         <button type="button" className="btn btn-warning" onClick={this.businessMoveSourceAddressNextButtonOnClick}>Next</button>

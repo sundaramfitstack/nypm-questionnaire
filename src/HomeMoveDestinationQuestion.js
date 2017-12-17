@@ -1,5 +1,7 @@
 import React from 'react';
 
+const MIN_HOME_MOVE_DESTINATION_ADDRESS_LENGTH = 5;
+
 class HomeMoveDestinationQuestion extends React.Component {
 
   constructor(props) {
@@ -10,14 +12,23 @@ class HomeMoveDestinationQuestion extends React.Component {
     this.homeMoveDestinationAddressNextButtonOnClick = this.homeMoveDestinationAddressNextButtonOnClick.bind(this);
     this.closeButtonOnClick = this.closeButtonOnClick.bind(this);
     this.backButtonOnClick = this.backButtonOnClick.bind(this);
+
+    this.address = '';
   }
   
   homeMoveDestinationAddressTextboxOnChange(event){
+    this.address = event.target.value;
     this.props.homeMoveDestinationAddressTextboxOnChange(event.target.value);
   }
 
   homeMoveDestinationAddressNextButtonOnClick(){
-    this.props.homeMoveDestinationAddressNextButtonOnClick();
+    if (this.address.length > MIN_HOME_MOVE_DESTINATION_ADDRESS_LENGTH){
+      this.props.homeMoveDestinationAddressNextButtonOnClick();
+    }
+    else {
+      alert("Please provide a valid destination address");
+      document.getElementById("home-move-destination-address").focus();
+    }
   }
 
   componentDidMount(){
@@ -55,7 +66,7 @@ class HomeMoveDestinationQuestion extends React.Component {
         <span className="question">Where would you like us to drop off your things?</span>
         <br/>
         <br/>        
-        <input type="text" className="" onChange={this.homeMoveDestinationAddressTextboxOnChange} placeholder="'Move to' address" ref={(input) => { this.nameInput = input; }}/>
+        <input id="home-move-destination-address" type="text" className="" onChange={this.homeMoveDestinationAddressTextboxOnChange} placeholder="'Move to' address" ref={(input) => { this.nameInput = input; }}/>
         <br/>
         <br/>
         <button type="button" className="btn btn-warning" onClick={this.homeMoveDestinationAddressNextButtonOnClick}>Next</button>

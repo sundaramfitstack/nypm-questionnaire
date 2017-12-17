@@ -10,15 +10,39 @@ class JunkRemovalDateQuestion extends React.Component {
     this.junkRemovalDateNextButtonOnClick = this.junkRemovalDateNextButtonOnClick.bind(this);
     this.closeButtonOnClick = this.closeButtonOnClick.bind(this);
     this.backButtonOnClick = this.backButtonOnClick.bind(this);
+
+    this.date = '';
   }
     
   junkRemovalDateTextOnChange(event){
+    this.date = event.target.value;
     this.props.junkRemovalDateTextOnChange(event.target.value);
   }
 
   junkRemovalDateNextButtonOnClick(){
-    this.props.junkRemovalDateNextButtonOnClick();
+    if (this.validateDate(this.date)){
+      this.props.junkRemovalDateNextButtonOnClick();
+    }
+    else {
+      alert("Please provide validate date");
+      document.getElementById("junk-removal-date").focus();
+    }
   }
+
+  validateDate(inputtxt) {
+    
+    if (inputtxt.length > 1){
+      
+      const dateMask = /^[0-9]{2}\/[0-9]{2}\/[0-9]{2}$/;
+      
+      if(inputtxt.match(dateMask)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+  
 
   componentDidMount(){
      this.nameInput.focus(); 
@@ -55,7 +79,7 @@ class JunkRemovalDateQuestion extends React.Component {
         <span className="question">Junk removal it is! What is your preferred pickup date?</span>
         <br/>
         <br/>        
-        <input type="text" className="" onChange={this.junkRemovalDateTextOnChange} placeholder="MM/DD/YY" ref={(input) => { this.nameInput = input; }}/>
+        <input id="junk-removal-date" type="text" className="" onChange={this.junkRemovalDateTextOnChange} placeholder="MM/DD/YY" ref={(input) => { this.nameInput = input; }}/>
         <br/>        
         <br/>
         <button type="button" className="btn btn-warning" onClick={this.junkRemovalDateNextButtonOnClick}>Next</button>

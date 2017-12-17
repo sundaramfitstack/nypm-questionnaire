@@ -10,15 +10,38 @@ class SpecialtyMoveDateQuestion extends React.Component {
     this.specialtyMoveDateNextButtonOnClick = this.specialtyMoveDateNextButtonOnClick.bind(this);
     this.closeButtonOnClick = this.closeButtonOnClick.bind(this);
     this.backButtonOnClick = this.backButtonOnClick.bind(this);
+
+    this.date = '';
   } 
 
   
   specialtyMoveDateOnChange(event){
+    this.date = event.target.value;
     this.props.specialtyMoveDateOnChange(event.target.value);
   }
 
   specialtyMoveDateNextButtonOnClick(){
-    this.props.specialtyMoveDateNextButtonOnClick();
+    if (this.validateDate(this.date)){
+      this.props.specialtyMoveDateNextButtonOnClick();
+    }
+    else {
+      alert("Please provide validate date");
+      document.getElementById("specialty-move-date").focus();
+    }
+  }
+
+  validateDate(inputtxt) {
+    
+    if (inputtxt.length > 1){
+      
+      const dateMask = /^[0-9]{2}\/[0-9]{2}\/[0-9]{2}$/;
+      
+      if(inputtxt.match(dateMask)) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   componentDidMount(){
@@ -56,7 +79,7 @@ class SpecialtyMoveDateQuestion extends React.Component {
         <span className="question">What is your preferred moving date?</span>
         <br/>
         <br/>        
-        <input type="text" className="" onChange={this.specialtyMoveDateOnChange} placeholder="MM/DD/YY" ref={(input) => { this.nameInput = input; }}/>
+        <input id="specialty-move-date" type="text" className="" onChange={this.specialtyMoveDateOnChange} placeholder="MM/DD/YY" ref={(input) => { this.nameInput = input; }}/>
         <br/>
         <br/>
         <button type="button" className="btn btn-warning" onClick={this.specialtyMoveDateNextButtonOnClick}>Next</button>

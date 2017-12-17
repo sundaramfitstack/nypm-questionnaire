@@ -9,14 +9,37 @@ class CustomerPhoneNumberQuestion extends React.Component {
     this.phoneNumberNextButtonOnClick = this.phoneNumberNextButtonOnClick.bind(this);
     this.closeButtonOnClick = this.closeButtonOnClick.bind(this);
     this.backButtonOnClick = this.backButtonOnClick.bind(this);
+
+    this.phone = '';
   } 
   
   phoneNumberTextboxOnChange(event){
+    this.phone = event.target.value;
     this.props.phoneNumberTextboxOnChange(event.target.value);
   }
 
+  validatePhonenumber(inputtxt) {
+    
+    if (inputtxt.length > 1){
+      
+      const phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+      
+      if(inputtxt.match(phoneno)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
   phoneNumberNextButtonOnClick(){
-    this.props.phoneNumberNextButtonOnClick();
+    if (this.validatePhonenumber(this.phone)){
+      this.props.phoneNumberNextButtonOnClick();
+    }
+    else {
+      alert("Please provide a valid phone number");  
+      document.getElementById("customer-phone").focus();
+    }
   }
 
   componentDidMount(){
@@ -51,7 +74,7 @@ class CustomerPhoneNumberQuestion extends React.Component {
         <span className="question">And what’s the best phone number to reach you?</span>
         <br/>
         <br/>        
-        <input type="input" onChange={this.phoneNumberTextboxOnChange} placeholder="Phone number" ref={(input) => { this.nameInput = input; }}/>
+        <input id="customer-phone" type="input" onChange={this.phoneNumberTextboxOnChange} placeholder="Phone number" ref={(input) => { this.nameInput = input; }}/>
         <br/>
         <br/>
         <button type="button" className="btn btn-warning" onClick={this.phoneNumberNextButtonOnClick}>Next</button>

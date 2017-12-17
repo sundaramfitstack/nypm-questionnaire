@@ -8,14 +8,38 @@ class BusinessMoveDateQuestion extends React.Component {
     this.businessMoveDateNextButtonOnClick = this.businessMoveDateNextButtonOnClick.bind(this);
     this.closeButtonOnClick = this.closeButtonOnClick.bind(this);
     this.backButtonOnClick = this.backButtonOnClick.bind(this);
+
+    this.date = '';
   }
   
   businessMoveDateTextboxOnChange(event){
+    this.date = event.target.value;
     this.props.businessMoveDateTextboxOnChange(event.target.value);
   }
 
   businessMoveDateNextButtonOnClick(){
-    this.props.businessMoveDateNextButtonOnClick();
+    if (this.validateDate(this.date)){
+      this.props.businessMoveDateNextButtonOnClick();
+    }
+    else {
+      alert("Please provide valid date");
+      document.getElementById("business-move-date").focus();
+    }
+  }
+
+
+  validateDate(inputtxt) {
+    
+    if (inputtxt.length > 1){
+      
+      const dateMask = /^[0-9]{2}\/[0-9]{2}\/[0-9]{2}$/;
+      
+      if(inputtxt.match(dateMask)) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   componentDidMount(){
@@ -53,7 +77,7 @@ class BusinessMoveDateQuestion extends React.Component {
         <span className="question">What is your preferred move date?</span>
         <br/>
         <br/>        
-        <input type="text" className="" onChange={this.businessMoveDateTextboxOnChange} placeholder="MM/DD/YY" ref={(input) => { this.nameInput = input; }}/>
+        <input id="business-move-date" type="text" className="" onChange={this.businessMoveDateTextboxOnChange} placeholder="MM/DD/YY" ref={(input) => { this.nameInput = input; }}/>
         <br/>        
         <br/>
         <button type="button" className="btn btn-warning" onClick={this.businessMoveDateNextButtonOnClick}>Next</button>
