@@ -39,8 +39,6 @@ import SpecialtyMoveSourceAddressQuestion from './SpecialtyMoveSourceAddressQues
 import SpecialtyMoveTypeQuestion from './SpecialtyMoveTypeQuestion.js';
 import SpecialtyMoveConfirmationQuestion from './SpecialtyMoveConfirmationQuestion.js';
 
-// import FirstAndLastNameQuestion from './FirstAndLastNameQuestion.js';
-// import EmailQuestion from './EmailQuestion.js';
 import ServiceTypeQuestion from './ServiceTypeQuestion.js';
 
 const main_url = 'https://www.nypmovers.com/';
@@ -117,18 +115,6 @@ class Questionnaire extends React.Component {
     };
  
     
-    // this.nameTextOnChange = this.nameTextOnChange.bind(this);
-    // this.nameNextButtonOnClick = this.nameNextButtonOnClick.bind(this);
-        
-
-    // this.emailTextOnChange = this.emailTextOnChange.bind(this);
-    // this.emailNextButtonOnClick = this.emailNextButtonOnClick.bind(this);
-    
-
-    // this.homeMoveDateTextOnChange = this.homeMoveDateTextOnChange.bind(this);
-    // this.homeMoveDateButtonOnClick = this.homeMoveDateNextButtonOnClick.bind(this);
-
-
     this.closeButtonOnClick = this.closeButtonOnClick.bind(this);
     this.previousButtonOnClick = this.previousButtonOnClick.bind(this);
 
@@ -447,66 +433,6 @@ class Questionnaire extends React.Component {
 
     return previous_question;
   }
-
-  // businessMoveAdditionalInfoTextareaOnChange(text){
-  //  /* Need to add some validation at some point */
-  //   this.setState({
-  //     'business_move_additional_info': text,
-  //   });
-  // }
-
-  // businessMoveAdditionalInfoNextButtonOnClick(){
-
-  //   this.setNextQuestion();
-  // }
-
-  // businessMoveAdditionalInfoSkipButtonOnClick(){
-
-  //   this.setNextQuestion();
-  // }
-
-  // handleNameTextChange(nameText) {
-  //   /* Need to add some validation at some point */
-  //   this.setState({
-  //     customer_name: nameText,
-  //   });
-  // }
-  
-  // handleNameNextButtonOnClick(){
-    
-  //   const next_question = getNextQuestion();
-
-  //   this.setState({
-  //     current_question : next_question
-  //   });
-  // }
-
-
-
-  // handleEmailTextChange(emailText) {
-
-  //   this.setState({
-  //     customer_email: emailText,
-  //   });
-
-  // }
-
- 
-  // handleEmailNextButtonOnClick(){
-  //   /* Need to add some validation at some point */
-  //   this.setState({
-  //     current_question : 'service_type'
-  //   });
-  // }
-
-
-  // homeMoveDateTextOnChange(text) {
-  //    Need to add some validation at some point 
-  //   this.setState({
-  //     'home_move_date': text,
-  //   });
-  // }
-
 
   previousButtonOnClick(){
 
@@ -1337,32 +1263,7 @@ class Questionnaire extends React.Component {
   ----------------------------------------*/
 
   render() {
-    const cq = this.state.current_question;
-    console.log(cq);
-
-    // if (this.state.current_question === 'customer_name_original'){
-    //   return (
-    //     <div>
-    //       <FirstAndLastNameQuestion
-    //         // customer_name={this.state.customer_name}
-    //         nameTextOnChange={this.handleNameTextChange}
-    //         nameNextButtonOnClick={this.nameNextButtonOnClick}
-    //       />
-    //     </div>
-    //   );
-    // }
-    // else if (this.state.current_question === 'customer_email_original'){
-    //   return (
-    //     <div>
-    //       <EmailQuestion
-    //         // customer_email={this.state.customer_email}
-    //         customer_name={this.state.customer_name}
-    //         emailTextOnChange={this.handleEmailTextChange}
-    //         emailNextButtonOnClick={this.emailNextButtonOnClick}
-    //       />
-    //     </div>
-    //   );
-    // }
+    
     if (this.state.current_question === 'service_type'){
       return (
         <div>
@@ -1380,28 +1281,6 @@ class Questionnaire extends React.Component {
         </div>
       );
     }
-    // else if (this.state.current_question === 'home_service_type'){
-    //   return (
-    //   <div>
-    //       <HomeMoveTypeQuestion
-    //         homeMoveRegularButtonOnClick={this.homeMoveRegularButtonOnClick}
-    //         homeMoveFullServiceButtonOnClick={this.homeMoveFullServiceButtonOnClick}
-    //       />
-    //   </div>
-    //   );
-    // }
-    // else if (){
-    //   return (
-    //     <div>
-    //       <BusinessMoveAdditionalInfoQuestion          
-    //         business_additional_info={this.state.business_move_additional_info}          
-    //         businessMoveAdditionalInfoTextareaOnChange={this.businessMoveAdditionalInfoTextareaOnChange}
-    //         businessMoveAdditionalInfoNextButtonOnClick={this.businessMoveAdditionalInfoNextButtonOnClick}
-    //         businessMoveAdditionalInfoSkipButtonOnClick={this.businessMoveAdditionalInfoSkipButtonOnClick}
-    //       />
-    //     </div>
-    //   );
-    // }
     else if (this.state.current_question === 'business_move_date'){
       return (
         <div>
@@ -1878,32 +1757,5 @@ class Questionnaire extends React.Component {
     }
   }
 }
-
-
-// ReactDOM.render(
-//   <FilterableProductTable products={PRODUCTS} />,
-//   document.getElementById('container')
-// );
-
-
-// class Questionnaire extends React.Component {
-
-// 	constructor(props){
-// 		super(props){
-
-// 		}
-// 	}
-
-
-
-//   render() {
-//     return (
-//       <div className="questionnaire">
-//       	<FirstAndLastNameQuestion done=""/>        
-//       </div>
-//     );
-//   }
-// }
-
 
 export default Questionnaire;
