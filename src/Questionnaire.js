@@ -517,7 +517,7 @@ class Questionnaire extends React.Component {
 
     console.log("Going to redirect to '" + main_url  + "'");
 
-    window.open(main_url);
+    window.location.href = main_url;
   }
 
   /*---------------------------------------
