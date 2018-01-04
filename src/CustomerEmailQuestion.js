@@ -13,12 +13,13 @@ class CustomerEmailQuestion extends React.Component {
   }
   
   emailTextboxOnChange(event){
-    this.email = event.target.value;
-    this.props.emailTextboxOnChange(event.target.value);
+    this.email = event.target.value.trim();
+    this.props.emailTextboxOnChange(this.email);
   }
 
 
   validateEmail(email) {
+      email = email.trim();
       var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(email.toLowerCase());
   }

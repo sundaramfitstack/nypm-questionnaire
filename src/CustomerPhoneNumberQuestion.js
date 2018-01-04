@@ -14,12 +14,14 @@ class CustomerPhoneNumberQuestion extends React.Component {
   } 
   
   phoneNumberTextboxOnChange(event){
-    this.phone = event.target.value;
-    this.props.phoneNumberTextboxOnChange(event.target.value);
+    this.phone = event.target.value.trim();
+    this.props.phoneNumberTextboxOnChange(this.phone);
   }
 
   validatePhonenumber(inputtxt) {
     
+    inputtxt = inputtxt.trim();
+
     if (inputtxt.length > 1){
       
       const phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;

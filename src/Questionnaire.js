@@ -496,6 +496,9 @@ class Questionnaire extends React.Component {
     if (text === undefined){
       throw new Error("text was not defined");
     }
+
+    text = text.trim();
+
     /* Adjust state as needed here */
     this.setState({
       'business_move_date': text,
@@ -517,6 +520,9 @@ class Questionnaire extends React.Component {
     if (text === undefined){
       throw new Error("text was not defined");
     }
+
+    text = text.trim();
+
     /* Adjust state as needed here */
     this.setState({
       'business_move_destination_address': text,
@@ -538,6 +544,9 @@ class Questionnaire extends React.Component {
     if (text === undefined){
       throw new Error("text was not defined");
     }
+
+    text = text.trim();
+
     /* Adjust state as needed here */
     this.setState({
       'business_move_review' : text,
@@ -581,6 +590,8 @@ class Questionnaire extends React.Component {
     if (text === undefined){
       throw new Error("text was not defined");
     }
+
+    text = text.trim();
 
     this.setState({
       'business_move_additional_info' : text,
@@ -642,6 +653,8 @@ class Questionnaire extends React.Component {
       throw new Error("text was not defined");
     }
 
+    text = text.trim();
+
     this.setState({
       'business_move_source_address' : text,
     });
@@ -688,6 +701,8 @@ class Questionnaire extends React.Component {
       throw new Error("text was not defined");
     }
 
+    text = text.trim();
+
     this.setState({
       'customer_email' : text
     });
@@ -709,6 +724,8 @@ class Questionnaire extends React.Component {
     if (text === undefined){
       throw new Error("text was not defined");
     }
+
+    text = text.trim();
 
     this.setState({
       'customer_name': text,
@@ -732,6 +749,8 @@ class Questionnaire extends React.Component {
       throw new Error("text was not defined");
     }
 
+    text = text.trim();
+
     this.setState({
       'customer_phone': text,
     });
@@ -753,6 +772,8 @@ class Questionnaire extends React.Component {
     if (text === undefined){
       throw new Error("text was not defined");
     }
+
+    text = text.trim();
 
     this.setState({
       'home_move_additional_info': text,
@@ -781,6 +802,8 @@ class Questionnaire extends React.Component {
     if (text === undefined){
       throw new Error("text was not defined");
     }
+
+    text = text.trim();
   
     /* Adjust state as needed here */
     this.setState({
@@ -808,6 +831,8 @@ class Questionnaire extends React.Component {
     if (text === undefined){
       throw new Error("text was not defined");
     }
+
+    text = text.trim();
     
     /* Adjust state as needed here */
     this.setState({
@@ -835,6 +860,8 @@ class Questionnaire extends React.Component {
       throw new Error("text was not defined");
     }
     
+    text = text.trim();
+
     /* Adjust state as needed here */
     this.setState({
       'home_move_destination_address': text,
@@ -859,6 +886,8 @@ class Questionnaire extends React.Component {
       throw new Error("text was not defined");
     }
     
+    text = text.trim();
+
     /* Adjust state as needed here */
     this.setState({
       'home_move_review': text,
@@ -945,6 +974,9 @@ class Questionnaire extends React.Component {
     if (text === undefined){
       throw new Error("text was not defined");
     }
+
+    text = text.trim();
+
     /* Adjust state as needed here */
     this.setState({
       'home_move_source_address': text,
@@ -991,6 +1023,9 @@ class Questionnaire extends React.Component {
     if (text === undefined){
       throw new Error("text was not defined");
     }
+
+    text = text.trim();
+
     /* Adjust state as needed here */
     this.setState({
       'junk_removal_additional_info': text,
@@ -1013,6 +1048,9 @@ class Questionnaire extends React.Component {
     if (text === undefined){
       throw new Error("text was not defined");
     }
+
+    text = text.trim();
+
     /* Adjust state as needed here */
     this.setState({
       'junk_removal_date': text,
@@ -1034,6 +1072,9 @@ class Questionnaire extends React.Component {
     if (text === undefined){
       throw new Error("text was not defined");
     }
+
+    text = text.trim();
+
     /* Adjust state as needed here */
     this.setState({
       'junk_removal_review': text,
@@ -1076,6 +1117,9 @@ class Questionnaire extends React.Component {
     if (text === undefined){
       throw new Error("text was not defined");
     }
+
+    text = text.trim();
+
     /* Adjust state as needed here */
     this.setState({
       'junk_removal_source_address': text,
@@ -1125,6 +1169,8 @@ class Questionnaire extends React.Component {
       throw new Error("text was not defined");
     }
 
+    text = text.trim();
+
     /* Adjust state as needed here */
     this.setState({
       'specialty_move_additional_info': text,
@@ -1147,6 +1193,9 @@ class Questionnaire extends React.Component {
     if (text === undefined){
       throw new Error("text was not defined");
     }
+
+    text = text.trim();
+
     /* Adjust state as needed here */
     this.setState({
       'specialty_move_date': text,
@@ -1169,6 +1218,9 @@ class Questionnaire extends React.Component {
     if (text === undefined){
       throw new Error("text was not defined");
     }
+
+    text = text.trim();
+
     /* Adjust state as needed here */
     this.setState({
       'specialty_move_destination_address': text,
@@ -1191,6 +1243,9 @@ class Questionnaire extends React.Component {
     if (text === undefined){
       throw new Error("text was not defined");
     }
+
+    text = text.trim();
+
     /* Adjust state as needed here */
     this.setState({
       'specialty_move_review': text,
@@ -1265,6 +1320,9 @@ class Questionnaire extends React.Component {
     if (text === undefined){
       throw new Error("text was not defined");
     }
+
+    text = text.trim();
+
     /* Adjust state as needed here */
     this.setState({
       'specialty_move_source_address': text,

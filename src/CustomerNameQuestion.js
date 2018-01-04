@@ -16,8 +16,10 @@ class CustomerNameQuestion extends React.Component {
   }
    
   customerNameTextboxOnChange(event){
-    this.name = event.target.value;
-    this.props.customerNameTextboxOnChange(event.target.value);
+    
+    this.name = event.target.value.trim();
+    
+    this.props.customerNameTextboxOnChange(this.name);
   }
 
   customerNameNextButtonOnClick(){
