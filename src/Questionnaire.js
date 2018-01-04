@@ -1,5 +1,8 @@
 import React from 'react';
 import './index.css';
+import axios from 'axios';
+import FormData from 'form-data';
+ // import $ from ‘jquery’;
 
 import BusinessMoveDateQuestion from './BusinessMoveDateQuestion.js';
 import BusinessMoveDestinationAddressQuestion from './BusinessMoveDestinationAddressQuestion.js';
@@ -42,6 +45,8 @@ import SpecialtyMoveConfirmationQuestion from './SpecialtyMoveConfirmationQuesti
 import ServiceTypeQuestion from './ServiceTypeQuestion.js';
 
 const main_url = 'https://www.nypmovers.com/';
+
+const NOTIFY_URL = 'http://localhost:5000/notify?pizza=cheese';
 
 class Questionnaire extends React.Component {
 
@@ -562,7 +567,10 @@ class Questionnaire extends React.Component {
       'business_move_additional_info' : this.state.business_move_additional_info
     };
 
-    console.log("Here is the business move info to be emailed to the owner: " + info);
+    console.log("Here is the business move info to be emailed to the owner");
+    console.dir(info);
+
+    this._send(info);
   }
 
 
@@ -880,7 +888,10 @@ class Questionnaire extends React.Component {
       'home_move_destination_address' : this.state.home_move_destination_address             
     };
 
-    console.log("Here is the home move info to be emailed to the owner: " + info);
+    console.log("Here is the home move info to be emailed to the owner");
+    console.dir(info);
+
+    this._send(info);
   }
 
   /*---------------------------------------
@@ -1050,7 +1061,10 @@ class Questionnaire extends React.Component {
       'junk_removal_source_address' : this.state.junk_removal_source_address
     };
 
-     console.log("Here is the junk removal info to be emailed to the owner: " + info); 
+    console.log("Here is the junk removal info to be emailed to the owner");
+    console.dir(info);
+
+    this._send(info);
   }
 
 
@@ -1195,7 +1209,9 @@ class Questionnaire extends React.Component {
 
   sendSpecialtyMoveNotificationEmail(){
 
-    const info = {
+    console.log("service_type is " +  this.state.service_type);
+
+    let info = {
       'service_type' : this.state.service_type,
       'specialty_move_type' : this.state.specialty_move_type,
       'specialty_move_destination_address' : this.state.specialty_move_destination_address,
@@ -1204,9 +1220,88 @@ class Questionnaire extends React.Component {
       'specialty_move_additional_info' : this.state.specialty_move_additional_info
     };
 
-      console.log("Here is the specialty move info to be emailed to the owner: " + info);
+      console.log("Here is the specialty move info to be emailed to the owner");
+      console.dir(info);
+
+      this._send(info);
   }
 
+  _send(info){
+
+    var myHeaders = new Headers();
+
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Access-Control-Allow-Origin", "*");
+    // myHeaders.append("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    // myHeaders.append("Origin", "http://localhost:3000");
+    // myHeaders.append("Access-Control-Request-Headers-Request-Method", "POST");
+    // myHeaders.append("Access-Control-Request-Headers", "Content-Type, Authorization");
+    // myHeaders.append("Access-Control-Request-Headers", "Content-Type");
+    
+
+    // var form = new FormData();
+    // for (var key in info){
+    //   var val = info[key];
+    //   form.append(key, val);
+    // }
+
+
+    var myInit = { method: 'POST',
+                   headers: myHeaders,
+                   mode:   'no-cors',
+                   body: JSON.stringify(info),
+                   // body: form,
+                   // body:   info,
+                   cache:  'default' };
+
+    console.log("myInit:");
+    console.dir(myInit);
+
+    var myRequest = new Request(NOTIFY_URL, myInit);
+    // myRequest.mode = 'no-cors';
+
+    console.log("myRequest:");
+    console.dir(myRequest);
+
+
+    // fetch(myRequest).then(function(response) {
+    fetch(NOTIFY_URL, {
+      'method' : 'POST',
+      'mode': 'no-cors',
+      'body' : JSON.stringify(info),
+      'headers': {"Content-Type": "application/json"}
+    }).then(function(response){
+
+      console.dir(response);
+      
+      console.log("POSTed the request");
+    
+    }).catch(function(error) {
+    
+      console.error("Encountered some error : ");
+    
+      console.dir(error);
+    });
+
+
+
+    // var request = new XMLHttpRequest();
+    // request.open('POST', NOTIFY_URL, true);
+    // request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+    // request.send(info);
+
+    // axios.post(NOTIFY_URL, info)
+    // .then(function (response) {
+    //   console.dir(response);
+    // })
+    // .catch(function (error) {
+    //   console.log(error);
+    // });
+
+    // $.post(NOTIFY_URL, info, function(){
+    //   $('body').append("Sent notification request");
+    // });
+  }
 
   /*---------------------------------------
 
