@@ -45,6 +45,10 @@ const main_url = 'https://www.nypmovers.com/';
 
 const NOTIFY_URL = 'http://localhost:5000/notify';
 
+var CUSTOMER_EMAIL;
+var CUSTOMER_PHONE;
+var CUSTOMER_NAME;
+
 class Questionnaire extends React.Component {
 
   constructor(props) {
@@ -564,6 +568,9 @@ class Questionnaire extends React.Component {
   sendBusinessMoveNotificationEmail(){
 
     const info = {
+      'name' :  CUSTOMER_NAME,
+      'phone' : CUSTOMER_PHONE,
+      'email' : CUSTOMER_EMAIL,
       'service_type' : this.state.service_type,
       'business_move_size' : this.state.business_move_size,
       'business_move_type' : this.state.business_move_type,            
@@ -703,6 +710,8 @@ class Questionnaire extends React.Component {
 
     text = text.trim();
 
+    CUSTOMER_EMAIL = text;
+
     this.setState({
       'customer_email' : text
     });
@@ -726,6 +735,8 @@ class Questionnaire extends React.Component {
     }
 
     text = text.trim();
+    
+    CUSTOMER_NAME = text;
 
     this.setState({
       'customer_name': text,
@@ -750,6 +761,8 @@ class Questionnaire extends React.Component {
     }
 
     text = text.trim();
+    
+    CUSTOMER_PHONE = text;
 
     this.setState({
       'customer_phone': text,
@@ -904,6 +917,9 @@ class Questionnaire extends React.Component {
   sendHomeMoveNotificationEmail(){
 
     const info = {
+      'name' :  CUSTOMER_NAME,
+      'phone' : CUSTOMER_PHONE,
+      'email' : CUSTOMER_EMAIL,
       'service_type' : this.state.service_type,
       'home_move_date' : this.state.home_move_date,
       'home_move_additional_info' : this.state.home_move_additional_info,
@@ -1092,6 +1108,9 @@ class Questionnaire extends React.Component {
   sendJunkRemovalNotificationEmail(){
 
     const info = {
+      'name' :  CUSTOMER_NAME,
+      'phone' : CUSTOMER_PHONE,
+      'email' : CUSTOMER_EMAIL,
       'service_type' : this.state.service_type,
       'junk_removal_additional_info' : this.state.junk_removal_additional_info,
       'junk_removal_type' : this.state.junk_removal_type,
@@ -1263,7 +1282,10 @@ class Questionnaire extends React.Component {
 
     console.log("service_type is " +  this.state.service_type);
 
-    let info = {
+    const info = {
+      'name' :  CUSTOMER_NAME,
+      'phone' : CUSTOMER_PHONE,
+      'email' : CUSTOMER_EMAIL,
       'service_type' : this.state.service_type,
       'specialty_move_type' : this.state.specialty_move_type,
       'specialty_move_destination_address' : this.state.specialty_move_destination_address,
