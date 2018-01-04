@@ -10,10 +10,18 @@ class HomeMoveDateQuestion extends React.Component {
     this.homeMoveDateNextButtonOnClick = this.homeMoveDateNextButtonOnClick.bind(this);
     this.closeButtonOnClick = this.closeButtonOnClick.bind(this);
     this.backButtonOnClick = this.backButtonOnClick.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
 
     this.date = '';
   }  
   
+  handleKeyPress(event){
+
+    if (event.key == 'Enter'){
+      this.homeMoveDateNextButtonOnClick();
+    }
+  }
+
   homeMoveDateTextboxOnChange(event){
     this.date = event.target.value;
     this.props.homeMoveDateTextboxOnChange(event.target.value);
@@ -78,7 +86,7 @@ class HomeMoveDateQuestion extends React.Component {
         <span className="question">What is your preferred move date?</span>
         <br/>
         <br/>        
-        <input type="text" id="home-move-date" className="move-date" onChange={this.homeMoveDateTextboxOnChange} placeholder="MM/DD/YY" ref={(input) => { this.nameInput = input; }}/>
+        <input type="text" id="home-move-date" className="move-date" onKeyPress={this.handleKeyPress} onChange={this.homeMoveDateTextboxOnChange} placeholder="MM/DD/YY" ref={(input) => { this.nameInput = input; }}/>
         <br/>
         <br/>
         <button type="button" className="btn btn-warning" onClick={this.homeMoveDateNextButtonOnClick}>Next</button>

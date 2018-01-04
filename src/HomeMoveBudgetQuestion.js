@@ -11,8 +11,17 @@ class HomeMoveBudgetQuestion extends React.Component {
     this.homeMoveBudgetSkipButtonOnClick = this.homeMoveBudgetSkipButtonOnClick.bind(this);
     this.closeButtonOnClick = this.closeButtonOnClick.bind(this);
     this.backButtonOnClick = this.backButtonOnClick.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+
   } 
   
+  handleKeyPress(event){
+
+    if (event.key == 'Enter'){
+      this.homeMoveBudgetNextButtonOnClick();
+    }
+  }
+
   homeMoveBudgetTextboxOnChange(event){
     this.props.homeMoveBudgetTextboxOnChange(event.target.value);
   }
@@ -60,7 +69,7 @@ class HomeMoveBudgetQuestion extends React.Component {
         <span className="question">Is there a specific budget you’d like to stay within?  This is optional and won’t have any effect on the quote, however we’re always willing to work within a budget if you have one.</span>
         <br/>
         <br/>        
-        <input type="text" className="" onChange={this.homeMoveBudgetTextboxOnChange} placeholder="Budget" ref={(input) => { this.nameInput = input; }}/>
+        <input type="text" className="" onKeyPress={this.handleKeyPress} onChange={this.homeMoveBudgetTextboxOnChange} placeholder="Budget" ref={(input) => { this.nameInput = input; }}/>
         <br/>                
         <br/>
         <button type="button" className="btn btn-warning" onClick={this.homeMoveBudgetNextButtonOnClick}>Next</button> <button type="button" className="btn btn-warning" onClick={this.homeMoveBudgetSkipButtonOnClick}>Skip</button>

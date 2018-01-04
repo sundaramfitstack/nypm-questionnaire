@@ -12,10 +12,18 @@ class JunkRemovalSourceAddressQuestion extends React.Component {
     this.junkRemovalSourceAddressNextButtonOnClick = this.junkRemovalSourceAddressNextButtonOnClick.bind(this);
     this.closeButtonOnClick = this.closeButtonOnClick.bind(this);
     this.backButtonOnClick = this.backButtonOnClick.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
 
     this.address = '';
   }
     
+  handleKeyPress(event){
+
+    if (event.key == 'Enter'){
+      this.junkRemovalSourceAddressNextButtonOnClick();
+    }
+  }
+
   junkRemovalSourceAddressTextOnChange(event){
 
     this.address = event.target.value;
@@ -67,7 +75,7 @@ class JunkRemovalSourceAddressQuestion extends React.Component {
         <span className="question">Where would you like us to make the pickup?</span>
         <br/>
         <br/>        
-        <input id="junk-removal-source-address" type="text" className="" onChange={this.junkRemovalSourceAddressTextOnChange} placeholder="'Pickup' address" ref={(input) => { this.nameInput = input; }}/>
+        <input id="junk-removal-source-address" type="text" className="" onKeyPress={this.handleKeyPress} onChange={this.junkRemovalSourceAddressTextOnChange} placeholder="'Pickup' address" ref={(input) => { this.nameInput = input; }}/>
         <br/>
         <br/>
         <button type="button" className="btn btn-warning" onClick={this.junkRemovalSourceAddressNextButtonOnClick}>Next</button>

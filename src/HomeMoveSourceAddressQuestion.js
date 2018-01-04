@@ -12,8 +12,16 @@ class HomeMoveSourceAddressQuestion extends React.Component {
     this.homeMoveSourceAddressNextButtonOnClick = this.homeMoveSourceAddressNextButtonOnClick.bind(this);
     this.closeButtonOnClick = this.closeButtonOnClick.bind(this);
     this.backButtonOnClick = this.backButtonOnClick.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
 
     this.address = '';
+  }
+
+  handleKeyPress(event){
+
+    if (event.key == 'Enter'){
+      this.homeMoveSourceAddressNextButtonOnClick();
+    }
   }
   
   homeMoveSourceAddressTextboxOnChange(event){
@@ -66,7 +74,7 @@ class HomeMoveSourceAddressQuestion extends React.Component {
         <span className="question">Where would you like us to pick up your things?</span>
         <br/>
         <br/>        
-        <input id="home-move-source-address" type="text" className="" onChange={this.homeMoveSourceAddressTextboxOnChange} placeholder="'Move from' address" ref={(input) => { this.nameInput = input; }}/>
+        <input id="home-move-source-address" type="text" className="" onKeyPress={this.handleKeyPress} onChange={this.homeMoveSourceAddressTextboxOnChange} placeholder="'Move from' address" ref={(input) => { this.nameInput = input; }}/>
         <br/>
         <br/>
         <button type="button" className="btn btn-warning" onClick={this.homeMoveSourceAddressNextButtonOnClick}>Next</button>

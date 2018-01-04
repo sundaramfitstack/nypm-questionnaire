@@ -12,11 +12,18 @@ class SpecialtyMoveDestinationAddressQuestion extends React.Component {
     this.specialtyMoveDestinationAddressButtonOnClick = this.specialtyMoveDestinationAddressButtonOnClick.bind(this);
     this.closeButtonOnClick = this.closeButtonOnClick.bind(this);
     this.backButtonOnClick = this.backButtonOnClick.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
 
     this.address = '';
   }
   
-  
+  handleKeyPress(event){
+
+    if (event.key == 'Enter'){
+      this.specialtyMoveDestinationAddressButtonOnClick();
+    }
+  }
+
   specialtyMoveDestinationAddressOnChange(event){
     this.address = event.target.value;
     this.props.specialtyMoveDestinationAddressOnChange(event.target.value);
@@ -67,7 +74,7 @@ class SpecialtyMoveDestinationAddressQuestion extends React.Component {
         <span className="question">Where would you like us to move your specialty item(s)?</span>
         <br/>
         <br/>        
-        <input id="specialty-move-destination-address" type="text" className="" onChange={this.specialtyMoveDestinationAddressOnChange} placeholder="'Moving to' address" ref={(input) => { this.nameInput = input; }}/>
+        <input id="specialty-move-destination-address" type="text" className="" onKeyPress={this.handleKeyPress} onChange={this.specialtyMoveDestinationAddressOnChange} placeholder="'Moving to' address" ref={(input) => { this.nameInput = input; }}/>
         <br/>        
         <br/>
         <button type="button" className="btn btn-warning" onClick={this.specialtyMoveDestinationAddressButtonOnClick}>Next</button>

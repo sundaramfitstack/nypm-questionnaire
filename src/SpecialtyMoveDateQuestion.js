@@ -10,10 +10,17 @@ class SpecialtyMoveDateQuestion extends React.Component {
     this.specialtyMoveDateNextButtonOnClick = this.specialtyMoveDateNextButtonOnClick.bind(this);
     this.closeButtonOnClick = this.closeButtonOnClick.bind(this);
     this.backButtonOnClick = this.backButtonOnClick.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
 
     this.date = '';
   } 
 
+  handleKeyPress(event){
+
+    if (event.key == 'Enter'){
+      this.specialtyMoveDateNextButtonOnClick();
+    }
+  }
   
   specialtyMoveDateOnChange(event){
     this.date = event.target.value;
@@ -79,7 +86,7 @@ class SpecialtyMoveDateQuestion extends React.Component {
         <span className="question">What is your preferred moving date?</span>
         <br/>
         <br/>        
-        <input id="specialty-move-date" type="text" className="" onChange={this.specialtyMoveDateOnChange} placeholder="MM/DD/YY" ref={(input) => { this.nameInput = input; }}/>
+        <input id="specialty-move-date" type="text" className="" onKeyPress={this.handleKeyPress} onChange={this.specialtyMoveDateOnChange} placeholder="MM/DD/YY" ref={(input) => { this.nameInput = input; }}/>
         <br/>
         <br/>
         <button type="button" className="btn btn-warning" onClick={this.specialtyMoveDateNextButtonOnClick}>Next</button>

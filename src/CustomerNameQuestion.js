@@ -11,10 +11,18 @@ class CustomerNameQuestion extends React.Component {
     this.customerNameNextButtonOnClick = this.customerNameNextButtonOnClick.bind(this);
     this.closeButtonOnClick = this.closeButtonOnClick.bind(this);
     this.backButtonOnClick = this.backButtonOnClick.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
 
     this.name = '';
   }
    
+  handleKeyPress(event){
+
+    if (event.key == 'Enter'){
+      this.customerNameNextButtonOnClick();
+    }
+  }
+
   customerNameTextboxOnChange(event){
     
     this.name = event.target.value.trim();
@@ -59,7 +67,7 @@ class CustomerNameQuestion extends React.Component {
         <span className="question">Let’s get started. We’re Name Your Price Movers, what’s your name?</span>
         <br/>
         <br/>        
-        <input id="customer-name" type="text" className="" onChange={this.customerNameTextboxOnChange} placeholder="Enter your first and last name" ref={(input) => { this.nameInput = input; }}/>
+        <input id="customer-name" type="text" className="" onKeyPress={this.handleKeyPress} onChange={this.customerNameTextboxOnChange} placeholder="Enter your first and last name" ref={(input) => { this.nameInput = input; }}/>
         <br/>
         <br/>
         <button type="button" className="btn btn-warning" onClick={this.customerNameNextButtonOnClick}>Next</button>

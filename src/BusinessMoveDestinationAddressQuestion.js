@@ -11,10 +11,18 @@ class BusinessMoveDestinationAddressQuestion extends React.Component {
     this.businessMoveDestinationAddressNextButtonOnClick = this.businessMoveDestinationAddressNextButtonOnClick.bind(this);
     this.closeButtonOnClick = this.closeButtonOnClick.bind(this);
     this.backButtonOnClick = this.backButtonOnClick.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
 
     this.address = '';
   }
     
+  handleKeyPress(event){
+
+    if (event.key == 'Enter'){
+      this.businessMoveDestinationAddressNextButtonOnClick();
+    }
+  }
+
   businessMoveDestinationAddressTextboxOnChange(event){
     this.address = event.target.value;
     this.props.businessMoveDestinationAddressTextboxOnChange(event.target.value);
@@ -65,7 +73,7 @@ class BusinessMoveDestinationAddressQuestion extends React.Component {
         <span className="question">Where is your new office located?</span>
         <br/>
         <br/>        
-        <input id="business-move-destination-address" type="text" className="" onChange={this.businessMoveDestinationAddressTextboxOnChange} placeholder="'Moving to' address" ref={(input) => { this.nameInput = input; }}/>
+        <input id="business-move-destination-address" type="text" className="" onKeyPress={this.handleKeyPress} onChange={this.businessMoveDestinationAddressTextboxOnChange} placeholder="'Moving to' address" ref={(input) => { this.nameInput = input; }}/>
         <br/>
         <br/>
         <button type="button" className="btn btn-warning" onClick={this.businessMoveDestinationAddressNextButtonOnClick}>Next</button>

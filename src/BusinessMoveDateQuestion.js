@@ -8,10 +8,18 @@ class BusinessMoveDateQuestion extends React.Component {
     this.businessMoveDateNextButtonOnClick = this.businessMoveDateNextButtonOnClick.bind(this);
     this.closeButtonOnClick = this.closeButtonOnClick.bind(this);
     this.backButtonOnClick = this.backButtonOnClick.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
 
     this.date = '';
   }
   
+  handleKeyPress(event){
+
+    if (event.key == 'Enter'){
+      this.businessMoveDateNextButtonOnClick();
+    }
+  }
+
   businessMoveDateTextboxOnChange(event){
     this.date = event.target.value;
     this.props.businessMoveDateTextboxOnChange(event.target.value);
@@ -77,7 +85,7 @@ class BusinessMoveDateQuestion extends React.Component {
         <span className="question">What is your preferred move date?</span>
         <br/>
         <br/>        
-        <input id="business-move-date" type="text" className="" onChange={this.businessMoveDateTextboxOnChange} placeholder="MM/DD/YY" ref={(input) => { this.nameInput = input; }}/>
+        <input id="business-move-date" type="text" className="" onKeyPress={this.handleKeyPress} onChange={this.businessMoveDateTextboxOnChange} placeholder="MM/DD/YY" ref={(input) => { this.nameInput = input; }}/>
         <br/>        
         <br/>
         <button type="button" className="btn btn-warning" onClick={this.businessMoveDateNextButtonOnClick}>Next</button>

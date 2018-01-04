@@ -10,10 +10,19 @@ class JunkRemovalDateQuestion extends React.Component {
     this.junkRemovalDateNextButtonOnClick = this.junkRemovalDateNextButtonOnClick.bind(this);
     this.closeButtonOnClick = this.closeButtonOnClick.bind(this);
     this.backButtonOnClick = this.backButtonOnClick.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
 
     this.date = '';
   }
     
+
+  handleKeyPress(event){
+
+    if (event.key == 'Enter'){
+      this.junkRemovalDateNextButtonOnClick();
+    }
+  }
+
   junkRemovalDateTextOnChange(event){
     this.date = event.target.value;
     this.props.junkRemovalDateTextOnChange(event.target.value);
@@ -79,7 +88,7 @@ class JunkRemovalDateQuestion extends React.Component {
         <span className="question">Junk removal it is! What is your preferred pickup date?</span>
         <br/>
         <br/>        
-        <input id="junk-removal-date" type="text" className="" onChange={this.junkRemovalDateTextOnChange} placeholder="MM/DD/YY" ref={(input) => { this.nameInput = input; }}/>
+        <input id="junk-removal-date" type="text" className="" onKeyPress={this.handleKeyPress} onChange={this.junkRemovalDateTextOnChange} placeholder="MM/DD/YY" ref={(input) => { this.nameInput = input; }}/>
         <br/>        
         <br/>
         <button type="button" className="btn btn-warning" onClick={this.junkRemovalDateNextButtonOnClick}>Next</button>

@@ -8,9 +8,19 @@ class CustomerEmailQuestion extends React.Component {
     this.customerEmailNextButtonOnClick = this.customerEmailNextButtonOnClick.bind(this);
     this.closeButtonOnClick = this.closeButtonOnClick.bind(this);
     this.backButtonOnClick = this.backButtonOnClick.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
 
     this.email = '';
   }
+
+  
+  handleKeyPress(event){
+
+    if (event.key == 'Enter'){
+      this.customerEmailNextButtonOnClick();
+    }
+  }
+
   
   emailTextboxOnChange(event){
     this.email = event.target.value.trim();
@@ -66,7 +76,7 @@ class CustomerEmailQuestion extends React.Component {
         <span className="question">Hi {this.props.customer_name}, great to meet you! What email should we use to send your free quote?</span>
         <br/>
         <br/>        
-        <input id="customer-email" type="text" className="" onChange={this.emailTextboxOnChange} placeholder="Email address" ref={(input) => { this.nameInput = input; }}/>
+        <input id="customer-email" type="text" className="" onKeyPress={this.handleKeyPress} onChange={this.emailTextboxOnChange} placeholder="Email address" ref={(input) => { this.nameInput = input; }}/>
         <br/>        
         <br/>
         <button type="button" className="btn btn-warning" onClick={this.customerEmailNextButtonOnClick}>Next</button>

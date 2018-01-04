@@ -9,10 +9,18 @@ class CustomerPhoneNumberQuestion extends React.Component {
     this.phoneNumberNextButtonOnClick = this.phoneNumberNextButtonOnClick.bind(this);
     this.closeButtonOnClick = this.closeButtonOnClick.bind(this);
     this.backButtonOnClick = this.backButtonOnClick.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
 
     this.phone = '';
   } 
   
+  handleKeyPress(event){
+
+    if (event.key == 'Enter'){
+      this.phoneNumberNextButtonOnClick();
+    }
+  }
+
   phoneNumberTextboxOnChange(event){
     this.phone = event.target.value.trim();
     this.props.phoneNumberTextboxOnChange(this.phone);
@@ -76,7 +84,7 @@ class CustomerPhoneNumberQuestion extends React.Component {
         <span className="question">And what’s the best phone number to reach you?</span>
         <br/>
         <br/>        
-        <input id="customer-phone" type="input" onChange={this.phoneNumberTextboxOnChange} placeholder="Phone number" ref={(input) => { this.nameInput = input; }}/>
+        <input id="customer-phone" type="input" onKeyPress={this.handleKeyPress} onChange={this.phoneNumberTextboxOnChange} placeholder="Phone number" ref={(input) => { this.nameInput = input; }}/>
         <br/>
         <br/>
         <button type="button" className="btn btn-warning" onClick={this.phoneNumberNextButtonOnClick}>Next</button>
